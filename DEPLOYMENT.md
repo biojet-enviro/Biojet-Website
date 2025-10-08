@@ -31,7 +31,7 @@ If you want to use a custom domain:
 3. Configure DNS settings with your domain provider
 
 ### 5. Repository-Specific URL
-If your repository name is not `biojet-website`, update the `astro.config.mjs`:
+The configuration is already set for the `biojet-website` repository. If your repository has a different name, update the `astro.config.mjs`:
 ```javascript
 export default defineConfig({
   site: 'https://yourusername.github.io',
@@ -39,12 +39,21 @@ export default defineConfig({
 });
 ```
 
+**Important:** Replace `yourusername` in the `site` URL with your actual GitHub username.
+
 ## Workflow Details
 
 The deployment workflow:
 1. **Builds** your Astro site using `npm run build`
-2. **Deploys** the built files from the `dist/` directory to GitHub Pages
-3. **Runs** automatically on every push to `main`
+2. **Fixes asset paths** automatically using a post-build script for GitHub Pages compatibility
+3. **Deploys** the built files from the `dist/` directory to GitHub Pages
+4. **Runs** automatically on every push to `main`
+
+### Asset Path Fixing
+The build process includes an automatic asset path fixing script (`scripts/fix-assets.js`) that:
+- Converts absolute asset paths (`/assets/...`) to GitHub Pages compatible paths (`/biojet-website/assets/...`)
+- Ensures all images, CSS, and other assets load correctly on GitHub Pages
+- Runs automatically after each build
 
 ## Troubleshooting
 
