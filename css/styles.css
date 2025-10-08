@@ -230,7 +230,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../assets/hero-bg.png');
+    background-image: url('../Biojet-Website/assets/hero-bg.png');
     background-size: cover;
     background-position: center;
     opacity: 0.3;
@@ -538,7 +538,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../assets/cta-banner-bg.jpg');
+    background-image: url('../Biojet-Website/assets/cta-banner-bg.jpg');
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -1192,7 +1192,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('../assets/logo-watermark.svg');
+    background-image: url('../Biojet-Website/assets/logo-watermark.svg');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
