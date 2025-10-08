@@ -1,0 +1,151 @@
+---
+import Button from './Button.astro';
+
+export interface Props {
+  name: string;
+  model: string;
+  image: string;
+  serviceLife: string;
+  material: string;
+  description: string;
+}
+
+const { name, model, image, serviceLife, material, description } = Astro.props;
+---
+
+<div class="product-card">
+  <div class="product-image">
+    <img src={image} alt={model} />
+  </div>
+  <div class="product-info">
+    <div class="product-header">
+      <p class="product-category">{name}</p>
+      <h3 class="product-name">{model}</h3>
+    </div>
+    <div class="product-tags">
+      <div class="tag">
+        <span class="tag-label">SERVICE LIFE</span>
+        <span class="tag-value">{serviceLife}</span>
+      </div>
+      <div class="tag">
+        <span class="tag-label">Material</span>
+        <span class="tag-value">{material}</span>
+      </div>
+    </div>
+    <p class="product-description">
+      {description}
+    </p>
+    <div class="product-actions">
+      <Button variant="primary" href="/contact" text="REQUEST QUOTE" />
+      <Button variant="secondary" text="DOWNLOAD PDF" />
+    </div>
+  </div>
+  <div class="product-decal"></div>
+</div>
+
+<style>
+  .product-card {
+    background: linear-gradient(180deg, var(--white) 0%, var(--blue-01) 100%);
+    border: 1px solid var(--blue-03);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(88, 200, 215, 0.2);
+  }
+
+  .product-image {
+    height: 460px;
+    overflow: hidden;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 260px;
+    justify-content: space-between;
+  }
+
+  .product-header {
+    padding: 0 8px;
+  }
+
+  .product-category {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: var(--blue-06);
+  }
+
+  .product-name {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: -1.28px;
+    color: var(--blue-06);
+  }
+
+  .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .tag {
+    border: 1px solid var(--blue-02);
+    display: flex;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .tag-label {
+    padding: 4px 8px;
+    border: 1px solid var(--blue-02);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--blue-06);
+  }
+
+  .tag-value {
+    padding: 4px 8px;
+    background: var(--blue-02);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--blue-06);
+  }
+
+  .product-description {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--blue-06);
+    padding: 0 8px;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .product-decal {
+    height: 6px;
+    background: var(--blue-03);
+    width: 100%;
+  }
+</style>
+

@@ -1,0 +1,224 @@
+---
+/**
+ * Button Component
+ * Variants: Primary, Secondary, SecondaryArrow, Simple
+ * Strictly following Figma design specifications
+ */
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'secondary-arrow' | 'simple';
+  href?: string;
+  text: string;
+  class?: string;
+}
+
+const { variant = 'primary', href = '#', text, class: className = '' } = Astro.props;
+---
+
+{variant === 'primary' && (
+  <a href={href} class={`btn-primary ${className}`}>
+    <span class="arrow-frame">
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+    </span>
+    <span class="btn-text">{text}</span>
+  </a>
+)}
+
+{variant === 'secondary' && (
+  <a href={href} class={`btn-secondary ${className}`}>
+    <span class="btn-text">{text}</span>
+  </a>
+)}
+
+{variant === 'secondary-arrow' && (
+  <a href={href} class={`btn-secondary-arrow ${className}`}>
+    <span class="btn-text">{text}</span>
+    <span class="arrow-frame">
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+    </span>
+  </a>
+)}
+
+{variant === 'simple' && (
+  <a href={href} class={`btn-simple ${className}`}>
+    <span class="btn-text">{text}</span>
+    <span class="arrow-frame arrow-frame-simple">
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+      <svg class="arrow" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.2676 7L7.63379 13.6338L5.86621 11.8662L9.48242 8.25H1V5.75H9.48242L5.86621 2.13379L7.63379 0.366211L14.2676 7Z" fill="#175A78"/>
+      </svg>
+    </span>
+  </a>
+)}
+
+<style>
+  /* ========================================
+     Primary Button (Arrow Left)
+     ======================================== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 24px;
+    background: var(--blue-03);
+    border: 1px solid var(--blue-04);
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--blue-06);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    width: fit-content;
+  }
+
+  .btn-primary:hover {
+    background: #F5E0AD; 
+    border-color: var(--blue-04);
+    box-shadow: 0 0 0 3px var(--blue-03);
+  }
+
+  /* ========================================
+     Secondary Button (No Arrow)
+     ======================================== */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 24px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--blue-06);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .btn-secondary:hover {
+    background: var(--blue-02);
+    border-width: 1px;
+    border-color: var(--blue-03);
+    box-shadow: 0 0 0 3px var(--blue-02);
+    padding: 8px 24px;
+  }
+
+  /* ========================================
+     Secondary Arrow Button (Arrow Right)
+     ======================================== */
+  .btn-secondary-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 24px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--blue-06);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .btn-secondary-arrow:hover {
+    background: var(--blue-02);
+    border-width: 1px;
+    border-color: var(--blue-03);
+    box-shadow: 0 0 0 3px var(--blue-02);
+    padding: 8px 24px;
+  }
+
+  /* ========================================
+     Simple Button (Text + Arrow)
+     ======================================== */
+  .btn-simple {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--blue-06);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .btn-simple:hover {
+    color: var(--blue-05);
+  }
+
+  /* ========================================
+     Arrow Frame & Animation
+     ======================================== */
+  .arrow-frame {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 15px;
+    height: 14px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .arrow-frame-simple {
+    justify-content: flex-end;
+  }
+
+  .arrow {
+    flex-shrink: 0;
+    width: 15px;
+    height: 14px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  /* Initial state - first arrow visible, second arrow hidden */
+  .arrow:last-child {
+    transform: translateX(-38px); /* Second arrow starts hidden to the left */
+  }
+
+  /* Arrow animation on hover */
+  .btn-primary:hover .arrow:first-child,
+  .btn-secondary-arrow:hover .arrow:first-child,
+  .btn-simple:hover .arrow:first-child {
+    transform: translateX(19px); /* First arrow slides out to the right */
+  }
+
+  .btn-primary:hover .arrow:last-child,
+  .btn-secondary-arrow:hover .arrow:last-child,
+  .btn-simple:hover .arrow:last-child {
+    transform: translateX(-19px); /* Second arrow slides in from the left */
+  }
+
+  /* ========================================
+     Button Text
+     ======================================== */
+  .btn-text {
+    white-space: nowrap;
+    line-height: normal;
+  }
+</style>
+

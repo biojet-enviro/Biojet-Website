@@ -1,0 +1,49 @@
+PLACEHOLDER IMAGES NEEDED
+
+For now, the website references image files that need to be added.
+You can temporarily use these placeholder URLs in the HTML/CSS until real images are provided:
+
+Hero Background:
+https://via.placeholder.com/1920x644/DDF4F7/1890AE?text=Biojet+Aerators+in+Action
+
+German Quality Badge:
+https://via.placeholder.com/200x200/FFFFFF/175A78?text=German+Quality
+
+Video Placeholder:
+https://via.placeholder.com/1600x580/175A78/FFFFFF?text=Play+Video
+
+Product Images (500x460):
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=JET-DS-18H
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=JET-DS-16V
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=JET-PP-12V
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=Aspirating
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=Ring-Shaped
+https://via.placeholder.com/500x460/F4FBFC/1890AE?text=Directional
+
+Feature Image:
+https://via.placeholder.com/520x870/DDF4F7/175A78?text=Features
+
+Factory Image:
+https://via.placeholder.com/760x817/9CDFE7/175A78?text=Biojet+Factory
+
+CTA Banner Background:
+https://via.placeholder.com/1548x255/164160/FFFFFF?text=Problem+Solvers
+
+Client Logos (240x80):
+https://via.placeholder.com/240x80/F4FBFC/175A78?text=Client+Logo
+
+Blog Images:
+https://via.placeholder.com/570x320/DDF4F7/175A78?text=Blog+Featured
+https://via.placeholder.com/398x220/DDF4F7/175A78?text=Blog+1
+https://via.placeholder.com/398x220/DDF4F7/175A78?text=Blog+2
+https://via.placeholder.com/398x220/DDF4F7/175A78?text=Blog+3
+
+Footer Product:
+https://via.placeholder.com/880x544/9CDFE7/175A78?text=Biojet+Product
+
+INSTRUCTIONS:
+1. Replace these placeholder URLs with actual image file paths once images are provided
+2. Optimize all images for web before uploading
+3. Ensure images match the specified dimensions
+4. Use JPG for photos, PNG for images with transparency
+

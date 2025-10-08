@@ -1,0 +1,133 @@
+---
+import Button from './Button.astro';
+---
+
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="nav-links">
+      <a href="/about">ABOUT</a>
+      <span class="divider"></span>
+      <a href="/products">PRODUCTS</a>
+      <span class="divider"></span>
+      <a href="/blog">BLOG</a>
+    </div>
+    <div class="language-selector">
+      <span>🌍 EN</span>
+    </div>
+  </div>
+  
+  <div class="logo">
+    <a href="/">
+      <img src="/assets/logo.svg" alt="Biojet Logo" />
+    </a>
+  </div>
+  
+  <div class="nav-right">
+    <Button variant="primary" href="/contact" text="GET IN TOUCH" />
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 80px;
+    background: rgba(244, 251, 252, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--blue-02);
+    height: 102px;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 420px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 20px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--blue-06);
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: var(--blue-05);
+  }
+
+  .nav-links .divider {
+    width: 1px;
+    height: 22px;
+    background: var(--blue-03);
+  }
+
+  .language-selector {
+    padding: 8px 20px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 210px;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 420px;
+  }
+
+  @media (max-width: 1440px) {
+    .navbar {
+      padding: 8px 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 8px 20px;
+      height: auto;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .nav-left,
+    .nav-right {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+
+

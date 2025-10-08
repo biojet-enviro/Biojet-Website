@@ -1,0 +1,99 @@
+---
+export interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="faq-item">
+  <button class="faq-question">
+    <span>{question}</span>
+    <span class="faq-icon">+</span>
+  </button>
+  <div class="faq-answer">
+    <p>{answer}</p>
+  </div>
+</div>
+
+<style>
+  .faq-item {
+    border: 1px solid var(--blue-02);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 24px 32px;
+    background: var(--blue-01);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-06);
+    text-align: left;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .faq-question:hover {
+    background: var(--blue-02);
+  }
+
+  .faq-icon {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--blue-04);
+    transition: transform 0.3s;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(135deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background: var(--white);
+    padding: 0px 32px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 24px 32px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--blue-06);
+  }
+</style>
+
+<script>
+  // FAQ accordion functionality
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question?.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        faq.classList.remove('active');
+      });
+      
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+</script>
+

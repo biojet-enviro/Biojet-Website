@@ -1,0 +1,206 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Biojet designs and manufactures cutting-edge jet aeration technologies for wastewater treatment industries worldwide." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /* ========================================
+     Satoshi Font Family
+     ======================================== */
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-BlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* ========================================
+     CSS Reset & Base Styles
+     ======================================== */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    /* Color Variables from Figma */
+    --blue-01: #F4FBFC;
+    --blue-02: #DDF4F7;
+    --blue-03: #9CDFE7;
+    --blue-04: #58C8D7;
+    --blue-05: #1890AE;
+    --blue-06: #175A78;
+    --white: #FFFFFF;
+    
+    /* Typography */
+    --font-primary: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    
+    /* Spacing */
+    --section-padding: 100px;
+    --container-width: 1600px;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    color: var(--blue-06);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  main {
+    padding-top: 102px; /* Account for fixed navbar */
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* ========================================
+     Utility Classes
+     ======================================== */
+
+  .section-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 48px;
+    color: var(--blue-06);
+  }
+
+  /* ========================================
+     Responsive Design
+     ======================================== */
+
+  @media (max-width: 1440px) {
+    :root {
+      --section-padding: 80px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --section-padding: 60px;
+    }
+  }
+</style>
+

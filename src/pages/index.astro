@@ -1,0 +1,1044 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import ProductCard from '../components/ProductCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<Layout title="Biojet - Industry-leading Jet Aerators for Wastewater Treatment">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="title-prefix">Industry-leading jet aerators for </span>
+          <span 
+            class="text-rotator" 
+            aria-live="polite"
+            style="--count: 8;"
+          >
+            <span class="rotator__item" style="--i: 0;">food-processing wastewater treatment</span>
+            <span class="rotator__item" style="--i: 1;">landfill leachate treatment</span>
+            <span class="rotator__item" style="--i: 2;">industrial wastewater treatment</span>
+            <span class="rotator__item" style="--i: 3;">kitchen effluent treatment</span>
+            <span class="rotator__item" style="--i: 4;">deep aeration basins</span>
+            <span class="rotator__item" style="--i: 5;">high-concentration sewage treatment</span>
+            <span class="rotator__item" style="--i: 6;">municipal wastewater treatment</span>
+            <span class="rotator__item" style="--i: 7;">membrane bioreactor systems</span>
+          </span>
+        </h1>
+        <p class="hero-description">
+          Partner with Biojet to achieve unparalleled wastewater treatment performance through tailored jet aeration solutions customized for your unique projects.
+        </p>
+        <Button variant="primary" href="/contact" text="Schedule Your Free Consultation" class="hero-cta" />
+      </div>
+      <div class="hero-badge">
+        <img src="/assets/german-quality-badge.png" alt="German Quality" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="video-content">
+      <div class="video-text">
+        <h2 class="video-title">Innovative Aeration,<br>Cleaner Tomorrow.</h2>
+        <p class="video-description">
+          At Biojet, we have taken jet mixing aeration to the next level with our Laval Jet Aerator, a solution designed to meet the most demanding wastewater treatment challenges with outstanding efficiency and reliability.
+        </p>
+      </div>
+      <div class="video-container">
+        <img src="/assets/video-placeholder.jpg" alt="Biojet Jet Aerator in Action" />
+        <button class="play-button" aria-label="Play video">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="white" fill-opacity="0.9"/>
+            <path d="M24 20L40 30L24 40V20Z" fill="#175A78"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="products-content">
+      <h2 class="section-title">Check out our products</h2>
+      
+      <div class="products-grid">
+        <ProductCard
+          name="Biojet® jet aerator"
+          model="JET-DS-18H"
+          image="/assets/product-1.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Disc Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater."
+        />
+        <ProductCard
+          name="Biojet® jet aerator"
+          model="JET-DS-16V"
+          image="/assets/product-2.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins."
+        />
+        <ProductCard
+          name="Biojet® jet aerator"
+          model="JET-PP-12V"
+          image="/assets/product-3.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins."
+        />
+        <ProductCard
+          name="Biojet® jet aerator"
+          model="ASPIRATING JET AERATOR"
+          image="/assets/product-4.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Integrated self-aspirating Laval jet aerator, suitable for decentralized small waste water treatment plants."
+        />
+        <ProductCard
+          name="Biojet® Laval Jet Aerator"
+          model="RING-SHAPED JET AERATOR"
+          image="/assets/product-5.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Ring-shaped Laval jet mixing aerator, jet mixer, suitable for sewage treatment tanks with internal columns."
+        />
+        <ProductCard
+          name="Biojet® Laval Jet Aerator"
+          model="DIRECTIONAL JET AERATOR"
+          image="/assets/product-6.png"
+          serviceLife=">20 YEARS"
+          material="SUS304"
+          description="Directional or Bi-directional Manifold Laval Jet Aerator, suitable for oxidation ditch."
+        />
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="products-cta-banner">
+        <div class="cta-banner-content">
+          <h3>We are not just equipment suppliers.<br>We are problem solvers.</h3>
+          <p>Our technical expert provide you customized, project-specific solutions.</p>
+        </div>
+        <Button variant="primary" href="/contact" text="GET IN TOUCH" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-content">
+      <h2 class="section-title">The advantages of jet aerators enhanced by Biojet®</h2>
+      
+      <div class="features-grid">
+        <div class="features-column">
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 16L17 8M17 16L7 8" stroke="#58C8D7" stroke-width="2" stroke-linecap="round"/></svg>'
+            title="High Oxygen Transfer"
+            value="40–45% OTE"
+            description="Innovative Laval nozzle creates ultra-fine bubbles and high surface renewal for rapid oxygen dissolution and extended gas-liquid contact time."
+          />
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#58C8D7" stroke-width="2"/><path d="M12 3L12 12L18 12" stroke="#58C8D7" stroke-width="2"/></svg>'
+            title="Wide Coverage"
+            value="Service Ø 10–12 m"
+            description="Powerful jet stream and efficient mixing enable larger service area per unit compared to conventional diffusers or mechanical aerators."
+          />
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="14" width="4" height="6" stroke="#58C8D7" stroke-width="2"/><rect x="10" y="10" width="4" height="10" stroke="#58C8D7" stroke-width="2"/><rect x="16" y="6" width="4" height="14" stroke="#58C8D7" stroke-width="2"/></svg>'
+            title="High α-Factor Stability"
+            value="0.85–0.9"
+            description="Stable oxygen transfer performance even under high MLSS and variable wastewater conditions."
+          />
+        </div>
+        
+        <div class="features-image">
+          <img src="/assets/feature-image.png" alt="Biojet Jet Aerator Technology" />
+        </div>
+        
+        <div class="features-column">
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 8L12 14L20 8L12 2Z" stroke="#58C8D7" stroke-width="2" stroke-linejoin="round"/><path d="M4 16L12 22L20 16" stroke="#58C8D7" stroke-width="2" stroke-linejoin="round"/></svg>'
+            title="Energy Efficiency"
+            value="50% energy saving"
+            description="Optimized air-to-water ratio and nozzle geometry lower blower power demand while maintaining superior aeration performance."
+          />
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#58C8D7" stroke-width="2"/><path d="M12 7V12L15 15" stroke="#58C8D7" stroke-width="2" stroke-linecap="round"/></svg>'
+            title="Long Lifespan"
+            value="20+ years"
+            description="Reinforced flange design eliminates risk of breakage. High-strength throat lining prevents erosion and maintains performance over years of operation."
+          />
+          <FeatureCard
+            icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="7" r="4" stroke="#58C8D7" stroke-width="2"/><path d="M2 21V19C2 16.7909 3.79086 15 6 15H12C14.2091 15 16 16.7909 16 19V21" stroke="#58C8D7" stroke-width="2"/><circle cx="18" cy="11" r="2" stroke="#58C8D7" stroke-width="2"/></svg>'
+            title="Customizable Solutions"
+            value="Project-specific"
+            description="We provide case-by-case system design and on-site support to match process requirements and tank geometries."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-content">
+      <h2 class="about-label">About us</h2>
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="/assets/factory.png" alt="Biojet Factory" />
+        </div>
+        <div class="about-text">
+          <div class="about-main">
+            <h3>We design and manufacture cutting-edge jet aeration technologies for industries worldwide.</h3>
+            <p>
+              Our flagship product, the Laval Jet Aerator, is recognized industry-wide for its performance, durability, and efficiency. Engineered for maximum oxygen transfer and minimal maintenance, our jet aerators set the benchmark in wastewater treatment. Our engineer from Germany ensures solutions of the highest quality and effectiveness.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-divider"></div>
+                <div class="stat-content">
+                  <div class="stat-number">2009</div>
+                  <div class="stat-label">Launched in 2009</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-divider"></div>
+                <div class="stat-content">
+                  <div class="stat-number">100+</div>
+                  <div class="stat-label">Over 100 clients</div>
+                </div>
+              </div>
+            </div>
+            <Button variant="secondary" text="VIEW MORE" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Section -->
+  <section class="logo-section">
+    <div class="logo-content">
+      <h2 class="section-title">Trusted by over 100 clients across the industry.</h2>
+      <div class="logo-marquee">
+        <div class="logo-track logo-track-left">
+          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
+          ))}
+          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
+          ))}
+        </div>
+        <div class="logo-track logo-track-right">
+          {[8, 9, 10, 11, 12, 13, 14].map((i) => (
+            <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
+          ))}
+          {[8, 9, 10, 11, 12, 13, 14].map((i) => (
+            <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section (Component) -->
+  <CTASection />
+
+  <!-- Blog Section -->
+  <section class="blog-section" id="blog">
+    <div class="blog-content">
+      <div class="blog-header">
+        <h2 class="section-title">Our latest articles</h2>
+        <Button variant="secondary" text="View All" />
+      </div>
+      <div class="blog-featured">
+        <div class="blog-image">
+          <img src="/assets/blog-featured.png" alt="Featured Article" />
+        </div>
+        <div class="blog-info">
+          <div class="blog-meta">
+            <span class="blog-tag">BLOG</span>
+            <span class="blog-date">Oct 2024</span>
+          </div>
+          <h3 class="blog-title">Latest Innovations in Jet Aeration Technology</h3>
+          <p class="blog-excerpt">
+            Discover how Biojet's latest advancements are revolutionizing wastewater treatment efficiency and sustainability.
+          </p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+      <div class="blog-grid">
+        <BlogCard
+          title="Understanding MBR Systems"
+          excerpt="A comprehensive guide to membrane bioreactor systems and their applications."
+          date="Sep 2024"
+          image="/assets/blog-1.jpg"
+          slug="understanding-mbr-systems"
+        />
+        <BlogCard
+          title="Energy Efficiency in Wastewater Treatment"
+          excerpt="How to reduce operational costs while maintaining high performance."
+          date="Aug 2024"
+          image="/assets/blog-2.jpg"
+          slug="energy-efficiency"
+        />
+        <BlogCard
+          title="Case Study: Landfill Leachate Treatment"
+          excerpt="Real-world success story from a major Southeast Asian facility."
+          date="Jul 2024"
+          image="/assets/blog-3.jpg"
+          slug="landfill-leachate-treatment"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-content">
+      <div class="faq-intro">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-image">
+          <img src="/assets/faq-illustration.png" alt="FAQ" />
+        </div>
+      </div>
+      <div class="faq-list">
+        <FAQItem
+          question="What is a Laval jet aerator?"
+          answer="A Laval jet aerator is an advanced aeration device that uses the Venturi effect to create ultra-fine bubbles for efficient oxygen transfer in wastewater treatment. It combines jet mixing with aeration for superior performance."
+        />
+        <FAQItem
+          question="How does it compare to traditional diffusers?"
+          answer="Laval jet aerators offer 40-45% oxygen transfer efficiency, wider coverage area, and significantly lower maintenance requirements compared to traditional fine bubble diffusers."
+        />
+        <FAQItem
+          question="What is the typical lifespan?"
+          answer="Biojet jet aerators are designed for 20+ years of operation with minimal maintenance, thanks to reinforced construction and erosion-resistant materials."
+        />
+        <FAQItem
+          question="Can you customize solutions for specific projects?"
+          answer="Yes! We provide project-specific designs tailored to your tank geometry, process requirements, and wastewater characteristics. Our engineers work closely with you throughout the project."
+        />
+        <FAQItem
+          question="What maintenance is required?"
+          answer="Minimal maintenance is required - typically just periodic visual inspection. No moving parts mean fewer failure points and lower operational costs."
+        />
+        <FAQItem
+          question="Do you provide installation support?"
+          answer="Yes, we offer comprehensive on-site support including installation guidance, commissioning, and staff training to ensure optimal system performance."
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 24px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 600px;
+    background-image: url('/assets/hero-bg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1800px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 283px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 88px;
+    color: var(--blue-05);
+  }
+
+  .title-prefix {
+    display: inline;
+  }
+
+  .text-rotator {
+    display: inline-block;
+    position: relative;
+    min-width: 45ch; /* Reserve space for longest phrase */
+    min-height: 88px;
+    vertical-align: top;
+  }
+
+  .rotator__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(0.2em);
+    white-space: nowrap;
+    animation: fadeSlideRotate 12s linear infinite;
+    animation-delay: calc((12s / var(--count)) * var(--i));
+    will-change: opacity, transform;
+  }
+
+  @keyframes fadeSlideRotate {
+    0% { opacity: 0; transform: translateY(0.2em); }
+    2% { opacity: 1; transform: translateY(0); }
+    10% { opacity: 1; transform: translateY(0); }
+    12.5% { opacity: 0; transform: translateY(-0.15em); }
+    100% { opacity: 0; transform: translateY(-0.15em); }
+  }
+
+  /* Accessibility: respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .rotator__item {
+      animation: none;
+      opacity: 0;
+      transform: none;
+    }
+    .rotator__item:first-child {
+      opacity: 1;
+    }
+  }
+
+  .hero-description {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--blue-05);
+    max-width: 750px;
+  }
+
+  .hero-badge {
+    display: flex;
+    justify-content: flex-end;
+    transform: translateY(-30%);
+  }
+
+  .hero-badge img {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0px 8px 16px rgba(23, 90, 120, 0.3);
+    border-radius: 100px;
+  }
+
+  /* Video Section */
+  .video-section {
+    padding: 120px 0;
+    background: var(--white);
+  }
+
+  .video-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .video-text {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .video-title {
+    flex: 1;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--blue-06);
+  }
+
+  .video-description {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--blue-06);
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 580px;
+    border: 1px solid var(--blue-05);
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .video-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  /* Products Section */
+  .products-section {
+    padding: var(--section-padding) 0;
+    background: var(--blue-01);
+  }
+
+  .products-content {
+    max-width: 1532px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .products-cta-banner {
+    position: relative;
+    padding: 52px 64px;
+    background-image: url('/assets/cta-banner-bg.jpg');
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 255px;
+    overflow: hidden;
+  }
+
+  .cta-banner-content h3 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 52px;
+    color: var(--blue-01);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+  }
+
+  .cta-banner-content p {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-01);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: var(--section-padding) 0;
+    background: var(--blue-02);
+  }
+
+  .features-content {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .features-section .section-title {
+    text-align: center;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .features-grid {
+    display: flex;
+    gap: 0;
+    box-shadow: 0 0 40px rgba(88, 200, 215, 0.3);
+  }
+
+  .features-column {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+  }
+
+  .features-image {
+    width: 520px;
+    height: 870px;
+    border: 1px solid var(--blue-04);
+    position: relative;
+    background: var(--blue-01);
+  }
+
+  .features-image::before,
+  .features-image::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--blue-04);
+  }
+
+  .features-image::before {
+    top: -4px;
+    left: -4px;
+  }
+
+  .features-image::after {
+    bottom: -4px;
+    right: -4px;
+  }
+
+  .features-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: var(--section-padding) 0;
+    background: var(--white);
+  }
+
+  .about-content {
+    max-width: 1532px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--blue-06);
+  }
+
+  .about-grid {
+    display: flex;
+    gap: 80px;
+    height: 817px;
+  }
+
+  .about-image {
+    flex: 1;
+    border: 1px solid var(--blue-03);
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-main h3 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--blue-06);
+  }
+
+  .about-main p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--blue-06);
+  }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 24px;
+  }
+
+  .stat-item {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+  }
+
+  .stat-divider {
+    width: 2px;
+    height: 120px;
+    background: var(--blue-03);
+  }
+
+  .stat-content {
+    flex: 1;
+  }
+
+  .stat-number {
+    font-family: var(--font-mono);
+    font-size: 96px;
+    font-weight: 500;
+    color: var(--blue-04);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--blue-06);
+  }
+
+  /* Logo Section */
+  .logo-section {
+    padding: 120px 0;
+    background: var(--white);
+  }
+
+  .logo-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .logo-section .section-title {
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+  }
+
+  .logo-marquee {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+  }
+
+  .logo-track {
+    display: flex;
+    gap: 24px;
+    width: fit-content;
+  }
+
+  .logo-track-left {
+    animation: marquee-left 20s linear infinite;
+  }
+
+  .logo-track-right {
+    animation: marquee-right 20s linear infinite;
+  }
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .client-logo {
+    min-width: 240px;
+    height: 80px;
+    background: white;
+    border: 1px solid var(--blue-02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+  }
+
+  .client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(55%);
+    opacity: 0.7;
+    transition: all 0.3s;
+  }
+
+  .client-logo:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* Blog Section */
+  .blog-section {
+    padding: var(--section-padding) 0;
+    background: var(--white);
+  }
+
+  .blog-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blog-section .section-title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .blog-featured {
+    display: flex;
+    gap: 16px;
+    background: var(--blue-01);
+    border: 1px solid var(--blue-02);
+    padding: 16px;
+    border-radius: 4px;
+  }
+
+  .blog-image {
+    width: 570px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blog-info {
+    flex: 1;
+    padding: 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blog-tag {
+    padding: 4px 8px;
+    background: var(--blue-02);
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--blue-06);
+  }
+
+  .blog-date {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue-06);
+  }
+
+  .blog-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: var(--blue-06);
+  }
+
+  .blog-excerpt {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--blue-06);
+  }
+
+  .read-more {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--blue-05);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .read-more:hover {
+    color: var(--blue-04);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: var(--section-padding) 0;
+    background: var(--blue-01);
+    height: 800px;
+  }
+
+  .faq-content {
+    max-width: 1532px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    gap: 24px;
+  }
+
+  .faq-intro {
+    width: 390px;
+  }
+
+  .faq-intro h2 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--blue-06);
+    margin-bottom: 96px;
+  }
+
+  .faq-image {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1440px) {
+    .hero-title {
+      font-size: 64px;
+      line-height: 72px;
+    }
+
+    .text-rotator {
+      min-width: 40ch;
+      min-height: 72px;
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .text-rotator {
+      min-width: 35ch;
+      min-height: 56px;
+      display: block;
+    }
+
+    .title-prefix {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+      flex-direction: column;
+    }
+
+    .features-column {
+      width: 100%;
+    }
+
+    .features-image {
+      width: 100%;
+      height: 400px;
+    }
+
+    .about-grid {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-content {
+      flex-direction: column;
+    }
+
+    .faq-intro {
+      width: 100%;
+    }
+  }
+</style>

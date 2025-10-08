@@ -1,0 +1,24 @@
+# Biojet Website - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourusername.github.io/biojet-website/sitemap.xml
+
+# Disallow admin or private directories (none for now)
+# Disallow: /admin/
+
+# Allow all search engines to crawl the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl delay (optional)
+# Crawl-delay: 10
+

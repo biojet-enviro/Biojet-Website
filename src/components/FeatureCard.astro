@@ -1,0 +1,81 @@
+---
+export interface Props {
+  icon: string;
+  title: string;
+  value: string;
+  description: string;
+}
+
+const { icon, title, value, description } = Astro.props;
+---
+
+<div class="feature-card">
+  <div class="feature-icon" set:html={icon}></div>
+  <h3>{title}</h3>
+  <p class="feature-value">{value}</p>
+  <p class="feature-description">{description}</p>
+</div>
+
+<style>
+  .feature-card {
+    background: var(--blue-01);
+    border: 1px solid var(--blue-04);
+    padding: 32px 48px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: #ffffff;
+  }
+
+  .feature-card::before,
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--blue-04);
+  }
+
+  .feature-card::before {
+    top: -4px;
+    left: -4px;
+  }
+
+  .feature-card::after {
+    top: -4px;
+    right: -4px;
+  }
+
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 24px;
+    color: var(--blue-06);
+  }
+
+  .feature-value {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    color: var(--blue-04);
+  }
+
+  .feature-description {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--blue-06);
+  }
+</style>
+
