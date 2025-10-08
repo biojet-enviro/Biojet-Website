@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yourusername.github.io/biojet-website/sitemap.xml
+Sitemap: https://biojet.tech/sitemap.xml
 
 # Disallow admin or private directories (none for now)
 # Disallow: /admin/

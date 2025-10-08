@@ -182,7 +182,7 @@ Edit `src/pages/index.astro` in the products section:
 <ProductCard
   name="Biojet® jet aerator"
   model="NEW-MODEL-X"
-  image="/Biojet-Website/assets/product-new.jpg"
+  image="/assets/product-new.jpg"
   serviceLife=">20 YEARS"
   material="SUS304"
   description="Your product description here."
@@ -324,7 +324,7 @@ public/
 Reference in components:
 
 ```astro
-<img src="/Biojet-Website/assets/your-image.jpg" alt="Description" />
+<img src="/assets/your-image.jpg" alt="Description" />
 ```
 
 ### Optimizing Images
