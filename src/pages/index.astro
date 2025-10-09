@@ -503,7 +503,6 @@ import CTASection from '../components/CTASection.astro';
     height: 580px;
     border: 1px solid var(--blue-05);
     overflow: hidden;
-    border-radius: 4px;
   }
 
   .video-container img {
@@ -571,7 +570,7 @@ import CTASection from '../components/CTASection.astro';
 
   .cta-banner-content p {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--blue-01);
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
@@ -672,7 +671,11 @@ import CTASection from '../components/CTASection.astro';
   .about-image {
     flex: 1;
     border: 1px solid var(--blue-03);
-    background: rgb(55, 55, 55);
+    background-color: var(--blue-05);
+    background-image: url("/assets/factory-1.png");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat;
     overflow: hidden;
     position: relative;
   }
@@ -805,9 +808,9 @@ import CTASection from '../components/CTASection.astro';
   }
 
   .logo-content {
-    max-width: 1600px;
+    max-width: 1532px;
     margin: 0 auto;
-    padding: 0 160px;
+    padding: 0 0px;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -907,14 +910,12 @@ import CTASection from '../components/CTASection.astro';
     background: var(--blue-01);
     border: 1px solid var(--blue-02);
     padding: 16px;
-    border-radius: 4px;
   }
 
   .blog-image {
     width: 570px;
     height: 320px;
     overflow: hidden;
-    border-radius: 4px;
   }
 
   .blog-image img {
@@ -1066,6 +1067,28 @@ import CTASection from '../components/CTASection.astro';
     height: 120px;
     }
 
+    .video-title {
+    font-size: 28px;
+    line-height: 36px;
+    }
+
+    .video-text {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    align-items: flex-start;
+    }
+
+    .video-description {
+    font-size: 16px;
+    line-height: 20px;
+    }
+
+    .video-container {
+    width: 100%;
+    height: 280px;
+    }
+
     .title-prefix {
       display: block;
       margin-bottom: 8px;
@@ -1073,6 +1096,24 @@ import CTASection from '../components/CTASection.astro';
 
     .products-grid {
       grid-template-columns: 1fr;
+    }
+
+    .products-cta-banner {
+    padding: 24px;
+    flex-direction: column; 
+    min-height: 255px;
+    }
+
+    .cta-banner-content h3 {
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 8px;
+    }
+
+    .cta-banner-content p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
     }
 
     .features-grid {
@@ -1088,13 +1129,117 @@ import CTASection from '../components/CTASection.astro';
       height: 400px;
     }
 
+    .about-content {
+      padding: 0 20px;
+    }
+
+    .about-label {
+      font-size: 16px;
+    }
+
     .about-grid {
       flex-direction: column;
       height: auto;
+      gap: 32px;
+    }
+
+    .about-image {
+      height: 300px;
+      min-height: 300px;
+    }
+
+    .about-text {
+      gap: 32px;
+    }
+
+    .about-main {
+      gap: 16px;
+    }
+
+    .about-main h3 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .about-main p {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .about-stats {
+      gap: 32px;
+    }
+
+    .stats-row {
+      gap: 24px;
+    }
+
+    .stat-item {
+      gap: 16px;
+    }
+
+    .stat-divider {
+      height: 80px;
+    }
+
+    .stat-number {
+      font-size: 56px;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .logo-section .section-title {
+    font-size: 28px;
+    line-height: 36px;
+    }
+
+    .blog-section .section-title {
+    font-size: 28px;
+    line-height: 36px;
+    }
+
+    .blog-content {
+    max-width: 100%;
+    padding: 0 8px;
+    gap: 8px;
     }
 
     .blog-grid {
       grid-template-columns: 1fr;
+    }
+
+    .blog-featured {
+    display: flex;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    }
+
+    .blog-image {
+    width: 100%;
+    height: 240px;
+    }
+
+    .blog-info {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    }
+
+    .blog-title {
+    font-size: 24px;
+    line-height: 30px;
+    }
+
+    .blog-excerpt {
+    font-size: 16px;
+    line-height: 20px;
     }
 
     .faq-content {
