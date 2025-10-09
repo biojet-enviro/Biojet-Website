@@ -116,7 +116,6 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
     border-width: 1px;
     border-color: var(--blue-03);
     box-shadow: 0 0 0 3px var(--blue-02);
-    padding: 8px 24px;
   }
 
   /* ========================================
@@ -145,7 +144,6 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
     border-width: 1px;
     border-color: var(--blue-03);
     box-shadow: 0 0 0 3px var(--blue-02);
-    padding: 8px 24px;
   }
 
   /* ========================================
@@ -220,5 +218,34 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
     white-space: nowrap;
     line-height: normal;
   }
+
+  @media (max-width: 768px) {
+
+    .btn-primary {
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    }
+
+    .btn-secondary {
+    padding: 8px 16px;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    }
+
+    .btn-secondary-arrow {
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    }
+
+  }
+
+  
 </style>
 

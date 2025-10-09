@@ -50,17 +50,16 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(88, 200, 215, 0.2);
+    overflow: hidden;
   }
 
   .product-image {
     height: 460px;
-    overflow: hidden;
+    transition: transform 0.4s;
+  }
+
+  .product-image:hover {
+    transform: scale(1.02);
   }
 
   .product-image img {
@@ -146,6 +145,50 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     height: 6px;
     background: var(--blue-03);
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+
+    .product-name {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -1.28px;
+    }
+
+    .product-info {
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 180px;
+    justify-content: flex-start;
+    }
+
+    .tag {
+    padding: 2px;
+    }
+
+    .tag-label {
+    padding: 2px 4px;
+    font-size: 12px;
+    }
+
+    .tag-value {
+    padding: 2px 4px;
+    font-size: 12px;
+    }
+
+    .product-description {
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 16px;
+    }
+
+    .product-actions {
+    gap: 4px;
+    }
+
+
   }
 </style>
 
