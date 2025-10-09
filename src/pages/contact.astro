@@ -1,21 +1,334 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
 ---
 
 <Layout title="Contact - Biojet">
-  <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 150px;">
-    <div style="text-align: center; max-width: 800px; padding: 40px;">
-      <h1 style="font-size: 48px; color: var(--blue-06); margin-bottom: 24px;">Contact Us</h1>
-      <p style="font-size: 20px; color: var(--blue-05); margin-bottom: 40px;">This page is under construction.</p>
-      <div style="margin-bottom: 40px; text-align: left;">
-        <p style="font-size: 18px; color: var(--blue-06); margin-bottom: 16px;"><strong>Email:</strong> info@biojet.com.cn</p>
-        <p style="font-size: 18px; color: var(--blue-06); margin-bottom: 16px;"><strong>Phone:</strong> +86 13773576088</p>
-        <p style="font-size: 18px; color: var(--blue-06); margin-bottom: 16px;"><strong>WhatsApp:</strong> Available</p>
-        <p style="font-size: 18px; color: var(--blue-06); margin-bottom: 16px;"><strong>Telegram:</strong> Available</p>
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Left Panel: Contact Information -->
+      <div class="contact-info-panel">
+        <div class="contact-content">
+          <!-- Main Heading -->
+          <div class="contact-heading">
+            <h1>Ready to revolutionize your sewage treatment?</h1>
+            <p class="contact-subheading">
+              Tell us about your tank geometry, target influent characteristics, and desired capacity. 
+              We will provide a tailored proposal.
+            </p>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="contact-details">
+            <!-- Phone -->
+            <div class="contact-item">
+              <img src="/assets/phone-icon.svg" alt="Phone" class="contact-icon" />
+              <span class="contact-text">+86 1321234567</span>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+              <img src="/assets/email-icon.svg" alt="Email" class="contact-icon" />
+              <span class="contact-text">info@biojet.com.cn</span>
+            </div>
+
+            <!-- Divider -->
+            <div class="contact-divider"></div>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <img src="/assets/linkedin-icon.svg" alt="LinkedIn" />
+              </a>
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <img src="/assets/facebook-icon.svg" alt="Facebook" />
+              </a>
+              <a href="#" class="social-icon" aria-label="YouTube">
+                <img src="/assets/youtube-icon.svg" alt="YouTube" />
+              </a>
+              <a href="#" class="social-icon" aria-label="Messenger">
+                <img src="/assets/messenger-icon.svg" alt="Messenger" />
+              </a>
+              <a href="#" class="social-icon" aria-label="WhatsApp">
+                <img src="/assets/whatsapp-icon.svg" alt="WhatsApp" />
+              </a>
+              <a href="#" class="social-icon" aria-label="Telegram">
+                <img src="/assets/telegram-icon.svg" alt="Telegram" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <Button variant="primary" href="/" text="BACK TO HOME" />
+
+      <!-- Right Panel: Contact Form with Background -->
+      <div class="contact-form-panel">
+        <div class="form-card">
+          <iframe data-tally-src="https://tally.so/embed/31qzrg?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="429" frameborder="0" marginheight="0" marginwidth="0" title="Leave a message."></iframe>
+          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* ========================================
+     Contact Section Container
+     ======================================== */
+  .contact-section {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ffffff 0%, #f4fbfc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+  }
+
+  .contact-container {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--white);
+    border: 1px solid var(--blue-05);
+    min-height: 740px;
+  }
+
+  /* ========================================
+     Left Panel: Contact Information
+     ======================================== */
+  .contact-info-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 88px;
+    background: var(--white);
+  }
+
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .contact-heading h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 52px;
+    color: var(--blue-06);
+    margin-bottom: 24px;
+  }
+
+  .contact-subheading {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--blue-06);
+  }
+
+  /* Contact Details */
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .contact-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--blue-06);
+    white-space: nowrap;
+  }
+
+  .contact-divider {
+    width: 100%;
+    height: 2px;
+    background: var(--blue-02);
+    margin: 8px 0;
+  }
+
+  /* Social Icons */
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+  }
+
+  /* ========================================
+     Right Panel: Contact Form
+     ======================================== */
+  .contact-form-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 88px;
+    border-left: 1px solid var(--blue-05);
+    background-image: url('/assets/send-message-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--white);
+    border: 1px solid var(--blue-05);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ========================================
+     Tablet Responsive (max-width: 1024px)
+     ======================================== */
+  @media (max-width: 1024px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+    }
+
+    .contact-info-panel {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--blue-05);
+    }
+
+    .contact-content {
+      gap: 60px;
+    }
+
+    .contact-heading h1 {
+      font-size: 40px;
+      line-height: 44px;
+    }
+
+    .contact-form-panel {
+      border-left: none;
+      padding: 60px 40px;
+    }
+  }
+
+  /* ========================================
+     Mobile Responsive (max-width: 768px)
+     ======================================== */
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 100px 16px 40px;
+    }
+
+    .contact-container {
+      min-height: auto;
+    }
+
+    .contact-info-panel {
+      padding: 40px 24px;
+    }
+
+    .contact-content {
+      gap: 40px;
+    }
+
+    .contact-heading h1 {
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: 16px;
+    }
+
+    .contact-subheading {
+      font-size: 18px;
+    }
+
+    .contact-item {
+      gap: 16px;
+    }
+
+    .contact-text {
+      font-size: 18px;
+    }
+
+    .social-icons {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-form-panel {
+      padding: 40px 24px;
+      background-position: center;
+    }
+
+    .form-card {
+      padding: 24px;
+    }
+  }
+
+  /* ========================================
+     Small Mobile (max-width: 480px)
+     ======================================== */
+  @media (max-width: 480px) {
+    .contact-heading h1 {
+      font-size: 28px;
+      line-height: 34px;
+    }
+
+    .contact-subheading {
+      font-size: 16px;
+    }
+
+    .contact-text {
+      font-size: 16px;
+    }
+
+    .social-icons {
+      gap: 16px;
+    }
+
+    .social-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .form-card {
+      padding: 20px;
+    }
+  }
+</style>
 
