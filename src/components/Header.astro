@@ -90,7 +90,6 @@ import Button from './Button.astro';
     height: 102px;
     max-width: 1920px;
     margin: 0 auto;
-    box-sizing: border-box;
   }
 
   .logo {
@@ -145,7 +144,6 @@ import Button from './Button.astro';
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    box-sizing: border-box;
   }
 
   .nav-left {
@@ -229,6 +227,7 @@ import Button from './Button.astro';
   @media (max-width: 768px) {
     .navbar-container {
       height: 70px;
+      width: 100%；
       padding: 12px 20px;
     }
 
@@ -257,7 +256,7 @@ import Button from './Button.astro';
       background: rgba(244, 251, 252, 0.98);
       backdrop-filter: blur(12px);
       flex-direction: column;
-      padding: 24px 20px;
+      padding: 24px 24px;
       gap: 24px;
       max-height: 0;
       overflow: hidden;
@@ -265,7 +264,6 @@ import Button from './Button.astro';
       transition: all 0.3s ease;
       border-bottom: 1px solid var(--blue-02);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      box-sizing: border-box;
     }
 
     .nav-content.active {
@@ -277,7 +275,6 @@ import Button from './Button.astro';
       flex-direction: column;
       width: 100%;
       gap: 16px;
-      box-sizing: border-box;
     }
 
     .nav-links {
@@ -286,7 +283,6 @@ import Button from './Button.astro';
       gap: 0;
       padding: 0;
       border-radius: 0;
-      box-sizing: border-box;
     }
 
     .nav-links a {
@@ -296,7 +292,6 @@ import Button from './Button.astro';
       background: var(--white);
       border-radius: 12px;
       font-size: 16px;
-      box-sizing: border-box;
     }
 
     .nav-links .divider {
@@ -309,13 +304,11 @@ import Button from './Button.astro';
       padding: 12px 20px;
       font-size: 16px;
       border-radius: 0px;
-      box-sizing: border-box;
     }
 
     .nav-right {
       width: 100%;
       justify-content: center;
-      box-sizing: border-box;
     }
 
     /* Prevent scrolling when menu is open */
