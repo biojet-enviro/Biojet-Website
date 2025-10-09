@@ -3,29 +3,72 @@ import Button from './Button.astro';
 ---
 
 <nav class="navbar">
-  <div class="nav-left">
-    <div class="nav-links">
-      <a href="/about">ABOUT</a>
-      <span class="divider"></span>
-      <a href="/products">PRODUCTS</a>
-      <span class="divider"></span>
-      <a href="/blog">BLOG</a>
+  <div class="navbar-container">
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/logo.svg" alt="Biojet Logo" />
+      </a>
     </div>
-    <div class="language-selector">
-      <span>🌍 EN</span>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-content">
+      <div class="nav-left">
+        <div class="nav-links">
+          <a href="/about">ABOUT</a>
+          <span class="divider"></span>
+          <a href="/products">PRODUCTS</a>
+          <span class="divider"></span>
+          <a href="/blog">BLOG</a>
+        </div>
+        <div class="language-selector">
+          <span>🌍 EN</span>
+        </div>
+      </div>
+      
+      <div class="nav-right">
+        <Button variant="primary" href="/contact" text="GET IN TOUCH" />
+      </div>
     </div>
-  </div>
-  
-  <div class="logo">
-    <a href="/">
-      <img src="/assets/logo.svg" alt="Biojet Logo" />
-    </a>
-  </div>
-  
-  <div class="nav-right">
-    <Button variant="primary" href="/contact" text="GET IN TOUCH" />
   </div>
 </nav>
+
+<script>
+  // Mobile menu toggle functionality
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const navContent = document.querySelector('.nav-content');
+  const navbar = document.querySelector('.navbar');
+  
+  menuToggle?.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navContent?.classList.toggle('active');
+    navbar?.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking on a link
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle?.classList.remove('active');
+      navContent?.classList.remove('active');
+      navbar?.classList.remove('menu-open');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!navbar?.contains(target)) {
+      menuToggle?.classList.remove('active');
+      navContent?.classList.remove('active');
+      navbar?.classList.remove('menu-open');
+    }
+  });
+</script>
 
 <style>
   .navbar {
@@ -34,21 +77,80 @@ import Button from './Button.astro';
     left: 0;
     right: 0;
     z-index: 1000;
+    background: rgba(244, 251, 252, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--blue-02);
+  }
+
+  .navbar-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px 80px;
-    background: rgba(244, 251, 252, 0.7);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--blue-02);
     height: 102px;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    width: 210px;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+  }
+
+  .mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--blue-06);
+    transition: all 0.3s ease;
+    border-radius: 0px;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 8px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -8px);
+  }
+
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .nav-left {
     display: flex;
     align-items: center;
     gap: 16px;
-    width: 420px;
+    flex: 1;
   }
 
   .nav-links {
@@ -88,43 +190,154 @@ import Button from './Button.astro';
     font-size: 16px;
   }
 
-  .logo {
-    width: 210px;
-    height: 86px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo img {
-    height: 100%;
-    width: auto;
-  }
-
   .nav-right {
     display: flex;
     justify-content: flex-end;
-    width: 420px;
+    flex: 1;
   }
 
   @media (max-width: 1440px) {
-    .navbar {
+    .navbar-container {
       padding: 8px 40px;
     }
   }
 
-  @media (max-width: 768px) {
-    .navbar {
+  @media (max-width: 1024px) {
+    .navbar-container {
       padding: 8px 20px;
-      height: auto;
+    }
+
+    .logo {
+      width: 160px;
+      height: 66px;
+    }
+
+    .nav-links {
+      font-size: 14px;
+      gap: 14px;
+      padding: 6px 16px;
+    }
+
+    .language-selector {
+      padding: 6px 16px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-container {
+      height: 70px;
+      padding: 12px 20px;
+    }
+
+    .logo {
+      width: 140px;
+      height: 56px;
+      margin: 0 auto;
+      position: relative;
+      left: auto;
+      transform: none;
+      order: 1;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      order: 2;
+    }
+
+    .nav-content {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(244, 251, 252, 0.98);
+      backdrop-filter: blur(12px);
       flex-direction: column;
+      padding: 24px 20px;
+      gap: 24px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid var(--blue-02);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-content.active {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .nav-left {
+      flex-direction: column;
+      width: 100%;
       gap: 16px;
     }
-    
-    .nav-left,
+
+    .nav-links {
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .nav-links a {
+      width: 100%;
+      padding: 14px 20px;
+      text-align: center;
+      background: var(--white);
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .nav-links .divider {
+      display: none;
+    }
+
+    .language-selector {
+      width: 100%;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 0px;
+    }
+
     .nav-right {
       width: 100%;
       justify-content: center;
+    }
+
+    /* Prevent scrolling when menu is open */
+    .navbar.menu-open ~ * {
+      filter: blur(2px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-container {
+      padding: 12px 16px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 48px;
+    }
+
+    .mobile-menu-toggle {
+      right: 16px;
+    }
+
+    .mobile-menu-toggle span {
+      width: 22px;
+      height: 2.5px;
+    }
+
+    .nav-content {
+      padding: 20px 16px;
+      top: 70px;
     }
   }
 </style>
