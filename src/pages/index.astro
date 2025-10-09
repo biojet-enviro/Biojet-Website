@@ -355,6 +355,7 @@ import CTASection from '../components/CTASection.astro';
     justify-content: center;
     padding-top: 24px;
     overflow: hidden;
+    background: var(--blue-01);
   }
 
   .hero-bg {
@@ -463,13 +464,13 @@ import CTASection from '../components/CTASection.astro';
   /* Video Section */
   .video-section {
     padding: 120px 0;
-    background: var(--white);
+    background: var(--blue-01);
   }
 
   .video-content {
     max-width: 1532px;
     margin: 0 auto;
-    padding: 0 8px;
+    padding: 0 0px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -881,7 +882,7 @@ import CTASection from '../components/CTASection.astro';
   /* Blog Section */
   .blog-section {
     padding: var(--section-padding) 0;
-    background: var(--white);
+    background: var(--blue-01);
   }
 
   .blog-content {
@@ -907,9 +908,26 @@ import CTASection from '../components/CTASection.astro';
   .blog-featured {
     display: flex;
     gap: 16px;
-    background: var(--blue-01);
-    border: 1px solid var(--blue-02);
+    background: var(--white);
+    border: 1px solid var(--blue-03);
     padding: 16px;
+    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .blog-featured:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
+  }
+
+  .blog-image img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .blog-featured:hover .blog-image img {
+    transform: scale(1.05);
   }
 
   .blog-image {
@@ -988,7 +1006,7 @@ import CTASection from '../components/CTASection.astro';
   .faq-section {
     padding: var(--section-padding) 0;
     background: var(--blue-01);
-    height: 800px;
+    height: 890px;
   }
 
   .faq-content {
@@ -1067,9 +1085,14 @@ import CTASection from '../components/CTASection.astro';
     height: 120px;
     }
 
+    .video-content {
+      padding: 0 24px;
+      gap: 16px;
+    }
+
     .video-title {
-    font-size: 28px;
-    line-height: 36px;
+      font-size: 28px;
+      line-height: 36px;
     }
 
     .video-text {
@@ -1101,18 +1124,18 @@ import CTASection from '../components/CTASection.astro';
     .products-cta-banner {
     padding: 24px;
     flex-direction: column; 
-    min-height: 255px;
+    min-height: 260px;
     }
 
     .cta-banner-content h3 {
-      font-size: 28px;
-      line-height: 36px;
-      margin-bottom: 8px;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 16px;
     }
 
     .cta-banner-content p {
       font-size: 16px;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 20px;
     }
 
@@ -1224,9 +1247,17 @@ import CTASection from '../components/CTASection.astro';
     padding: 0 24px;
     }
 
+    .products-content {
+    max-width: 100%;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    }
+
     .blog-content {
     max-width: 100%;
-    padding: 0 8px;
+    padding: 0 24px;
     gap: 8px;
     }
 
@@ -1267,6 +1298,10 @@ import CTASection from '../components/CTASection.astro';
     .blog-excerpt {
     font-size: 16px;
     line-height: 20px;
+    }
+
+    .blog-grid {
+    gap: 8px;
     }
 
     .faq-image {

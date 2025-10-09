@@ -27,15 +27,16 @@ const { title, excerpt, date, image, slug } = Astro.props;
 
 <style>
   .blog-card {
-    background: var(--blue-01);
-    border: 1px solid var(--blue-02);
+    background: var(--white);
+    border: 1px solid var(--blue-03);
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .blog-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(88, 200, 215, 0.2);
+    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
   }
 
   .blog-card-image {
