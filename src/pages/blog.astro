@@ -1,15 +1,274 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
 import Button from '../components/Button.astro';
+
+// Get all blog posts
+const allBlogPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+// Sort by date (newest first)
+const sortedPosts = allBlogPosts.sort((a, b) => 
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Format date helper
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short'
+  }).format(date);
+}
 ---
 
 <Layout title="Blog - Biojet">
-  <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 150px;">
-    <div style="text-align: center; max-width: 800px; padding: 40px;">
-      <h1 style="font-size: 48px; color: var(--blue-06); margin-bottom: 24px;">Blog & Articles</h1>
-      <p style="font-size: 20px; color: var(--blue-05); margin-bottom: 40px;">This page is under construction.</p>
-      <Button variant="primary" href="/" text="BACK TO HOME" />
+  <section class="blog-page">
+    <div class="blog-page-header">
+      <h1>Blog & Articles</h1>
+      <p>Insights, innovations, and expertise in wastewater treatment and jet aeration technology</p>
+    </div>
+
+    <div class="blog-page-content">
+      {sortedPosts.length > 0 ? (
+        <>
+          <div class="blog-featured">
+            <div class="blog-image">
+              <img src={sortedPosts[0].data.coverImage} alt={sortedPosts[0].data.title} />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="blog-tag">FEATURED</span>
+                <span class="blog-date">{formatDate(sortedPosts[0].data.pubDate)}</span>
+              </div>
+              <h2 class="blog-title">{sortedPosts[0].data.title}</h2>
+              <p class="blog-excerpt">
+                {sortedPosts[0].data.description}
+              </p>
+              <a href={`/blog/${sortedPosts[0].slug}`} class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          {sortedPosts.length > 1 && (
+            <div class="blog-grid">
+              {sortedPosts.slice(1).map((post) => (
+                <BlogCard
+                  title={post.data.title}
+                  excerpt={post.data.description}
+                  date={formatDate(post.data.pubDate)}
+                  image={post.data.coverImage}
+                  slug={post.slug}
+                />
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <div class="no-posts">
+          <p>No blog posts available at the moment. Check back soon!</p>
+          <Button variant="primary" href="/" text="BACK TO HOME" />
+        </div>
+      )}
     </div>
   </section>
 </Layout>
 
+<style>
+  .blog-page {
+    background: var(--blue-01);
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .blog-page-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .blog-page-header h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: var(--blue-06);
+    margin-bottom: 16px;
+  }
+
+  .blog-page-header p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--blue-05);
+  }
+
+  .blog-page-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .blog-featured {
+    display: flex;
+    gap: 16px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 48px;
+  }
+
+  .blog-featured:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
+  }
+
+  .blog-image {
+    width: 570px;
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .blog-featured:hover .blog-image img {
+    transform: scale(1.05);
+  }
+
+  .blog-info {
+    flex: 1;
+    padding: 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blog-tag {
+    padding: 4px 8px;
+    background: var(--blue-02);
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--blue-06);
+  }
+
+  .blog-date {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue-06);
+  }
+
+  .blog-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: var(--blue-06);
+  }
+
+  .blog-excerpt {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--blue-06);
+  }
+
+  .read-more {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--blue-05);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .read-more:hover {
+    color: var(--blue-04);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: 80px 40px;
+  }
+
+  .no-posts p {
+    font-size: 20px;
+    color: var(--blue-05);
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 1440px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-page {
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    .blog-page-header {
+      padding: 40px 24px;
+    }
+
+    .blog-page-header h1 {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    .blog-page-header p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .blog-page-content {
+      padding: 0 24px;
+    }
+
+    .blog-featured {
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 240px;
+    }
+
+    .blog-info {
+      padding: 24px;
+    }
+
+    .blog-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

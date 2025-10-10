@@ -1,0 +1,293 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Format date
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(entry.data.pubDate);
+---
+
+<Layout title={`${entry.data.title} - Biojet Blog`}>
+  <article class="blog-post">
+    <div class="blog-post-header">
+      <div class="blog-post-header-content">
+        <a href="/blog" class="back-link">← Back to Blog</a>
+        <h1>{entry.data.title}</h1>
+        <div class="blog-post-meta">
+          <span class="blog-tag">BLOG</span>
+          <span class="blog-date">{formattedDate}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-post-image">
+      <img src={entry.data.coverImage} alt={entry.data.title} />
+    </div>
+
+    <div class="blog-post-content">
+      <Content />
+    </div>
+
+    <div class="blog-post-footer">
+      <Button variant="secondary" href="/blog" text="View All Articles" />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .blog-post {
+    background: var(--blue-01);
+    min-height: 100vh;
+  }
+
+  .blog-post-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--blue-03);
+    padding-top: 120px;
+  }
+
+  .blog-post-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blue-05);
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .back-link:hover {
+    color: var(--blue-04);
+  }
+
+  .blog-post-header h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: var(--blue-06);
+    margin-bottom: 24px;
+  }
+
+  .blog-post-meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .blog-tag {
+    padding: 4px 8px;
+    background: var(--blue-02);
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--blue-06);
+  }
+
+  .blog-date {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue-06);
+  }
+
+  .blog-post-image {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    margin-top: 40px;
+  }
+
+  .blog-post-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid var(--blue-03);
+  }
+
+  .blog-post-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: var(--white);
+    margin-top: 40px;
+    border: 1px solid var(--blue-03);
+    box-shadow: 0 2px 8px rgba(88, 200, 215, 0.2);
+  }
+
+  .blog-post-content :global(h1) {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    color: var(--blue-06);
+    margin: 40px 0 24px 0;
+  }
+
+  .blog-post-content :global(h1:first-child) {
+    margin-top: 0;
+  }
+
+  .blog-post-content :global(h2) {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: var(--blue-06);
+    margin: 32px 0 20px 0;
+  }
+
+  .blog-post-content :global(h3) {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--blue-06);
+    margin: 28px 0 16px 0;
+  }
+
+  .blog-post-content :global(p) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: var(--blue-06);
+    margin-bottom: 20px;
+  }
+
+  .blog-post-content :global(ul),
+  .blog-post-content :global(ol) {
+    margin: 20px 0;
+    padding-left: 28px;
+  }
+
+  .blog-post-content :global(li) {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--blue-06);
+    margin-bottom: 12px;
+  }
+
+  .blog-post-content :global(strong) {
+    font-weight: 700;
+    color: var(--blue-06);
+  }
+
+  .blog-post-content :global(a) {
+    color: var(--blue-05);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+
+  .blog-post-content :global(a:hover) {
+    color: var(--blue-04);
+  }
+
+  .blog-post-content :global(blockquote) {
+    border-left: 4px solid var(--blue-04);
+    padding-left: 24px;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--blue-05);
+  }
+
+  .blog-post-content :global(code) {
+    background: var(--blue-02);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 16px;
+  }
+
+  .blog-post-content :global(pre) {
+    background: var(--blue-02);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+
+  .blog-post-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .blog-post-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post-header {
+      padding-top: 80px;
+    }
+
+    .blog-post-header-content {
+      padding: 24px 24px 40px;
+    }
+
+    .blog-post-header h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .blog-post-image {
+      padding: 0 24px;
+      margin-top: 24px;
+    }
+
+    .blog-post-image img {
+      height: 250px;
+    }
+
+    .blog-post-content {
+      padding: 40px 24px;
+      margin-top: 24px;
+    }
+
+    .blog-post-content :global(h1) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    .blog-post-content :global(h2) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .blog-post-content :global(h3) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .blog-post-content :global(p),
+    .blog-post-content :global(li) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .blog-post-footer {
+      padding: 32px 24px 60px;
+    }
+  }
+</style>
+

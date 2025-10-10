@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import ProductCard from '../components/ProductCard.astro';
@@ -6,6 +7,24 @@ import FeatureCard from '../components/FeatureCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTASection from '../components/CTASection.astro';
+
+// Get blog posts
+const allBlogPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+// Sort by date (newest first) and get latest 4
+const latestPosts = allBlogPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+// Format date helper
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short'
+  }).format(date);
+}
 ---
 
 <Layout title="Biojet - Industry-leading Jet Aerators for Wastewater Treatment">
@@ -262,47 +281,41 @@ import CTASection from '../components/CTASection.astro';
     <div class="blog-content">
       <div class="blog-header">
         <h2 class="section-title">Our latest articles</h2>
-        <Button variant="secondary" text="View All" />
+        <Button variant="secondary" href="/blog" text="View All" />
       </div>
-      <div class="blog-featured">
-        <div class="blog-image">
-          <img src="/assets/blog-featured.png" alt="Featured Article" />
-        </div>
-        <div class="blog-info">
-          <div class="blog-meta">
-            <span class="blog-tag">BLOG</span>
-            <span class="blog-date">Oct 2024</span>
+      {latestPosts.length > 0 && (
+        <>
+          <div class="blog-featured">
+            <div class="blog-image">
+              <img src={latestPosts[0].data.coverImage} alt={latestPosts[0].data.title} />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="blog-tag">BLOG</span>
+                <span class="blog-date">{formatDate(latestPosts[0].data.pubDate)}</span>
+              </div>
+              <h3 class="blog-title">{latestPosts[0].data.title}</h3>
+              <p class="blog-excerpt">
+                {latestPosts[0].data.description}
+              </p>
+              <a href={`/blog/${latestPosts[0].slug}`} class="read-more">Read More</a>
+            </div>
           </div>
-          <h3 class="blog-title">Latest Innovations in Jet Aeration Technology</h3>
-          <p class="blog-excerpt">
-            Discover how Biojet's latest advancements are revolutionizing wastewater treatment efficiency and sustainability.
-          </p>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="blog-grid">
-        <BlogCard
-          title="Understanding MBR Systems"
-          excerpt="A comprehensive guide to membrane bioreactor systems and their applications."
-          date="Sep 2024"
-          image="/assets/blog-1.jpg"
-          slug="understanding-mbr-systems"
-        />
-        <BlogCard
-          title="Energy Efficiency in Wastewater Treatment"
-          excerpt="How to reduce operational costs while maintaining high performance."
-          date="Aug 2024"
-          image="/assets/blog-2.jpg"
-          slug="energy-efficiency"
-        />
-        <BlogCard
-          title="Case Study: Landfill Leachate Treatment"
-          excerpt="Real-world success story from a major Southeast Asian facility."
-          date="Jul 2024"
-          image="/assets/blog-3.jpg"
-          slug="landfill-leachate-treatment"
-        />
-      </div>
+          {latestPosts.length > 1 && (
+            <div class="blog-grid">
+              {latestPosts.slice(1).map((post) => (
+                <BlogCard
+                  title={post.data.title}
+                  excerpt={post.data.description}
+                  date={formatDate(post.data.pubDate)}
+                  image={post.data.coverImage}
+                  slug={post.slug}
+                />
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </div>
   </section>
 
