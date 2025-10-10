@@ -156,9 +156,7 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     }
 
     .product-info {
-    padding: 0 24px 24px;
-    display: flex;
-    flex-direction: column;
+    padding: 0 8px 16px;
     gap: 8px;
     min-height: 180px;
     justify-content: flex-start;
@@ -187,6 +185,13 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     .product-actions {
     gap: 4px;
     }
+
+    .product-image {
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s;
+    }
+
 
 
   }

@@ -1063,14 +1063,30 @@ import CTASection from '../components/CTASection.astro';
 
   @media (max-width: 768px) {
     .hero-title {
-      font-size: 28px;
-      line-height: 32px;
+      font-size: 40px;
+      line-height: 48px;
     }
 
     .text-rotator {
-      min-width: 35ch;
-      min-height: 56px;
-      display: block;
+      min-width: 100%;
+      min-height: calc(1em*2);
+    }
+
+    .rotator__item {
+      white-space: normal;
+    }
+
+    .hero-section {
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      padding: 0 24px;
+    }
+
+    .hero-bg {
+      height: 55%;
+      background-position: center bottom;
     }
 
     .hero-description {
