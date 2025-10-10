@@ -254,18 +254,18 @@ function formatDate(date: Date) {
       <h2 class="section-title">Trusted by over 100 clients across the industry.</h2>
       <div class="logo-marquee">
         <div class="logo-track logo-track-left">
-          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+          {[^1, 2, 3, 4, 5, 6, 7].map((i) => (
             <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
           ))}
-          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+          {[^1, 2, 3, 4, 5, 6, 7].map((i) => (
             <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
           ))}
         </div>
         <div class="logo-track logo-track-right">
-          {[8, 9, 10, 11, 12, 13, 14].map((i) => (
+          {[^8, 9, 10, 11, 12, 13, 14].map((i) => (
             <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
           ))}
-          {[8, 9, 10, 11, 12, 13, 14].map((i) => (
+          {[^8, 9, 10, 11, 12, 13, 14].map((i) => (
             <div class="client-logo"><img src={`/assets/client-logo-${i}.png`} alt={`Client ${i}`} /></div>
           ))}
         </div>
@@ -287,18 +287,18 @@ function formatDate(date: Date) {
         <>
           <div class="blog-featured">
             <div class="blog-image">
-              <img src={latestPosts[0].data.coverImage} alt={latestPosts[0].data.title} />
+              <img src={latestPosts[^0].data.coverImage} alt={latestPosts[^0].data.title} />
             </div>
             <div class="blog-info">
               <div class="blog-meta">
                 <span class="blog-tag">BLOG</span>
-                <span class="blog-date">{formatDate(latestPosts[0].data.pubDate)}</span>
+                <span class="blog-date">{formatDate(latestPosts[^0].data.pubDate)}</span>
               </div>
-              <h3 class="blog-title">{latestPosts[0].data.title}</h3>
+              <h3 class="blog-title">{latestPosts[^0].data.title}</h3>
               <p class="blog-excerpt">
-                {latestPosts[0].data.description}
+                {latestPosts[^0].data.description}
               </p>
-              <a href={`/blog/${latestPosts[0].slug}`} class="read-more">Read More</a>
+              <a href={`/blog/${latestPosts[^0].slug}`} class="read-more">Read More</a>
             </div>
           </div>
           {latestPosts.length > 1 && (
