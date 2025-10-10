@@ -12,8 +12,8 @@ import Button from './Button.astro';
 
 <style>
   .cta-section {
-    padding: var(--section-padding) 0;
-    background: linear-gradient(180deg, var(--blue-02) 0%, var(--white) 100%);
+    padding: var(--section-padding) 24px;
+    background: linear-gradient(180deg, var(--white) 0%, var(--blue-01) 100%);
   }
 
   .cta-content {
@@ -21,26 +21,28 @@ import Button from './Button.astro';
     margin: 0 auto;
     padding: 100px 160px;
     text-align: center;
-    background: var(--blue-01);
-    border: 2px solid var(--blue-03);
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(88, 200, 215, 0.2);
+    background-image: url('../assets/cta-bg.jpg');
+    background-position: center bottom;
+    background-size: cover;
+    box-shadow: 0 0 40px rgba(88, 200, 215, 0.3);
   }
 
   .cta-content h2 {
     font-size: 56px;
     font-weight: 700;
     line-height: 64px;
-    color: var(--blue-06);
+    color: var(--white);
     margin-bottom: 24px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
 
   .cta-content p {
     font-size: 24px;
     font-weight: 500;
     line-height: 32px;
-    color: var(--blue-06);
+    color: var(--white);
     margin-bottom: 48px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
 
   :global(.cta-large) {
@@ -56,13 +58,13 @@ import Button from './Button.astro';
     }
 
     .cta-content h2 {
-      font-size: 36px;
-      line-height: 44px;
+      font-size: 32px;
+      line-height: 38px;
     }
 
     .cta-content p {
-      font-size: 18px;
-      line-height: 26px;
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 </style>
