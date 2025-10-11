@@ -12,16 +12,6 @@ The oxidation ditch process stands at the forefront of municipal and industrial 
 
 An oxidation ditch is a type of extended aeration activated sludge process featuring a closed-loop channel (often oval or ring-shaped) where wastewater is circulated, aerated, and biologically treated. The system maintains optimal conditions for aerobic microorganisms, enabling thorough degradation of organic pollutants and nutrients. Aeration and circulation are traditionally handled by surface-mounted devices like rotors and brushes, but technological advances now allow for submerged aeration equipment and jet aeration integration.
 
-### Jet Aeration: The Next-Gen Upgrade
-
-Jet aeration combines aeration and mixing by injecting air and liquid through submerged jets, maximizing oxygen transfer even in deeper basins. This technology offers:​
-
-- Improved Oxygen Transfer Rate: Submerged jet aerators leverages increased water depth and extended bubble contact time to enhance oxygen uptake, outperforming typical surface aerators—especially in oxidation ditch applications.​
-
-- Efficient Mixing and Flow: Independent control of mixing and aeration strengthens process flexibility and minimizes energy use, with robust construction ensuring long service life.​
-
-- Compact Design: Jet aerators allow operation with deeper ditches (up to 24 feet), reducing facility footprint and construction costs.
-
 ### Key Benefits and Applications
 
 - **High Treatment Efficiency**: Oxidation ditches can effectively remove biochemical oxygen demand (BOD), nitrogen, and phosphorus due to their long solids retention times (SRTs) and flexible zone controls.​
@@ -31,6 +21,16 @@ Jet aeration combines aeration and mixing by injecting air and liquid through su
 - **Adaptable Flow and Footprint**: The closed-loop design enables “plug-flow” characteristics—with zones alternating between oxic and anoxic—facilitating efficient nitrogen and phosphorus removal. Facility footprint is often reduced compared to conventional tank systems.​
 
 - **Reduced Sludge Production**: The extended aeration process results in lower excess sludge generation versus other secondary biological processes.
+
+### Jet Aeration: The Next-Gen Upgrade
+
+Jet aeration combines aeration and mixing by injecting air and liquid through submerged jets, maximizing oxygen transfer even in deeper basins. This technology offers:​
+
+- Improved Oxygen Transfer Rate: Submerged jet aerators leverages increased water depth and extended bubble contact time to enhance oxygen uptake, outperforming typical surface aerators—especially in oxidation ditch applications.​
+
+- Efficient Mixing and Flow: Independent control of mixing and aeration strengthens process flexibility and minimizes energy use, with robust construction ensuring long service life.​
+
+- Compact Design: Jet aerators allow operation with deeper ditches (up to 24 feet), reducing facility footprint and construction costs.
 
 ### Biojet® Oxidation Ditch Solution
 
