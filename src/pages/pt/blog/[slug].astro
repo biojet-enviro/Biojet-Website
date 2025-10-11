@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+import { useTranslations, type Locale } from '../../../i18n/translations';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, 
+    props: { entry },
+  }));
+}
+
+const locale = 'pt' as Locale;
+const t = useTranslations(locale);
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Format date
+const formattedDate = new Intl.DateTimeFormat('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(entry.data.pubDate);
+---
+
+<Layout title={`${entry.data.title} - Biojet Blog`}>
+  <article class="blog-post">
+    <div class="blog-post-header">
+      <div class="blog-post-header-content">
+        <a href="/pt/blog" class="back-link">← {t.home.blogButton}</a>
+        <h1>{entry.data.title}</h1>
+        <div class="blog-post-meta">
+          <span class="blog-tag">{t.home.blogTag}</span>
+          <span class="blog-date">{formattedDate}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-post-image">
+      <img src={entry.data.coverImage} alt={entry.data.title} />
+    </div>
+
+    <div class="blog-post-content">
+      <Content />
+    </div>
+
+    <div class="blog-post-footer">
+      <Button variant="secondary" href="/pt/blog" text={t.home.blogButton} />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  /* Same styles as English version */
+  .blog-post { background: var(--blue-01); min-height: 100vh; }
+  .blog-post-header { background: var(--white); border-bottom: 1px solid var(--blue-03); padding-top: 120px; }
+  .blog-post-header-content { max-width: 1200px; margin: 0 auto; padding: 40px 40px 60px; }
+  .back-link { display: inline-block; font-size: 16px; font-weight: 700; color: var(--blue-05); text-decoration: none; margin-bottom: 24px; transition: color 0.3s; }
+  .back-link:hover { color: var(--blue-04); }
+  .blog-post-header h1 { font-size: 56px; font-weight: 700; line-height: 64px; color: var(--blue-06); margin-bottom: 24px; }
+  .blog-post-meta { display: flex; gap: 16px; align-items: center; }
+  .blog-tag { padding: 4px 8px; background: var(--blue-02); font-size: 14px; font-weight: 900; color: var(--blue-06); }
+  .blog-date { font-size: 16px; font-weight: 500; color: var(--blue-06); }
+  .blog-post-image { max-width: 1200px; margin: 0 auto; padding: 0 40px; margin-top: 40px; }
+  .blog-post-image img { width: 100%; height: 500px; object-fit: cover; border: 1px solid var(--blue-03); }
+  .blog-post-content { max-width: 1000px; margin: 0 auto; padding: 60px 40px; background: var(--white); margin-top: 40px; border: 1px solid var(--blue-03); box-shadow: 0 2px 8px rgba(88, 200, 215, 0.2); overflow: hidden; }
+  .blog-post-content :global(h1), .blog-post-content :global(h2), .blog-post-content :global(h3), .blog-post-content :global(p), .blog-post-content :global(li) { color: var(--blue-06); }
+  .blog-post-footer { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; text-align: center; }
+</style>
+

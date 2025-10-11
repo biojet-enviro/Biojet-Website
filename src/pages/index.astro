@@ -7,6 +7,11 @@ import FeatureCard from '../components/FeatureCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import FAQItem from '../components/FAQItem.astro';
 import CTASection from '../components/CTASection.astro';
+import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translations';
+
+// Get current locale
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(locale);
 
 // Get blog posts
 const allBlogPosts = await getCollection('blog', ({ data }) => {
@@ -20,11 +25,14 @@ const latestPosts = allBlogPosts
 
 // Format date helper
 function formatDate(date: Date) {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat(locale === 'ru' ? 'ru-RU' : 'en-US', {
     year: 'numeric',
     month: 'short'
   }).format(date);
 }
+
+// Helper for creating links
+const linkPrefix = locale === 'ru' ? '/ru' : '';
 ---
 
 <Layout title="Biojet - Industry-leading Jet Aerators for Wastewater Treatment">
@@ -34,26 +42,21 @@ function formatDate(date: Date) {
     <div class="hero-content">
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="title-prefix">Industry-leading jet aerators for </span>
+          <span class="title-prefix">{t.home.heroPrefix} </span>
           <span 
             class="text-rotator" 
             aria-live="polite"
             style="--count: 8;"
           >
-            <span class="rotator__item" style="--i: 0;">food-processing wastewater treatment</span>
-            <span class="rotator__item" style="--i: 1;">landfill leachate treatment</span>
-            <span class="rotator__item" style="--i: 2;">industrial wastewater treatment</span>
-            <span class="rotator__item" style="--i: 3;">kitchen effluent treatment</span>
-            <span class="rotator__item" style="--i: 4;">deep aeration basins</span>
-            <span class="rotator__item" style="--i: 5;">high-concentration sewage treatment</span>
-            <span class="rotator__item" style="--i: 6;">municipal wastewater treatment</span>
-            <span class="rotator__item" style="--i: 7;">membrane bioreactor systems</span>
+            {t.home.heroRotator.map((item, i) => (
+              <span class="rotator__item" style={`--i: ${i};`}>{item}</span>
+            ))}
           </span>
         </h1>
         <p class="hero-description">
-          Partner with Biojet to achieve unparalleled wastewater treatment performance through tailored jet aeration solutions customized for your unique projects.
+          {t.home.heroDescription}
         </p>
-        <Button variant="primary" href="/contact" text="Schedule Your Free Consultation" class="hero-cta" />
+        <Button variant="primary" href={`${linkPrefix}/contact`} text={t.home.heroButton} class="hero-cta" />
       </div>
       <div class="hero-badge">
         <img src="/assets/german-quality-badge.png" alt="German Quality" />
@@ -65,9 +68,9 @@ function formatDate(date: Date) {
   <section class="video-section">
     <div class="video-content">
       <div class="video-text">
-        <h2 class="video-title">Innovative Aeration,<br>Cleaner Tomorrow.</h2>
+        <h2 class="video-title" set:html={t.home.videoTitle.replace('\n', '<br>')}></h2>
         <p class="video-description">
-          At Biojet, we have taken jet mixing aeration to the next level with our Laval Jet Aerator, a solution designed to meet the most demanding wastewater treatment challenges with outstanding efficiency and reliability.
+          {t.home.videoDescription}
         </p>
       </div>
       <div class="video-container">
@@ -85,66 +88,66 @@ function formatDate(date: Date) {
   <!-- Products Section -->
   <section class="products-section" id="products">
     <div class="products-content">
-      <h2 class="section-title">Check out our products</h2>
+      <h2 class="section-title">{t.home.productsTitle}</h2>
       
       <div class="products-grid">
         <ProductCard
-          name="Biojet® jet aerator"
-          model="JET-DS-18H"
+          name={t.products.product1Name}
+          model={t.products.product1Model}
           image="/assets/product-1.png"
-          serviceLife=">20 YEARS"
-          material="SUS304"
-          description="Disc Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater."
+          serviceLife={t.products.product1ServiceLife}
+          material={t.products.product1Material}
+          description={t.products.product1Desc}
         />
         <ProductCard
-          name="Biojet® jet aerator"
-          model="JET-DS-16V"
+          name={t.products.product2Name}
+          model={t.products.product2Model}
           image="/assets/product-2.png"
-          serviceLife=">20 YEARS"
-          material="SUS304"
-          description="Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins."
+          serviceLife={t.products.product2ServiceLife}
+          material={t.products.product2Material}
+          description={t.products.product2Desc}
         />
         <ProductCard
-          name="Biojet® jet aerator"
-          model="JET-PP-12V"
+          name={t.products.product3Name}
+          model={t.products.product3Model}
           image="/assets/product-3.png"
-          serviceLife=">20 YEARS"
-          material="PP Plastic"
-          description="Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins."
+          serviceLife={t.products.product3ServiceLife}
+          material={t.products.product3Material}
+          description={t.products.product3Desc}
         />
         <ProductCard
-          name="Biojet® jet aerator"
-          model="ASPIRATING JET AERATOR"
+          name={t.products.product4Name}
+          model={t.products.product4Model}
           image="/assets/product-4.png"
-          serviceLife=">20 YEARS"
-          material="SUS304"
-          description="Integrated self-aspirating Laval jet aerator, suitable for decentralized small waste water treatment plants."
+          serviceLife={t.products.product4ServiceLife}
+          material={t.products.product4Material}
+          description={t.products.product4Desc}
         />
         <ProductCard
-          name="Biojet® Laval Jet Aerator"
-          model="RING-SHAPED JET AERATOR"
+          name={t.products.product5Name}
+          model={t.products.product5Model}
           image="/assets/product-5.png"
-          serviceLife=">20 YEARS"
-          material="SUS304"
-          description="Ring-shaped Laval jet mixing aerator, jet mixer, suitable for sewage treatment tanks with internal columns."
+          serviceLife={t.products.product5ServiceLife}
+          material={t.products.product5Material}
+          description={t.products.product5Desc}
         />
         <ProductCard
-          name="Biojet® Laval Jet Aerator"
-          model="DIRECTIONAL JET AERATOR"
+          name={t.products.product6Name}
+          model={t.products.product6Model}
           image="/assets/product-6.png"
-          serviceLife=">20 YEARS"
-          material="SUS304"
-          description="Directional or Bi-directional Manifold Laval Jet Aerator, suitable for oxidation ditch."
+          serviceLife={t.products.product6ServiceLife}
+          material={t.products.product6Material}
+          description={t.products.product6Desc}
         />
       </div>
 
       <!-- CTA Banner -->
       <div class="products-cta-banner">
         <div class="cta-banner-content">
-          <h3>We are not just equipment suppliers.<br>We are problem solvers.</h3>
-          <p>Our technical expert provide you customized, project-specific solutions.</p>
+          <h3 set:html={t.home.productsCta.replace('\n', '<br>')}></h3>
+          <p>{t.home.productsCtaDesc}</p>
         </div>
-        <Button variant="primary" href="/contact" text="GET IN TOUCH" />
+        <Button variant="primary" href={`${linkPrefix}/contact`} text={t.home.productsCtaButton} />
       </div>
     </div>
   </section>
@@ -152,27 +155,27 @@ function formatDate(date: Date) {
   <!-- Features Section -->
   <section class="features-section">
     <div class="features-content">
-      <h2 class="section-title">The advantages of jet aerators enhanced by Biojet®</h2>
+      <h2 class="section-title">{t.home.featuresTitle}</h2>
       
       <div class="features-grid">
         <div class="features-column">
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 16L17 8M17 16L7 8" stroke="#58C8D7" stroke-width="2" stroke-linecap="round"/></svg>'
-            title="High Oxygen Transfer"
-            value="40–45% OTE"
-            description="Innovative Laval nozzle creates ultra-fine bubbles and high surface renewal for rapid oxygen dissolution and extended gas-liquid contact time."
+            title={t.home.feature1Title}
+            value={t.home.feature1Value}
+            description={t.home.feature1Desc}
           />
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#58C8D7" stroke-width="2"/><path d="M12 3L12 12L18 12" stroke="#58C8D7" stroke-width="2"/></svg>'
-            title="Wide Coverage"
-            value="Service Ø 10–12 m"
-            description="Powerful jet stream and efficient mixing enable larger service area per unit compared to conventional diffusers or mechanical aerators."
+            title={t.home.feature2Title}
+            value={t.home.feature2Value}
+            description={t.home.feature2Desc}
           />
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="14" width="4" height="6" stroke="#58C8D7" stroke-width="2"/><rect x="10" y="10" width="4" height="10" stroke="#58C8D7" stroke-width="2"/><rect x="16" y="6" width="4" height="14" stroke="#58C8D7" stroke-width="2"/></svg>'
-            title="High α-Factor Stability"
-            value="0.85–0.9"
-            description="Stable oxygen transfer performance even under high MLSS and variable wastewater conditions."
+            title={t.home.feature3Title}
+            value={t.home.feature3Value}
+            description={t.home.feature3Desc}
           />
         </div>
         
@@ -183,21 +186,21 @@ function formatDate(date: Date) {
         <div class="features-column">
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 8L12 14L20 8L12 2Z" stroke="#58C8D7" stroke-width="2" stroke-linejoin="round"/><path d="M4 16L12 22L20 16" stroke="#58C8D7" stroke-width="2" stroke-linejoin="round"/></svg>'
-            title="Energy Efficiency"
-            value="50% energy saving"
-            description="Optimized air-to-water ratio and nozzle geometry lower blower power demand while maintaining superior aeration performance."
+            title={t.home.feature4Title}
+            value={t.home.feature4Value}
+            description={t.home.feature4Desc}
           />
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#58C8D7" stroke-width="2"/><path d="M12 7V12L15 15" stroke="#58C8D7" stroke-width="2" stroke-linecap="round"/></svg>'
-            title="Long Lifespan"
-            value="20+ years"
-            description="Reinforced flange design eliminates risk of breakage. High-strength throat lining prevents erosion and maintains performance over years of operation."
+            title={t.home.feature5Title}
+            value={t.home.feature5Value}
+            description={t.home.feature5Desc}
           />
           <FeatureCard
             icon='<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="7" r="4" stroke="#58C8D7" stroke-width="2"/><path d="M2 21V19C2 16.7909 3.79086 15 6 15H12C14.2091 15 16 16.7909 16 19V21" stroke="#58C8D7" stroke-width="2"/><circle cx="18" cy="11" r="2" stroke="#58C8D7" stroke-width="2"/></svg>'
-            title="Customizable Solutions"
-            value="Project-specific"
-            description="We provide case-by-case system design and on-site support to match process requirements and tank geometries."
+            title={t.home.feature6Title}
+            value={t.home.feature6Value}
+            description={t.home.feature6Desc}
           />
         </div>
       </div>
@@ -207,7 +210,7 @@ function formatDate(date: Date) {
   <!-- About Section -->
   <section class="about-section" id="about">
     <div class="about-content">
-      <h2 class="about-label">About us</h2>
+      <h2 class="about-label">{t.home.aboutLabel}</h2>
       <div class="about-grid">
         <div class="about-image">
           <div class="slideshow-container">
@@ -219,9 +222,9 @@ function formatDate(date: Date) {
         </div>
         <div class="about-text">
           <div class="about-main">
-            <h3>We design and manufacture cutting-edge jet aeration technologies for industries worldwide.</h3>
+            <h3>{t.home.aboutTitle}</h3>
             <p>
-              Our flagship product, the Laval Jet Aerator, is recognized industry-wide for its performance, durability, and efficiency. Engineered for maximum oxygen transfer and minimal maintenance, our jet aerators set the benchmark in wastewater treatment. Our engineer from Germany ensures solutions of the highest quality and effectiveness.
+              {t.home.aboutText}
             </p>
           </div>
           <div class="about-stats">
@@ -229,19 +232,19 @@ function formatDate(date: Date) {
               <div class="stat-item">
                 <div class="stat-divider"></div>
                 <div class="stat-content">
-                  <div class="stat-number">2009</div>
-                  <div class="stat-label">Launched in 2009</div>
+                  <div class="stat-number">{t.home.aboutStat1Number}</div>
+                  <div class="stat-label">{t.home.aboutStat1Label}</div>
                 </div>
               </div>
               <div class="stat-item">
                 <div class="stat-divider"></div>
                 <div class="stat-content">
-                  <div class="stat-number">100+</div>
-                  <div class="stat-label">Over 100 clients</div>
+                  <div class="stat-number">{t.home.aboutStat2Number}</div>
+                  <div class="stat-label">{t.home.aboutStat2Label}</div>
                 </div>
               </div>
             </div>
-            <Button variant="secondary" text="VIEW MORE" />
+            <Button variant="secondary" text={t.home.aboutButton} />
           </div>
         </div>
       </div>
@@ -251,7 +254,7 @@ function formatDate(date: Date) {
   <!-- Logo Section -->
   <section class="logo-section">
     <div class="logo-content">
-      <h2 class="section-title">Trusted by over 100 clients across the industry.</h2>
+      <h2 class="section-title">{t.home.clientsTitle}</h2>
       <div class="logo-marquee">
         <div class="logo-track logo-track-left">
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
@@ -274,14 +277,14 @@ function formatDate(date: Date) {
   </section>
 
   <!-- CTA Section (Component) -->
-  <CTASection />
+  <CTASection locale={locale} />
 
   <!-- Blog Section -->
   <section class="blog-section" id="blog">
     <div class="blog-content">
       <div class="blog-header">
-        <h2 class="section-title">Our latest articles</h2>
-        <Button variant="secondary" href="/blog" text="View All" />
+        <h2 class="section-title">{t.home.blogTitle}</h2>
+        <Button variant="secondary" href={`${linkPrefix}/blog`} text={t.home.blogButton} />
       </div>
       {latestPosts.length > 0 && (
         <>
@@ -291,14 +294,14 @@ function formatDate(date: Date) {
             </div>
             <div class="blog-info">
               <div class="blog-meta">
-                <span class="blog-tag">BLOG</span>
+                <span class="blog-tag">{t.home.blogTag}</span>
                 <span class="blog-date">{formatDate(latestPosts[0].data.pubDate)}</span>
               </div>
               <h3 class="blog-title">{latestPosts[0].data.title}</h3>
               <p class="blog-excerpt">
                 {latestPosts[0].data.description}
               </p>
-              <a href={`/blog/${latestPosts[0].slug}`} class="read-more">Read More</a>
+              <a href={`${linkPrefix}/blog/${latestPosts[0].slug}`} class="read-more">{t.home.blogReadMore}</a>
             </div>
           </div>
           {latestPosts.length > 1 && (
@@ -310,6 +313,7 @@ function formatDate(date: Date) {
                   date={formatDate(post.data.pubDate)}
                   image={post.data.coverImage}
                   slug={post.slug}
+                  locale={locale}
                 />
               ))}
             </div>
@@ -323,35 +327,35 @@ function formatDate(date: Date) {
   <section class="faq-section">
     <div class="faq-content">
       <div class="faq-intro">
-        <h2>Frequently asked questions</h2>
+        <h2>{t.home.faqTitle}</h2>
         <div class="faq-image">
           <img src="/assets/faq-illustration.png" alt="FAQ" />
         </div>
       </div>
       <div class="faq-list">
         <FAQItem
-          question="What makes the Biojet Laval Jet Aerator different from other aeration systems?"
-          answer="Our aerators combine high oxygen transfer efficiency, powerful mixing, and a maintenance-free design, delivering both energy savings and long-term reliability."
+          question={t.home.faq1Question}
+          answer={t.home.faq1Answer}
         />
         <FAQItem
-          question="What information do I need to provide for you to design a system proposal?"
-          answer="details include tank size, water depth, wastewater characteristics, flow rates, and treatment objectives."
+          question={t.home.faq2Question}
+          answer={t.home.faq2Answer}
         />
         <FAQItem
-          question="What is the typical lead time from order to delivery?"
-          answer="Lead time is usually 30–50 days (subject to order quantity and model specifications)."
+          question={t.home.faq3Question}
+          answer={t.home.faq3Answer}
         />
         <FAQItem
-          question="What maintenance is required?"
-          answer="Minimal maintenance is required - typically just periodic visual inspection. No moving parts mean fewer failure points and lower operational costs."
+          question={t.home.faq4Question}
+          answer={t.home.faq4Answer}
         />
         <FAQItem
-          question="How deep can the aerator be installed and still achieve high efficiency?"
-          answer="Our systems perform effectively in deep basins, with oxygen utilization remaining stable even at 8–10 m water depth."
+          question={t.home.faq5Question}
+          answer={t.home.faq5Answer}
         />
         <FAQItem
-          question="Do you provide after-sales technical support worldwide?"
-          answer="Yes. Our dedicated support team provides global after-sales service, ensuring long-term customer satisfaction."
+          question={t.home.faq6Question}
+          answer={t.home.faq6Answer}
         />
       </div>
     </div>
@@ -376,9 +380,10 @@ function formatDate(date: Date) {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 600px;
+    height: 65%;
+    width: auto;
     background-image: url('/assets/hero-bg.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center bottom;
     background-repeat: no-repeat;
     z-index: 0;

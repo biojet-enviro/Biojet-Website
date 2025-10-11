@@ -1,12 +1,21 @@
 ---
 import Button from './Button.astro';
+import { useTranslations, type Locale } from '../i18n/translations';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const linkPrefix = locale === 'ru' ? '/ru' : '';
 ---
 
 <section class="cta-section">
   <div class="cta-content">
-    <h2>Ready to optimize your wastewater treatment?</h2>
-    <p>Contact our experts for a free consultation and discover how Biojet can transform your operations.</p>
-    <Button variant="primary" href="/contact" text="GET YOUR FREE CONSULTATION" class="cta-large" />
+    <h2>{t.home.ctaTitle}</h2>
+    <p>{t.home.ctaDescription}</p>
+    <Button variant="primary" href={`${linkPrefix}/contact`} text={t.home.ctaButton} class="cta-large" />
   </div>
 </section>
 

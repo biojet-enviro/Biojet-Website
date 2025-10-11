@@ -1,4 +1,12 @@
 ---
+import { useTranslations, type Locale } from '../i18n/translations';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <footer class="footer" id="contact">
@@ -6,11 +14,11 @@
   <div class="footer-content">
     <div class="footer-columns">
       <div class="footer-column">
-        <p class="footer-tagline">Breathing fresh air into waste water solutions.</p>
+        <p class="footer-tagline">{t.footer.tagline}</p>
       </div>
       <div class="footer-column-right">
         <div class="footer-column">
-          <h4>Social</h4>
+          <h4>{t.footer.followUs}</h4>
           <ul>
             <li><a href="#">LinkedIn</a></li>
             <li><a href="#">Facebook</a></li>
@@ -18,7 +26,7 @@
           </ul>
         </div>
         <div class="footer-column">
-          <h4>Contact</h4>
+          <h4>{t.footer.contact}</h4>
           <ul>
             <li><a href="mailto:info@biojet.com.cn">info@biojet.com.cn</a></li>
             <li><a href="tel:+8613773576088">+86 13773576088</a></li>
@@ -29,7 +37,7 @@
     </div>
     <div class="footer-columns">
       <div class="footer-column">
-        <p class="footer-copyright">© 2025 Biojet Environment</p>
+        <p class="footer-copyright">{t.footer.copyright}</p>
       </div>
       <div class="footer-agent">
         <span class="flag">🇧🇷</span>

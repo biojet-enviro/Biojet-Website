@@ -1,17 +1,21 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translations';
 
 export interface Props {
   title: string;
   description?: string;
 }
 
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(locale);
+
 const { title, description = "Biojet designs and manufactures cutting-edge jet aeration technologies for wastewater treatment industries worldwide." } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -25,11 +29,11 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b701ec3631ff4cb6873ab79fef00efb1"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
   <body>
-    <Header />
+    <Header locale={locale} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>
 

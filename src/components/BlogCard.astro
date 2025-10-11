@@ -1,13 +1,18 @@
 ---
+import { useTranslations, type Locale } from '../i18n/translations';
+
 export interface Props {
   title: string;
   excerpt: string;
   date: string;
   image: string;
   slug: string;
+  locale: Locale;
 }
 
-const { title, excerpt, date, image, slug } = Astro.props;
+const { title, excerpt, date, image, slug, locale } = Astro.props;
+const t = useTranslations(locale);
+const linkPrefix = locale === 'ru' ? '/ru' : '';
 ---
 
 <article class="blog-card">
@@ -16,12 +21,12 @@ const { title, excerpt, date, image, slug } = Astro.props;
   </div>
   <div class="blog-card-content">
     <div class="blog-meta">
-      <span class="blog-tag">BLOG</span>
+      <span class="blog-tag">{t.home.blogTag}</span>
       <span class="blog-date">{date}</span>
     </div>
     <h4>{title}</h4>
     <p>{excerpt}</p>
-    <a href={`/blog/${slug}`} class="read-more">Read More →</a> 
+    <a href={`${linkPrefix}/blog/${slug}`} class="read-more">{t.home.blogReadMore} →</a> 
   </div>
 </article> 
 

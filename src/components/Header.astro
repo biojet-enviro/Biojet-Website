@@ -1,5 +1,24 @@
 ---
 import Button from './Button.astro';
+import { useTranslations, languageNames, type Locale } from '../i18n/translations';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+// Get current path without locale prefix for language switching
+const currentPath = Astro.url.pathname.replace(/^\/(ru|pt|th|en)/, '') || '/';
+
+// Generate URLs for all languages
+const languageUrls = {
+  en: currentPath || '/',
+  ru: `/ru${currentPath}`,
+  pt: `/pt${currentPath}`,
+  th: `/th${currentPath}`
+};
 ---
 
 <nav class="navbar">
@@ -19,19 +38,34 @@ import Button from './Button.astro';
     <div class="nav-content">
       <div class="nav-left">
         <div class="nav-links">
-          <a href="/about">ABOUT</a>
+          <a href={languageUrls[locale] === '/' ? '/about' : `${languageUrls[locale]}/about`.replace('//', '/')}>{t.nav.about}</a>
           <span class="divider"></span>
-          <a href="/products">PRODUCTS</a>
+          <a href={languageUrls[locale] === '/' ? '/products' : `${languageUrls[locale]}/products`.replace('//', '/')}>{t.nav.products}</a>
           <span class="divider"></span>
-          <a href="/blog">BLOG</a>
+          <a href={languageUrls[locale] === '/' ? '/blog' : `${languageUrls[locale]}/blog`.replace('//', '/')}>{t.nav.blog}</a>
         </div>
         <div class="language-selector">
-          <span>🌍 EN</span>
+          <button class="language-selector-btn" aria-label="Select language">
+            <span>🌍 {languageNames[locale]}</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="language-dropdown">
+            {Object.entries(languageNames).map(([langCode, langName]) => (
+              <a 
+                href={languageUrls[langCode as Locale]} 
+                class={`language-option ${langCode === locale ? 'active' : ''}`}
+              >
+                {langName}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       
       <div class="nav-right">
-        <Button variant="primary" href="/contact" text="GET IN TOUCH" />
+        <Button variant="primary" href={languageUrls[locale] === '/' ? '/contact' : `${languageUrls[locale]}/contact`.replace('//', '/')} text={t.nav.getInTouch} />
       </div>
     </div>
   </div>
@@ -59,9 +93,21 @@ import Button from './Button.astro';
     });
   });
 
-  // Close menu when clicking outside
+  // Language dropdown functionality
+  const langSelector = document.querySelector('.language-selector');
+  const langButton = document.querySelector('.language-selector-btn');
+
+  langButton?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langSelector?.classList.toggle('open');
+  });
+
+  // Close dropdown and menu when clicking outside
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
+    if (!langSelector?.contains(target)) {
+      langSelector?.classList.remove('open');
+    }
     if (!navbar?.contains(target)) {
       menuToggle?.classList.remove('active');
       navContent?.classList.remove('active');
@@ -182,12 +228,85 @@ import Button from './Button.astro';
   }
 
   .language-selector {
+    position: relative;
+  }
+
+  .language-selector-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 20px;
     background: var(--white);
     border: 1px solid var(--blue-03);
     border-radius: 50px;
     font-weight: 500;
     font-size: 16px;
+    color: var(--blue-06);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+
+  .language-selector-btn:hover {
+    background: var(--blue-02);
+    border-color: var(--blue-04);
+  }
+
+  .language-selector-btn svg {
+    transition: transform 0.3s;
+  }
+
+  .language-selector.open .language-selector-btn svg {
+    transform: rotate(180deg);
+  }
+
+  .language-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 150px;
+    background: var(--white);
+    border: 1px solid var(--blue-03);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(23, 90, 120, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .language-selector.open .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .language-option {
+    display: block;
+    padding: 12px 20px;
+    color: var(--blue-06);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-bottom: 1px solid var(--blue-02);
+  }
+
+  .language-option:last-child {
+    border-bottom: none;
+  }
+
+  .language-option:hover {
+    background: var(--blue-02);
+    color: var(--blue-05);
+  }
+
+  .language-option.active {
+    background: var(--blue-03);
+    color: var(--blue-05);
+    font-weight: 700;
   }
 
   .nav-right {
@@ -302,10 +421,38 @@ import Button from './Button.astro';
 
     .language-selector {
       width: 100%;
-      text-align: center;
+    }
+
+    .language-selector-btn {
+      width: 100%;
+      justify-content: center;
       padding: 12px 20px;
       font-size: 16px;
-      border-radius: 0px;
+      border-radius: 12px;
+    }
+
+    .language-dropdown {
+      position: static;
+      width: 100%;
+      margin-top: 8px;
+      border-radius: 12px;
+      box-shadow: none;
+    }
+
+    .language-selector.open .language-dropdown {
+      transform: none;
+    }
+
+    .language-option {
+      border-radius: 0;
+    }
+
+    .language-option:first-child {
+      border-radius: 12px 12px 0 0;
+    }
+
+    .language-option:last-child {
+      border-radius: 0 0 12px 12px;
     }
 
     .nav-right {

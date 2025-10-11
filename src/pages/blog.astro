@@ -3,6 +3,11 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import Button from '../components/Button.astro';
+import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translations';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(locale);
+const linkPrefix = locale === 'ru' ? '/ru' : '';
 
 // Get all blog posts
 const allBlogPosts = await getCollection('blog', ({ data }) => {
@@ -16,17 +21,17 @@ const sortedPosts = allBlogPosts.sort((a, b) =>
 
 // Format date helper
 function formatDate(date: Date) {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat(locale === 'ru' ? 'ru-RU' : 'en-US', {
     year: 'numeric',
     month: 'short'
   }).format(date);
 }
 ---
 
-<Layout title="Blog - Biojet">
+<Layout title={`${t.home.blogTitle} - Biojet`}>
   <section class="blog-page">
     <div class="blog-page-header">
-      <h1>Blog & Articles</h1>
+      <h1>{t.home.blogTitle}</h1>
       <p>Insights, innovations, and expertise in wastewater treatment and jet aeration technology</p>
     </div>
 
@@ -39,14 +44,14 @@ function formatDate(date: Date) {
             </div>
             <div class="blog-info">
               <div class="blog-meta">
-                <span class="blog-tag">FEATURED</span>
+                <span class="blog-tag">{t.home.blogTag}</span>
                 <span class="blog-date">{formatDate(sortedPosts[0].data.pubDate)}</span>
               </div>
               <h2 class="blog-title">{sortedPosts[0].data.title}</h2>
               <p class="blog-excerpt">
                 {sortedPosts[0].data.description}
               </p>
-              <a href={`/blog/${sortedPosts[0].slug}`} class="read-more">Read More →</a>
+              <a href={`${linkPrefix}/blog/${sortedPosts[0].slug}`} class="read-more">{t.home.blogReadMore} →</a>
             </div>
           </div>
 
@@ -59,6 +64,7 @@ function formatDate(date: Date) {
                   date={formatDate(post.data.pubDate)}
                   image={post.data.coverImage}
                   slug={post.slug}
+                  locale={locale}
                 />
               ))}
             </div>
@@ -67,7 +73,7 @@ function formatDate(date: Date) {
       ) : (
         <div class="no-posts">
           <p>No blog posts available at the moment. Check back soon!</p>
-          <Button variant="primary" href="/" text="BACK TO HOME" />
+          <Button variant="primary" href={linkPrefix || '/'} text={t.blogPage.backButton} />
         </div>
       )}
     </div>

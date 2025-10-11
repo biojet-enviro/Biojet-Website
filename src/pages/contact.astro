@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translations';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(locale);
 ---
 
-<Layout title="Contact - Biojet">
+<Layout title={`${t.contact.title} - Biojet`}>
   <section class="contact-section">
     <div class="contact-container">
       <!-- Left Panel: Contact Information -->
@@ -10,10 +14,9 @@ import Layout from '../layouts/Layout.astro';
         <div class="contact-content">
           <!-- Main Heading -->
           <div class="contact-heading">
-            <h1>Contact us</h1>
+            <h1>{t.contact.title}</h1>
             <p class="contact-subheading">
-              Tell us about your tank geometry, target influent characteristics, and desired capacity. 
-              We will provide a tailored proposal.
+              {t.contact.subtitle}
             </p>
           </div>
 
