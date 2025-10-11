@@ -22,7 +22,7 @@ Jet aerators operate through a precise engineering principle that forces water t
 
 The mechanics work through a dual-nozzle design - an inner primary nozzle discharges high-velocity liquid that meets incoming air in the outer nozzle. This creates a powerful mixing action where the motive liquid (recirculated mixed liquor) flows through the inner nozzle into an outer mixing nozzle where compressed air is simultaneously introduced.
 
-The intense contacting between these two streams occurs in what engineers call a "high shear mixing chamber". Fundamentally, this configuration transforms the incoming air into micron-sized bubbles through hydraulic shearing. The mixed contents then shoot out of the nozzles at calculated velocities, flowing in designed patterns that eliminate "dead zones" within treatment tanks.
+The intense contacting between these two streams occurs in what engineers call a "high shear mixing chamber". Fundamentally, this configuration transforms the incoming air into micron-sized bubbles through hydraulic shearing. The mixed contents then shoot out of the nozzles at calculated velocities, flowing in designed patterns that eliminate "dead zones" within treatment tanks. [^1]
 
 ### Air-water interface and oxygen transfer
 
@@ -34,17 +34,17 @@ This process creates an enormous gas/liquid interface inside the jet and along t
 3. Extended bubble residence time allowing more complete oxygen transfer
 4. Turbulent mixing ensuring even distribution
 
-Consequently, jet aerators demonstrate higher alpha values (oxygen transfer efficiency in wastewater compared to clean water) than other aeration devices, with design alpha values of 0.9. Some industrial wastewaters have even shown alpha values exceeding 1.0.
+Consequently, jet aerators demonstrate higher alpha values (oxygen transfer efficiency in wastewater compared to clean water) than other aeration devices, with design alpha values of 0.9. Some industrial wastewaters have even shown alpha values exceeding 1.0. [^2]
 
 ### How does an aeration system work: Jet vs Diffused
 
 Diffused aeration systems operate by pushing air through membranes or porous materials to create bubbles that rise through wastewater. In contrast to this approach, jet aeration systems employ a recirculation mechanism that pulls liquid from the tank and hydraulically pumps it back through aeration manifolds.
 
-The significant difference lies in the bubble formation process. Whereas diffused systems simply release air through membranes, jet aerators create fine bubbles through intense hydraulic shearing action. This distinction is critical because smaller bubbles provide more surface area for oxygen transfer, leading to superior efficiency.
+The significant difference lies in the bubble formation process. Whereas diffused systems simply release air through membranes, jet aerators create fine bubbles through intense hydraulic shearing action. This distinction is critical because smaller bubbles provide more surface area for oxygen transfer, leading to superior efficiency. [^3]
 
 Furthermore, jet systems offer independent control of both mixing and oxygen transfer - mixing is regulated by the recirculation pump, whereas oxygen transfer is controlled by the amount of air released to the system. This flexibility allows operators to match oxygen transfer rates precisely to process conditions and cut back airflow during non-peak periods to save energy.
 
-Particularly noteworthy is that jet aerators can achieve energy reductions of up to 50% in actual wastewater treatment plants compared to other diffused aeration systems. The combination of high oxygen transfer efficiency and lower energy consumption explains why these systems have replaced both low and high-speed aerators in numerous installations.
+Particularly noteworthy is that jet aerators can achieve energy reductions of up to 50% in actual wastewater treatment plants compared to other diffused aeration systems. The combination of high oxygen transfer efficiency and lower energy consumption explains why these systems have replaced both low and high-speed aerators in numerous installations. [^4]
 
 ## Key Design Features That Reduce Operational Costs
 
@@ -54,7 +54,7 @@ The design architecture of jet aeration systems plays a crucial role in reducing
 
 Modern jet aerators feature nozzles strategically positioned on both sides of the liquid header, enabling flow in multiple directions. This bidirectional capability ensures uniform oxygen distribution throughout treatment tanks, regardless of their shape or size. For large circular or rectangular basins, a single header positioned down the center with bidirectional nozzles creates optimal flow patterns.
 
-The arrangement of these nozzles specifically permits the formation of controlled currents within the tank. This design ensures every section of the basin receives adequate oxygenation, eliminating dead zones where treatment efficiency would otherwise decline. Accordingly, the strategic positioning of bidirectional nozzles allows operators to achieve consistent treatment results without increasing energy consumption.
+The arrangement of these nozzles specifically permits the formation of controlled currents within the tank. This design ensures every section of the basin receives adequate oxygenation, eliminating dead zones where treatment efficiency would otherwise decline. Accordingly, the strategic positioning of bidirectional nozzles allows operators to achieve consistent treatment results without increasing energy consumption. [^5]
 
 ### Recirculation loop to minimize water loss
 
@@ -62,7 +62,7 @@ The recirculation loop represents a fundamental design feature that enhances eff
 
 One noteworthy advantage of the recirculation mechanism is operational flexibility. By simply turning off the blower connected to the airline, the system achieves anoxic mixing using the same equipment. This capability eliminates the need for separate mixing equipment, substantially reducing both capital expenses and operational costs.
 
-The recirculation design also facilitates remarkable process control flexibility. Operators can vary aeration gassing rates extensively without compromising oxygen transfer efficiency. This adaptability means the system performs optimally across varying load conditions without requiring additional energy input.
+The recirculation design also facilitates remarkable process control flexibility. Operators can vary aeration gassing rates extensively without compromising oxygen transfer efficiency. This adaptability means the system performs optimally across varying load conditions without requiring additional energy input. [^6]
 
 ### Material selection for corrosion resistance
 
@@ -80,7 +80,7 @@ Jet aeration systems offer remarkable space efficiency compared to conventional 
 - Shorter piping runs requiring less materials
 - Decreased concrete usage in construction
 
-The compact footprint primarily benefits facilities in urban environments where land costs are at a premium. Furthermore, their modular design enables capacity expansion within existing sites without additional land acquisition. This adaptability proves especially valuable as land costs continue to rise and environmental regulations tighten.
+The compact footprint primarily benefits facilities in urban environments where land costs are at a premium. Furthermore, their modular design enables capacity expansion within existing sites without additional land acquisition. This adaptability proves especially valuable as land costs continue to rise and environmental regulations tighten. [^7]
 
 The efficiency of jet aerators comes partially from their vertical orientation, which maximizes oxygen transfer in deeper tanks while minimizing horizontal space requirements. Their inherent ability to handle varying load conditions also means smaller systems can effectively manage fluctuating demand without oversizing—a common cost driver in conventional designs.
 
@@ -144,11 +144,11 @@ Concrete financial data from multiple installations demonstrates how jet aeratio
 
 ### 50% cost reduction in municipal WWTPs
 
-Evidence from municipal plants shows remarkable savings. In one documented case, electric consumption dropped by over 50% after upgrading to an advanced jet aeration system—from 117,480kWh to just 68,394kWh monthly. This reduction directly translates to lower operational costs without sacrificing treatment quality. In fact, aeration typically accounts for 50-90% of a wastewater treatment plant's electricity usage, making such improvements financially significant.
+Evidence from municipal plants shows remarkable savings. In one documented case, electric consumption dropped by over 40% after upgrading to an advanced jet aeration system—from 117,480kWh to just 68,394kWh monthly. Using Biojet Laval jet aerators, the electric consumption can even reduced by up to 50%. This reduction directly translates to lower operational costs without sacrificing treatment quality. In fact, aeration typically accounts for 50-90% of a wastewater treatment plant's electricity usage, making such improvements financially significant.
 
 ### Jet aerator price vs lifecycle cost
 
-Initially, jet aerator prices may appear higher than conventional systems, but lifecycle analysis reveals superior economics. Beyond purchase costs, the comprehensive expense includes installation, energy, maintenance, and replacement parts. Jet systems require substantially less maintenance, with installations functioning effectively for 15-25 years without major component replacement.
+Initially, jet aerator prices may appear higher than conventional systems, but lifecycle analysis reveals superior economics. Beyond purchase costs, the comprehensive expense includes installation, energy, maintenance, and replacement parts. Jet systems require substantially less maintenance, with installations functioning effectively for 15-25 years without major component replacement. 
 
 ### ROI timeline for retrofitting existing systems
 
@@ -188,3 +188,13 @@ At Biojet, we’re here to serve wastewater treatment facilities across the worl
 
 **Q5. Are Laval jet aerators suitable for both municipal and industrial wastewater treatment?**
      Yes, Laval jet aerators are versatile and can be effectively used in both municipal and industrial wastewater treatment facilities. They have been successfully implemented in various industries, including food processing and pharmaceuticals, demonstrating their adaptability to different types of effluent treatment needs.
+
+## References
+
+[^1]: https://www.cpecn.com/features/wastewater-reduce-sequencing-batch-reactor-maintenance-costs-with-jet-aeration/
+[^2]: https://klasystems.com/wp-content/uploads/2018/09/KLA_Jet_Aeration_Brochure-1.pdf
+[^3]: https://www.eurodetoxindia.com/jet-aerator.html
+[^4]: https://wastewater.com/energy-consumption-performance-of-aeration-systems/
+[^5]: https://www.sulzer.com/en/shared/case-studies/delivering-cost-savings-for-wastewater-treatment
+[^6]: https://www.fluidynecorp.com/aeration-mixing/Jet-Aeration.aspx
+[^7]: https://integratedwaterservices.com/the-hidden-cost-of-land-why-mbr-wins-the-space-saving-battle-in-wastewater-treatment/
