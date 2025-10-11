@@ -118,4 +118,8 @@ If you want to add more languages:
 - Product images and technical specifications remain the same across languages
 - The language dropdown automatically detects and highlights the current language
 - All interactions are smooth with CSS transitions
+- **Thai language uses the IBM Plex Sans Thai font** from Google Fonts for proper Thai script rendering
+  - Optimized font weights (SemiBold for headings, Medium for body)
+  - Increased line-height (1.8) for better Thai text readability
+  - Only loads IBM Plex Sans Thai font on Thai pages for performance
 

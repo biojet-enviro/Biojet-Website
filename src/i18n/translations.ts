@@ -94,42 +94,42 @@ export const translations = {
       product1Model: 'JET-DS-18H',
       product1ServiceLife: '>20 YEARS',
       product1Material: 'SUS304',
-      product1Desc: 'Disc Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater.',
+      product1Desc: 'Biojet® Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater.',
       
       product2Name: 'Biojet® jet aerator',
       product2Model: 'JET-DS-16V',
       product2ServiceLife: '>20 YEARS',
       product2Material: 'SUS304',
-      product2Desc: 'Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins.',
+      product2Desc: 'Biojet® Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins.',
       
       product3Name: 'Biojet® jet aerator',
       product3Model: 'JET-PP-12V',
       product3ServiceLife: '>20 YEARS',
       product3Material: 'PP Plastic',
-      product3Desc: 'Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins.',
+      product3Desc: 'Biojet® Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins.',
       
       product4Name: 'Biojet® jet aerator',
       product4Model: 'ASPIRATING JET AERATOR',
       product4ServiceLife: '>20 YEARS',
       product4Material: 'SUS304',
-      product4Desc: 'Integrated self-aspirating Laval jet aerator, suitable for decentralized small waste water treatment plants.',
+      product4Desc: 'Biojet® integrated self-aspirating jet aerator, suitable for decentralized small wastewater treatment plants.',
       
       product5Name: 'Biojet® Laval Jet Aerator',
       product5Model: 'RING-SHAPED JET AERATOR',
       product5ServiceLife: '>20 YEARS',
       product5Material: 'SUS304',
-      product5Desc: 'Ring-shaped Laval jet mixing aerator, jet mixer, suitable for sewage treatment tanks with internal columns.',
+      product5Desc: 'Biojet® Ring-shaped Laval jet mixing aerator, suitable for sewage treatment tanks with internal columns.',
       
       product6Name: 'Biojet® Laval Jet Aerator',
       product6Model: 'DIRECTIONAL JET AERATOR',
       product6ServiceLife: '>20 YEARS',
       product6Material: 'SUS304',
-      product6Desc: 'Directional or Bi-directional Manifold Laval Jet Aerator, suitable for oxidation ditch.'
+      product6Desc: 'Biojet® Directional or Bi-directional Manifold Laval Jet Aerator, jet mixer suitable for oxidation ditch.'
     },
     
     // Footer
     footer: {
-      tagline: 'Transforming wastewater treatment with innovative jet aeration technology.',
+      tagline: 'Breathing fresh air into waste water solutions.',
       quickLinks: 'Quick Links',
       about: 'About',
       products: 'Products',

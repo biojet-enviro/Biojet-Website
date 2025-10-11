@@ -381,7 +381,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     left: 0;
     right: 0;
     height: 65%;
-    width: 1800px;
+    min-width: 1600px;
     background-image: url('/assets/hero-bg.png');
     background-size: contain;
     background-position: center bottom;
@@ -724,9 +724,9 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
       transform: scale(1);
     }
     2% {
-      opacity: 0.5;
+      opacity: 1;
       filter: blur(16px);
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
     4% {
       opacity: 1;
@@ -739,9 +739,9 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
       transform: scale(1);
     }
     27% {
-      opacity: 0.5;
+      opacity: 1;
       filter: blur(16px);
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
     29%, 100% {
       opacity: 0;
@@ -1104,7 +1104,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
 
     .hero-bg {
       height: 50%;
-      width: 100%;
+      min-width: 100%;
       background-size: cover;
       background-position: center bottom;
     }

@@ -24,11 +24,14 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;800&display=swap" rel="stylesheet">
+    {locale === 'th' && (
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    )}
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b701ec3631ff4cb6873ab79fef00efb1"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
-  <body>
+  <body class={locale === 'th' ? 'lang-thai' : ''}>
     <Header locale={locale} />
     <main>
       <slot />
@@ -157,6 +160,42 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
     background-color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
+  }
+
+  /* Thai language font override */
+  body.lang-thai {
+    font-family: 'IBM Plex Sans Thai', var(--font-primary);
+    line-height: 1.8; /* Increased line-height for Thai script readability */
+  }
+
+  body.lang-thai h1,
+  body.lang-thai h2,
+  body.lang-thai h3,
+  body.lang-thai h4,
+  body.lang-thai h5,
+  body.lang-thai h6,
+  body.lang-thai p,
+  body.lang-thai a,
+  body.lang-thai button,
+  body.lang-thai span,
+  body.lang-thai div,
+  body.lang-thai li {
+    font-family: 'IBM Plex Sans Thai', var(--font-primary);
+  }
+
+  /* Adjust font weight mapping for IBM Plex Sans Thai font */
+  body.lang-thai .hero-title,
+  body.lang-thai h1 {
+    font-weight: 700; 
+  }
+
+  body.lang-thai h2,
+  body.lang-thai h3 {
+    font-weight: 500;  
+  }
+
+  body.lang-thai button {
+    font-weight: 500;  
   }
 
   main {

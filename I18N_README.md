@@ -167,4 +167,5 @@ The build process generates static pages for all language variants.
 - Date formatting automatically adapts to the current locale (en-US, ru-RU, pt-BR, th-TH)
 - The language dropdown is fully accessible and keyboard-navigable
 - On mobile devices, the language dropdown appears in the mobile menu
+- **Thai language uses the IBM Plex Sans Thai font** from Google Fonts for proper Thai script rendering with optimized line-height for readability
 
