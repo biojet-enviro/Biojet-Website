@@ -22,8 +22,6 @@ Anaerobic reactors operate under oxygen-free conditions, using specialized micro
 
 - **Environmental Sustainability**: Anaerobic technology helps cut greenhouse gas emissions, control odors, and facilitate nutrient recovery from waste streams. [^4]
 
-At Biojet, we’re here to serve our local wastewater treatment facilities, answer questions, and connect them with the best and most efficient equipment for their needs. We encourage you to contact Lakeside Equipment today to discuss solutions for your wastewater treatment business.
-
 ### Trends and Applications
 
 Anaerobic reactors are favored for their flexibility: treating food and beverage waste, landfill leachate, textiles, and more. Advanced models now use membranes, staged designs, and innovative mixing systems for even greater efficiency and resource recovery

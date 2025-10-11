@@ -170,7 +170,7 @@ Municipalities and industrial facilities alike can expect payback periods typica
 
 The comprehensive advantages of jet aeration systems—enhanced oxygen transfer, reduced energy consumption, minimal maintenance requirements, and exceptional longevity—make them an ideal solution for wastewater treatment facilities seeking sustainable cost reduction. Treatment plant operators looking to cut expenses without compromising treatment quality would certainly benefit from considering this technology for both new installations and system upgrades.
 
-At Biojet, we’re here to serve wastewater treatment facilities across the world, answer questions, and connect them with the best and most efficient equipment for their needs. We encourage you to contact Lakeside Equipment today to discuss solutions for your wastewater treatment business.
+At Biojet, we’re here to serve wastewater treatment facilities across the world, answer questions, and connect them with the best and most efficient equipment for their needs. We encourage you to contact Biojet today to discuss solutions for your wastewater treatment business.
 
 ## FAQs
 
