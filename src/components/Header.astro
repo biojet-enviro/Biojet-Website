@@ -19,6 +19,14 @@ const languageUrls = {
   pt: `/pt${currentPath}`,
   th: `/th${currentPath}`
 };
+
+// Generate navigation URLs for the current locale
+const getNavUrl = (path: string) => {
+  if (locale === 'en') {
+    return path;
+  }
+  return `/${locale}${path}`;
+};
 ---
 
 <nav class="navbar">
@@ -38,11 +46,11 @@ const languageUrls = {
     <div class="nav-content">
       <div class="nav-left">
         <div class="nav-links">
-          <a href={languageUrls[locale] === '/' ? '/about' : `${languageUrls[locale]}/about`.replace('//', '/')}>{t.nav.about}</a>
+          <a href={getNavUrl('/about')}>{t.nav.about}</a>
           <span class="divider"></span>
-          <a href={languageUrls[locale] === '/' ? '/products' : `${languageUrls[locale]}/products`.replace('//', '/')}>{t.nav.products}</a>
+          <a href={getNavUrl('/products')}>{t.nav.products}</a>
           <span class="divider"></span>
-          <a href={languageUrls[locale] === '/' ? '/blog' : `${languageUrls[locale]}/blog`.replace('//', '/')}>{t.nav.blog}</a>
+          <a href={getNavUrl('/blog')}>{t.nav.blog}</a>
         </div>
         <div class="language-selector">
           <button class="language-selector-btn" aria-label="Select language">
@@ -65,7 +73,7 @@ const languageUrls = {
       </div>
       
       <div class="nav-right">
-        <Button variant="primary" href={languageUrls[locale] === '/' ? '/contact' : `${languageUrls[locale]}/contact`.replace('//', '/')} text={t.nav.getInTouch} />
+        <Button variant="primary" href={getNavUrl('/contact')} text={t.nav.getInTouch} />
       </div>
     </div>
   </div>
