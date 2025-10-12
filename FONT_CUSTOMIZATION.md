@@ -132,7 +132,7 @@ To test fonts for a specific language:
 ## Resources
 
 - [Google Fonts](https://fonts.google.com/)
-- [Mitr Font](https://fonts.google.com/specimen/Mitr)
+- [IBM Plex Sans Thai Font](https://fonts.google.com/specimen/IBM+Plex+Sans+Thai)
 - [Satoshi Font](https://www.fontshare.com/fonts/satoshi)
 - [Font Subsetting Tool](https://www.fontsquirrel.com/tools/webfont-generator)
 

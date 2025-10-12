@@ -1045,14 +1045,14 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     line-height: 56px;
     color: var(--blue-06);
     margin-bottom: 96px;
+    text-align: center;
   }
 
   .faq-image {
     width: 300px;
     height: 300px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    transform: translateX(50%);
   }
 
   .faq-list {
@@ -1340,10 +1340,6 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     gap: 8px;
     }
 
-    .faq-image {
-      display: none;
-    }
-
     .faq-content {
       flex-direction: column;
       padding: 0 24px;
@@ -1351,13 +1347,17 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     }
 
     .faq-intro h2 {
-    font-size: 32px;
-    line-height: 38px;
-    margin-bottom: 24px;
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: 24px;
     }
 
     .faq-intro {
       width: 100%;
+    }
+
+    .faq-image {
+      margin-bottom: 16px;
     }
   }
 </style>
