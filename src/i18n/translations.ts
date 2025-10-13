@@ -91,19 +91,19 @@ export const translations = {
     // Products
     products: {
       product1Name: 'Biojet® jet aerator',
-      product1Model: 'JET-DS-18H',
+      product1Model: 'DISC JET AERATOR',
       product1ServiceLife: '>20 YEARS',
       product1Material: 'SUS316L/304',
       product1Desc: 'Biojet® Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater.',
       
       product2Name: 'Biojet® jet aerator',
-      product2Model: 'JET-DS-16V',
+      product2Model: 'DOME JET AERATOR',
       product2ServiceLife: '>20 YEARS',
       product2Material: 'SUS316L/304',
       product2Desc: 'Biojet® Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins.',
       
       product3Name: 'Biojet® jet aerator',
-      product3Model: 'JET-PP-12V',
+      product3Model: 'POD JET AERATOR',
       product3ServiceLife: '>20 YEARS',
       product3Material: 'PP Plastic',
       product3Desc: 'Biojet® Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins.',
