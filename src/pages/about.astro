@@ -5,16 +5,679 @@ import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translat
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const t = useTranslations(locale);
-const linkPrefix = locale === 'ru' ? '/ru' : '';
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 ---
 
 <Layout title={`${t.about.title} - Biojet`}>
-  <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 150px;">
-    <div style="text-align: center; max-width: 1600px; padding: 40px;">
-      <h1 style="font-size: 48px; color: var(--blue-06); margin-bottom: 24px;">{t.about.title}</h1>
-      <p style="font-size: 20px; color: var(--blue-05); margin-bottom: 40px;">{t.about.underConstruction}</p>
-      <Button variant="primary" href={linkPrefix || '/'} text={t.about.backButton} />
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <div class="about-hero-left">
+        <h1 class="about-hero-title">
+          {t.about.heroTitle.split('Jet Aeration')[0]}
+          <span class="gradient-text">Jet Aeration</span>
+          {t.about.heroTitle.split('Jet Aeration')[1]}
+        </h1>
+      </div>
+      <div class="about-hero-right">
+        <p class="about-hero-description">{t.about.heroDescription}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image -->
+  <section class="about-hero-image">
+    <img src="/assets/about-hero.jpeg" alt="Wastewater Treatment Plant" />
+  </section>
+
+  <!-- What We Do Section -->
+  <section class="about-what-we-do">
+    <div class="about-what-we-do-content">
+      <div class="about-what-we-do-left">
+        <p class="about-label">{t.about.whatWeDoLabel}</p>
+      </div>
+      <div class="about-what-we-do-right">
+        <h2 class="about-section-title">{t.about.whatWeDoTitle}</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Expertise Section -->
+  <section class="about-expertise">
+    <div class="about-expertise-content">
+      <div class="about-expertise-left">
+        <p class="about-label">{t.about.ourExpertiseLabel}</p>
+        <h2 class="about-expertise-title">{t.about.ourExpertiseTitle}</h2>
+      </div>
+      <div class="about-expertise-right">
+        <div class="expertise-item">
+          <img src="/assets/pencil-ruler.svg" alt="Customized Solutions" class="expertise-icon" />
+          <div class="expertise-text">
+            <h3>{t.about.expertiseCustomizedTitle}</h3>
+            <p>{t.about.expertiseCustomizedDesc}</p>
+          </div>
+        </div>
+        <div class="expertise-item">
+          <img src="/assets/mail.svg" alt="Free Consultation" class="expertise-icon" />
+          <div class="expertise-text">
+            <h3>{t.about.expertiseConsultationTitle}</h3>
+            <p>{t.about.expertiseConsultationDesc}</p>
+          </div>
+        </div>
+        <div class="expertise-item">
+          <img src="/assets/handshake.svg" alt="End-to-End Support" class="expertise-icon" />
+          <div class="expertise-text">
+            <h3>{t.about.expertiseSupportTitle}</h3>
+            <p>{t.about.expertiseSupportDesc}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Biojet Section -->
+  <section class="about-why-choose">
+    <div class="about-why-choose-header">
+      <div class="about-why-choose-header-left">
+        <h2 class="about-why-choose-title">{t.about.whyChooseTitle}</h2>
+      </div>
+      <div class="about-why-choose-header-right">
+        <p class="about-why-choose-subtitle">{t.about.whyChooseSubtitle}</p>
+      </div>
+    </div>
+    
+    <!-- Factory Images Row -->
+    <div class="about-factory-images">
+      <div class="factory-image-spacer"></div>
+      <div class="factory-image">
+        <img src="/assets/about-s1.webp" alt="Factory" />
+      </div>
+      <div class="factory-image">
+        <img src="/assets/factory-3.webp" alt="Factory" />
+      </div>
+      <div class="factory-image">
+        <img src="/assets/factory-4.webp" alt="Factory" />
+      </div>
+    </div>
+
+    <!-- Why Choose Cards -->
+    <div class="about-why-cards">
+      <div class="why-card-spacer"></div>
+      <div class="why-card">
+        <h3>{t.about.whyTechnologyTitle}</h3>
+        <p>{t.about.whyTechnologyDesc}</p>
+      </div>
+      <div class="why-card">
+        <h3>{t.about.whyTrackRecordTitle}</h3>
+        <p>{t.about.whyTrackRecordDesc}</p>
+      </div>
+      <div class="why-card">
+        <h3>{t.about.whyExpertTitle}</h3>
+        <p>{t.about.whyExpertDesc}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Section -->
+  <section class="about-logos">
+    <div class="logo-track">
+      <img src="/assets/client-logo-1.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-2.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-3.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-4.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-5.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-6.png" alt="Client Logo" class="client-logo" />
+      <img src="/assets/client-logo-7.png" alt="Client Logo" class="client-logo" />
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="about-contact">
+    <div class="about-contact-left">
+      <div class="about-contact-info">
+        <h2>{t.about.contactTitle}</h2>
+        <p>{t.about.contactDescription}</p>
+      </div>
+      <div class="about-contact-details">
+        <div class="contact-detail-item">
+          <h3>{t.about.contactPhoneLabel}</h3>
+          <p>{t.about.contactPhone}</p>
+        </div>
+        <div class="contact-detail-item">
+          <h3>{t.about.contactEmailLabel}</h3>
+          <p>{t.about.contactEmail}</p>
+        </div>
+        <div class="contact-detail-item">
+          <h3>{t.about.contactPartnersLabel}</h3>
+          <div class="contact-partner">
+            <img src="/assets/flag-brazil.svg" alt="Brazil Flag" class="partner-flag" />
+            <p>{t.about.contactBrazilAgent}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-contact-right">
+      <iframe data-tally-src="https://tally.so/embed/31qzrg?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="429" frameborder="0" marginheight="0" marginwidth="0" title="Leave a message."></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
   </section>
 </Layout>
 
+<style>
+  /* Hero Section */
+  .about-hero {
+    background: var(--blue-01);
+    width: 100%;
+  }
+
+  .about-hero-content {
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 480px;
+  }
+
+  .about-hero-left {
+    width: 50%;
+    padding: 180px 100px 100px;
+    box-sizing: border-box;
+  }
+
+  .about-hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    color: var(--blue-06);
+    max-width: 750px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #1573ff 0%, #00d4d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .about-hero-right {
+    width: 50%;
+    padding: 0px 100px 60px 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .about-hero-description {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--blue-06);
+    max-width: 750px;
+  }
+
+  /* Hero Image */
+  .about-hero-image {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .about-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* What We Do Section */
+  .about-what-we-do {
+    background: var(--blue-02);
+    width: 100%;
+  }
+
+  .about-what-we-do-content {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .about-what-we-do-left {
+    width: 25%;
+    padding: 100px;
+    box-sizing: border-box;
+  }
+
+  .about-label {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--blue-06);
+  }
+
+  .about-what-we-do-right {
+    width: 75%;
+    padding: 100px 0;
+    box-sizing: border-box;
+  }
+
+  .about-section-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 54px;
+    color: var(--blue-06);
+    max-width: 1150px;
+  }
+
+  /* Our Expertise Section */
+  .about-expertise {
+    background: var(--blue-01);
+    width: 100%;
+  }
+
+  .about-expertise-content {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .about-expertise-left {
+    width: 50%;
+    padding: 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-expertise-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 54px;
+    color: var(--blue-06);
+    max-width: 600px;
+  }
+
+  .about-expertise-right {
+    width: 50%;
+    padding: 100px 0 100px 80px;
+    box-sizing: border-box;
+    border-left: 1px solid var(--blue-03);
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .expertise-item {
+    display: flex;
+    gap: 80px;
+    max-width: 660px;
+  }
+
+  .expertise-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+
+  .expertise-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+  }
+
+  .expertise-text h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    color: var(--blue-06);
+  }
+
+  .expertise-text p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--blue-06);
+  }
+
+  /* Why Choose Biojet Section */
+  .about-why-choose {
+    background: var(--blue-02);
+    width: 100%;
+    padding: 80px 0px 10px;
+  }
+
+  .about-why-choose-header {
+    display: flex;
+    max-width: 1920px;
+    margin: 0px;
+  }
+
+  .about-why-choose-header-left {
+    width: 50%;
+    padding: 60px 100px;
+    box-sizing: border-box;
+  }
+
+  .about-why-choose-title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 68px;
+    color: var(--blue-06);
+  }
+
+  .about-why-choose-header-right {
+    width: 50%;
+    padding: 60px 0px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .about-why-choose-subtitle {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 38px;
+    color: var(--blue-06);
+    max-width: 850px;
+  }
+
+  /* Factory Images */
+  .about-factory-images {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .factory-image-spacer {
+    flex: 1;
+    background: transparent;
+  }
+
+  .factory-image {
+    flex: 1;
+    height: 500px;
+    overflow: hidden;
+    filter: grayscale(1);
+    transition: all 0.3s;
+  }
+
+  .factory-image:hover {
+    filter: grayscale(0);
+  }
+
+  .factory-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Why Choose Cards */
+  .about-why-cards {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .why-card-spacer {
+    width: 25%;
+    background: transparent;
+  }
+
+  .why-card {
+    flex: 1;
+    width: 25%;
+    background: var(--white);
+    border: 1px solid var(--blue-02);
+    padding: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: 396px;
+  }
+
+  .why-card h3 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    color: var(--blue-06);
+  }
+
+  .why-card p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--blue-06);
+  }
+
+  /* Client Logos Section */
+  .about-logos {
+    background: var(--white);
+    padding: 100px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .logo-track {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    max-width: 1720px;
+    margin: 0 auto;
+  }
+
+  .client-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s;
+  }
+
+  .client-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* Contact Section */
+  .about-contact {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+    background: var(--blue-01);
+  }
+
+  .about-contact-left {
+    width: 50%;
+    padding: 100px;
+    box-sizing: border-box;
+    border: 1px solid var(--blue-02);
+    background: var(--blue-02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 900px;
+  }
+
+  .about-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-contact-info h2 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 68px;
+    color: var(--blue-06);
+    max-width: 600px;
+  }
+
+  .about-contact-info p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--blue-06);
+    max-width: 600px;
+  }
+
+  .about-contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 470px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-detail-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--blue-06);
+  }
+
+  .contact-detail-item p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--blue-06);
+    white-space: pre-line;
+  }
+
+  .contact-partner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .partner-flag {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .about-contact-right {
+    border: 1px solid var(--blue-02);
+    width: 50%;
+    padding: 100px 0;
+    box-sizing: border-box;
+    background: var(--white);
+    padding: 100px;
+  }
+
+  .contact-form-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* Responsive Design */
+  @media (max-width: 1440px) {
+    .about-hero-content,
+    .about-what-we-do-content,
+    .about-expertise-content,
+    .about-why-choose-header,
+    .about-factory-images,
+    .about-why-cards,
+    .about-contact {
+      flex-direction: column;
+    }
+
+    .about-hero-left,
+    .about-hero-right,
+    .about-what-we-do-left,
+    .about-what-we-do-right,
+    .about-expertise-left,
+    .about-expertise-right,
+    .about-why-choose-header-left,
+    .about-why-choose-header-right,
+    .about-contact-left,
+    .about-contact-right {
+      width: 100%;
+    }
+
+    .about-expertise-right {
+      border-left: none;
+      border-top: 1px solid var(--blue-03);
+      padding: 80px 100px;
+    }
+
+    .about-contact-left {
+      border-right: none;
+      border-bottom: 1px solid var(--blue-03);
+      min-height: auto;
+    }
+
+    .factory-image-spacer,
+    .why-card-spacer {
+      display: none;
+    }
+
+    .factory-image {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero-left,
+    .about-hero-right,
+    .about-what-we-do-left,
+    .about-what-we-do-right,
+    .about-expertise-left,
+    .about-expertise-right,
+    .about-why-choose-header-left,
+    .about-why-choose-header-right,
+    .about-contact-left,
+    .about-contact-right {
+      padding: 60px 40px;
+    }
+
+    .about-hero-title {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .about-section-title,
+    .about-expertise-title {
+      font-size: 36px;
+      line-height: 42px;
+    }
+
+    .about-why-choose-title,
+    .about-contact-info h2 {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .expertise-item {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .about-factory-images,
+    .about-why-cards {
+      flex-direction: column;
+    }
+
+    .factory-image {
+      height: 250px;
+    }
+
+    .logo-track {
+      padding: 0 40px;
+    }
+  }
+</style>

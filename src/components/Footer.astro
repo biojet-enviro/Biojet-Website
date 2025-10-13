@@ -40,7 +40,7 @@ const t = useTranslations(locale);
         <p class="footer-copyright">{t.footer.copyright}</p>
       </div>
       <div class="footer-agent">
-        <span class="flag">🇧🇷</span>
+        <img src="/assets/flag-brazil.svg" alt="Brazil Flag" class="partner-flag" />
         <span>Novaticc Equipamentos Industriais LTDA (Agent in Brazil)</span>
       </div>
     </div>
@@ -70,16 +70,6 @@ const t = useTranslations(locale);
     width: 1654px;
     height: 431px;
     z-index: 0;
-  }
-
-  .footer-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('/assets/logo-watermark.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.1;
   }
 
   .footer-content {
@@ -176,7 +166,7 @@ const t = useTranslations(locale);
   }
 
   .footer-agent .flag {
-    font-size: 32px;
+    height: 20px;
   }
 
   .footer-product-image {
