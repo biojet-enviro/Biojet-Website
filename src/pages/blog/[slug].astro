@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/Button.astro';
+import { getLocaleFromUrl, useTranslations, type Locale } from './src/i18n/translations';
+
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog', ({ data }) => {
@@ -16,6 +18,13 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Get current locale
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const t = useTranslations(locale);
+
+// Helper for creating links
+const linkPrefix = locale === 'ru' ? '/ru' : '';
 
 // Format date
 const formattedDate = new Intl.DateTimeFormat('en-US', {
@@ -38,12 +47,30 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       </div>
     </div>
 
-    <div class="blog-post-image">
-      <img src={entry.data.coverImage} alt={entry.data.title} />
-    </div>
 
-    <div class="blog-post-content">
-      <Content />
+
+    <div class="blog-post-layout">
+
+      <aside class="table-of-contents" id="toc">
+        <h3 class="toc-title">TABLE OF CONTENTS</h3>
+        <nav class="toc-nav"></nav>
+      </aside>
+
+      <div class="blog-post-content">
+        <div class="blog-post-image">
+          <img src={entry.data.coverImage} alt={entry.data.title} />
+        </div>
+        <Content />
+      </div>
+
+      <div class="cta-card">
+        <div class="cta-card-content">
+          <h3>Need jet aerators for your project?</h3>
+          <p>Let's explore how Biojet's jet aeration solutions can meet your needs.</p>
+        </div>
+        <Button variant="primary" href={`${linkPrefix}/contact`} text="Contact Us" />
+      </div>
+
     </div>
 
     <div class="blog-post-footer">
@@ -59,8 +86,6 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   }
 
   .blog-post-header {
-    background: var(--white);
-    border-bottom: 1px solid var(--blue-03);
     padding-top: 100px;
   }
 
@@ -68,12 +93,15 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .back-link {
     display: inline-block;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--blue-05);
     text-decoration: none;
     margin-bottom: 24px;
@@ -88,8 +116,9 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     font-size: 56px;
     font-weight: 700;
     line-height: 64px;
-    color: var(--blue-06);
+    color: var(--darkgray);
     margin-bottom: 24px;
+    text-align: center;
   }
 
   .blog-post-meta {
@@ -103,37 +132,146 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     background: var(--blue-02);
     font-size: 14px;
     font-weight: 900;
-    color: var(--blue-06);
+    color: var(--darkgray);
   }
 
   .blog-date {
     font-size: 16px;
     font-weight: 500;
-    color: var(--blue-06);
+    color: var(--darkgray);
   }
 
   .blog-post-image {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0px;
     margin-top: 0px;
   }
 
   .blog-post-image img {
     width: 100%;
-    height: 480px;
+    height: 400px;
     object-fit: cover;
-    border: 1px solid var(--blue-03);
+  }
+
+  .blog-post-layout {
+    margin: 0 auto;
+    position: relative;
+    padding: 0px 40px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .table-of-contents {
+    display: none;
+  }
+
+  .cta-card {
+    display: none;
+  }
+
+  @media (min-width: 1440px) {
+    .table-of-contents {
+      display: block;
+      position: sticky;
+      top: 120px;
+      max-height: 60vh;
+      min-width: 16%;
+      max-width: 300px;
+      overflow-y: auto;
+      padding: 24px;
+      background: var(--blue-02);
+      border-radius: 0px;
+    }
+
+    .toc-title {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--blue-06);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blue-01);
+    }
+
+    .toc-nav :global(ul) {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-nav :global(li) {
+      margin-bottom: 8px;
+    }
+
+    .toc-nav :global(a) {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blue-06);
+      text-decoration: none;
+      padding: 6px 0;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .toc-nav :global(a:hover) {
+      color: var(--blue-05);
+    }
+
+    .toc-nav :global(a.active) {
+      color: var(--blue-05);
+      font-weight: 700;
+    }
+
+    .toc-nav :global(.toc-h3) {
+      padding-left: 16px;
+      font-size: 13px;
+    }
+
+    .cta-card {
+      position: sticky;
+      top: 120px;
+      padding: 48px 16px;
+      height: fit-content;
+      min-width: 16%;
+      max-width: 300px;
+      background-image: url('../assets/cta-bg.webp');
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 255px;
+      overflow: hidden;
+      gap: 40px;
+    }
+
+    .cta-card-content h3 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 32px;
+      color: var(--blue-01);
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .cta-card-content p {
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+      color: var(--blue-01);
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
   }
 
   .blog-post-content {
-    max-width: 1120px;
+    width: 100%;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 40px 80px;
-    background: var(--white);
+    padding: 0px 0px;
+    background: var(--blue-01);
     margin-top: 0px;
-    border: 1px solid var(--blue-03);
-    box-shadow: 0 2px 8px rgba(88, 200, 215, 0.2);
     overflow: hidden;
   }
 
@@ -153,7 +291,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     font-size: 32px;
     font-weight: 700;
     line-height: 40px;
-    color: var(--blue-06);
+    color: var(--darkgray);
     margin: 32px 0 20px 0;
   }
 
@@ -161,7 +299,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     font-size: 24px;
     font-weight: 700;
     line-height: 32px;
-    color: var(--blue-06);
+    color: var(--darkgray);
     margin: 28px 0 16px 0;
   }
 
@@ -169,7 +307,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
-    color: var(--blue-06);
+    color: var(--darkgray);
     margin-bottom: 20px;
   }
 
@@ -182,13 +320,13 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   .blog-post-content :global(li) {
     font-size: 18px;
     line-height: 28px;
-    color: var(--blue-06);
+    color: var(--darkgray);
     margin-bottom: 12px;
   }
 
   .blog-post-content :global(strong) {
     font-weight: 700;
-    color: var(--blue-06);
+    color: var(--darkgray);
   }
 
   .blog-post-content :global(a) {
@@ -298,4 +436,109 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     }
   }
 </style>
+
+<script>
+  // Generate Table of Contents
+  function generateTableOfContents() {
+    const content = document.querySelector('.blog-post-content');
+    const tocNav = document.querySelector('.toc-nav');
+    
+    if (!content || !tocNav) return;
+
+    // Find all h2 and h3 headings
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length === 0) return;
+
+    const tocList = document.createElement('ul');
+    
+    headings.forEach((heading, index) => {
+      // Generate ID for heading if it doesn't have one
+      if (!heading.id) {
+        const id = heading.textContent
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        heading.id = id || `heading-${index}`;
+      }
+
+      // Create TOC item
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${heading.id}`;
+      a.textContent = heading.textContent;
+      
+      // Add class for h3 to indent it
+      if (heading.tagName === 'H3') {
+        a.classList.add('toc-h3');
+      }
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    tocNav.appendChild(tocList);
+
+    // Add smooth scrolling
+    tocNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL without jumping
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
+
+    // Track active section on scroll
+    let ticking = false;
+    
+    function updateActiveLink() {
+      const scrollPosition = window.scrollY + 150;
+      
+      let current = '';
+      headings.forEach(heading => {
+        const top = heading.offsetTop;
+        if (scrollPosition >= top) {
+          current = heading.id;
+        }
+      });
+
+      tocNav.querySelectorAll('a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveLink();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial call
+    updateActiveLink();
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', generateTableOfContents);
+  } else {
+    generateTableOfContents();
+  }
+</script>
 
