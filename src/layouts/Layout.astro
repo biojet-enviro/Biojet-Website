@@ -254,16 +254,12 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
 
   .bubble-animation {
     position: fixed;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(88, 200, 215, 0.8), rgba(24, 144, 174, 0.6));
-    box-shadow: 
-      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-      inset 2px 2px 4px rgba(0, 0, 0, 0.1),
-      0 4px 8px rgba(88, 200, 215, 0.3);
+    background-image: url('../assets/bubble.svg');
+    background-size: contain;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 99;
     will-change: transform, opacity;
-    animation: bubbleAnimation 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: bubbleAnimation 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-delay: var(--animation-delay, 0s);
   }
 
@@ -275,7 +271,7 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
     left: 15%;
     width: 40%;
     height: 40%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
     border-radius: 50%;
   }
 
@@ -300,7 +296,7 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
       opacity: 1;
     }
     
-    22% {
+    16% {
       transform: translate(var(--spurt-x), var(--spurt-y)) scale(1);
       opacity: 1;
     }
@@ -327,7 +323,7 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
   // Bubble Animation System
   class BubbleAnimation {
     constructor() {
-      this.bubbleCount = 25; // Number of bubbles per click
+      this.bubbleCount = 32; // Number of bubbles per click
       this.init();
     }
 
@@ -370,7 +366,7 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
       // Set CSS custom properties for animation
       bubble.style.setProperty('--spurt-x', `${spurtX - x}px`);
       bubble.style.setProperty('--spurt-y', `${spurtY - y}px`);
-      bubble.style.setProperty('--float-distance', `${Math.random() * 200 + 300}px`);
+      bubble.style.setProperty('--float-distance', `${Math.random() * 200 + 500}px`);
       bubble.style.setProperty('--animation-delay', `${index * 0.01}s`);
       bubble.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 100}px`);
       
