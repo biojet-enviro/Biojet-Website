@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Button from '../../components/Button.astro';
-import { getLocaleFromUrl, type Locale } from '../../i18n/translations';
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+import { getLocaleFromUrl, type Locale } from '../../../i18n/translations';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog', ({ data }) => {
