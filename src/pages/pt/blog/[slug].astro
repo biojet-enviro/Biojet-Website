@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../../layouts/Layout.astro';
-import Button from '../../../components/Button.astro';
-import { useTranslations, type Locale } from '../../../i18n/translations';
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+import { getLocaleFromUrl, type Locale } from '../../i18n/translations';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog', ({ data }) => {
@@ -15,14 +15,17 @@ export async function getStaticPaths() {
   }));
 }
 
-const locale = 'pt' as Locale;
-const t = useTranslations(locale);
-
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
+// Get current locale
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+
+// Helper for creating links
+const linkPrefix = locale === 'ru' ? '/ru' : '';
+
 // Format date
-const formattedDate = new Intl.DateTimeFormat('pt-BR', {
+const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -33,44 +36,507 @@ const formattedDate = new Intl.DateTimeFormat('pt-BR', {
   <article class="blog-post">
     <div class="blog-post-header">
       <div class="blog-post-header-content">
-        <a href="/pt/blog" class="back-link">← {t.home.blogButton}</a>
+        <a href="/blog" class="back-link">← Back to Blog</a>
         <h1>{entry.data.title}</h1>
         <div class="blog-post-meta">
-          <span class="blog-tag">{t.home.blogTag}</span>
+          <span class="blog-tag">BLOG</span>
           <span class="blog-date">{formattedDate}</span>
         </div>
       </div>
     </div>
 
-    <div class="blog-post-image">
-      <img src={entry.data.coverImage} alt={entry.data.title} />
-    </div>
 
-    <div class="blog-post-content">
-      <Content />
+
+    <div class="blog-post-layout">
+
+      <aside class="table-of-contents" id="toc">
+        <h3 class="toc-title">TABLE OF CONTENTS</h3>
+        <nav class="toc-nav"></nav>
+      </aside>
+
+      <div class="blog-post-content">
+        <div class="blog-post-image">
+          <img src={entry.data.coverImage} alt={entry.data.title} />
+        </div>
+        <Content />
+      </div>
+
+      <div class="cta-card">
+        <div class="cta-card-content">
+          <h3>Need jet aerators for your project?</h3>
+          <p>Let's explore how Biojet's jet aeration solutions can meet your needs.</p>
+        </div>
+        <Button variant="primary" href={`${linkPrefix}/contact`} text="Contact Us" />
+      </div>
+
     </div>
 
     <div class="blog-post-footer">
-      <Button variant="secondary" href="/pt/blog" text={t.home.blogButton} />
+      <Button variant="secondary" href="/blog" text="View All Articles" />
     </div>
   </article>
 </Layout>
 
 <style>
-  /* Same styles as English version */
-  .blog-post { background: var(--blue-01); min-height: 100vh; }
-  .blog-post-header { background: var(--white); border-bottom: 1px solid var(--blue-03); padding-top: 120px; }
-  .blog-post-header-content { max-width: 1200px; margin: 0 auto; padding: 40px 40px 60px; }
-  .back-link { display: inline-block; font-size: 16px; font-weight: 700; color: var(--blue-05); text-decoration: none; margin-bottom: 24px; transition: color 0.3s; }
-  .back-link:hover { color: var(--blue-04); }
-  .blog-post-header h1 { font-size: 56px; font-weight: 700; line-height: 64px; color: var(--blue-06); margin-bottom: 24px; }
-  .blog-post-meta { display: flex; gap: 16px; align-items: center; }
-  .blog-tag { padding: 4px 8px; background: var(--blue-02); font-size: 14px; font-weight: 900; color: var(--blue-06); }
-  .blog-date { font-size: 16px; font-weight: 500; color: var(--blue-06); }
-  .blog-post-image { max-width: 1200px; margin: 0 auto; padding: 0 40px; margin-top: 40px; }
-  .blog-post-image img { width: 100%; height: 500px; object-fit: cover; border: 1px solid var(--blue-03); }
-  .blog-post-content { max-width: 1000px; margin: 0 auto; padding: 60px 40px; background: var(--white); margin-top: 40px; border: 1px solid var(--blue-03); box-shadow: 0 2px 8px rgba(88, 200, 215, 0.2); overflow: hidden; }
-  .blog-post-content :global(h1), .blog-post-content :global(h2), .blog-post-content :global(h3), .blog-post-content :global(p), .blog-post-content :global(li) { color: var(--blue-06); }
-  .blog-post-footer { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; text-align: center; }
+  .blog-post {
+    background: var(--blue-01);
+    min-height: 100vh;
+  }
+
+  .blog-post-header {
+    padding-top: 100px;
+  }
+
+  .blog-post-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue-05);
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .back-link:hover {
+    color: var(--blue-04);
+  }
+
+  .blog-post-header h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: var(--darkgray);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .blog-post-meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .blog-tag {
+    padding: 4px 8px;
+    background: var(--blue-02);
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--darkgray);
+  }
+
+  .blog-date {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--darkgray);
+  }
+
+  .blog-post-image {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+    margin-top: 0px;
+  }
+
+  .blog-post-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .blog-post-layout {
+    margin: 0 auto;
+    position: relative;
+    padding: 0px 40px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .table-of-contents {
+    display: none;
+  }
+
+  .cta-card {
+    display: none;
+  }
+
+  @media (min-width: 1440px) {
+    .table-of-contents {
+      display: block;
+      position: sticky;
+      top: 120px;
+      max-height: 60vh;
+      min-width: 16%;
+      max-width: 300px;
+      overflow-y: auto;
+      padding: 24px;
+      background: var(--blue-02);
+      border-radius: 0px;
+    }
+
+    .toc-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--blue-05);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blue-01);
+    }
+
+    .toc-nav :global(ul) {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-nav :global(li) {
+      margin-bottom: 8px;
+    }
+
+    .toc-nav :global(a) {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blue-06);
+      text-decoration: none;
+      padding: 6px 0;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .toc-nav :global(a:hover) {
+      color: var(--blue-04);
+    }
+
+    .toc-nav :global(a.active) {
+      color: var(--blue-04);
+      font-weight: 700;
+    }
+
+    .toc-nav :global(.toc-h3) {
+      padding-left: 16px;
+      font-size: 13px;
+    }
+
+    .cta-card {
+      position: sticky;
+      top: 120px;
+      padding: 48px 16px;
+      height: fit-content;
+      min-width: 16%;
+      max-width: 300px;
+      background-image: url('../assets/cta-bg.webp');
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 255px;
+      overflow: hidden;
+      gap: 40px;
+    }
+
+    .cta-card-content h3 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 32px;
+      color: var(--blue-01);
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .cta-card-content p {
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+      color: var(--blue-01);
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+  }
+
+  .blog-post-content {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0px 0px;
+    background: var(--blue-01);
+    margin-top: 0px;
+    overflow: hidden;
+  }
+
+  .blog-post-content :global(h1) {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    color: var(--blue-06);
+    margin: 40px 0 24px 0;
+  }
+
+  .blog-post-content :global(h1:first-child) {
+    margin-top: 0;
+  }
+
+  .blog-post-content :global(h2) {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: var(--darkgray);
+    margin: 32px 0 20px 0;
+  }
+
+  .blog-post-content :global(h3) {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--darkgray);
+    margin: 28px 0 16px 0;
+  }
+
+  .blog-post-content :global(p) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: var(--darkgray);
+    margin-bottom: 20px;
+  }
+
+  .blog-post-content :global(ul),
+  .blog-post-content :global(ol) {
+    margin: 20px 0;
+    padding-left: 28px;
+  }
+
+  .blog-post-content :global(li) {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--darkgray);
+    margin-bottom: 12px;
+  }
+
+  .blog-post-content :global(strong) {
+    font-weight: 700;
+    color: var(--darkgray);
+  }
+
+  .blog-post-content :global(a) {
+    color: var(--blue-05);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+
+  .blog-post-content :global(a:hover) {
+    color: var(--blue-04);
+  }
+
+  .blog-post-content :global(blockquote) {
+    border-left: 4px solid var(--blue-02);
+    padding-left: 24px;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--blue-05);
+  }
+
+  .blog-post-content :global(code) {
+    background: var(--blue-02);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 16px;
+  }
+
+  .blog-post-content :global(pre) {
+    background: var(--blue-02);
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+
+  .blog-post-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  /* Hide the automatic "Footnotes" heading generated by markdown */
+  .blog-post-content :global(.footnotes::before) {
+    display: none;
+  }
+
+  .blog-post-content :global(.footnotes > :first-child) {
+    display: none;
+  }
+
+  .blog-post-footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post-header {
+      padding-top: 80px;
+    }
+
+    .blog-post-header-content {
+      padding: 24px 24px 40px;
+    }
+
+    .blog-post-header h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .blog-post-image {
+      padding: 0px;
+    }
+
+    .blog-post-image img {
+      height: 250px;
+    }
+
+    .blog-post-content {
+      padding: 40px 24px;
+    }
+
+    .blog-post-content :global(h1) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    .blog-post-content :global(h2) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .blog-post-content :global(h3) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .blog-post-content :global(p),
+    .blog-post-content :global(li) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .blog-post-footer {
+      padding: 32px 24px 60px;
+    }
+  }
 </style>
+
+<script>
+  // Generate Table of Contents
+  function generateTableOfContents() {
+    const content = document.querySelector('.blog-post-content');
+    const tocNav = document.querySelector('.toc-nav');
+    
+    if (!content || !tocNav) return;
+
+    // Find all h2 and h3 headings
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length === 0) return;
+
+    const tocList = document.createElement('ul');
+    
+    headings.forEach((heading, index) => {
+      // Generate ID for heading if it doesn't have one
+      if (!heading.id) {
+        const id = heading.textContent
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        heading.id = id || `heading-${index}`;
+      }
+
+      // Create TOC item
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${heading.id}`;
+      a.textContent = heading.textContent;
+      
+      // Add class for h3 to indent it
+      if (heading.tagName === 'H3') {
+        a.classList.add('toc-h3');
+      }
+      
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    tocNav.appendChild(tocList);
+
+    // Add smooth scrolling
+    tocNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL without jumping
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
+
+    // Track active section on scroll
+    let ticking = false;
+    
+    function updateActiveLink() {
+      const scrollPosition = window.scrollY + 150;
+      
+      let current = '';
+      headings.forEach(heading => {
+        const top = heading.offsetTop;
+        if (scrollPosition >= top) {
+          current = heading.id;
+        }
+      });
+
+      tocNav.querySelectorAll('a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveLink();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial call
+    updateActiveLink();
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', generateTableOfContents);
+  } else {
+    generateTableOfContents();
+  }
+</script>
 
