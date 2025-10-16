@@ -7,17 +7,34 @@ import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translat
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const t = useTranslations(locale);
-const linkPrefix = locale === 'ru' ? '/ru' : '';
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
-// Get all blog posts
-const allBlogPosts = await getCollection('blog', ({ data }) => {
-  return data.draft !== true;
+// Get all blog posts filtered by locale
+const allBlogPosts = await getCollection('blog', ({ data, id }) => {
+  // Filter out drafts
+  if (data.draft === true) return false;
+  
+  // For non-English locales, only show posts in the locale subdirectory
+  if (locale !== 'en') {
+    return id.startsWith(`${locale}/`);
+  }
+  
+  // For English, only show posts NOT in language subdirectories
+  return !id.includes('/');
 });
 
 // Sort by date (newest first)
 const sortedPosts = allBlogPosts.sort((a, b) => 
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// Helper to remove locale prefix from slug
+function cleanSlug(slug: string) {
+  if (locale !== 'en' && slug.startsWith(`${locale}/`)) {
+    return slug.replace(`${locale}/`, '');
+  }
+  return slug;
+}
 
 // Format date helper
 function formatDate(date: Date) {
@@ -51,7 +68,7 @@ function formatDate(date: Date) {
               <p class="blog-excerpt">
                 {sortedPosts[0].data.description}
               </p>
-              <a href={`${linkPrefix}/blog/${sortedPosts[0].slug}`} class="read-more">{t.home.blogReadMore} →</a>
+              <a href={`${linkPrefix}/blog/${cleanSlug(sortedPosts[0].slug)}`} class="read-more">{t.home.blogReadMore} →</a>
             </div>
           </div>
 
@@ -63,7 +80,7 @@ function formatDate(date: Date) {
                   excerpt={post.data.description}
                   date={formatDate(post.data.pubDate)}
                   image={post.data.coverImage}
-                  slug={post.slug}
+                  slug={cleanSlug(post.slug)}
                   locale={locale}
                 />
               ))}

@@ -13,9 +13,18 @@ import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translat
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const t = useTranslations(locale);
 
-// Get blog posts
-const allBlogPosts = await getCollection('blog', ({ data }) => {
-  return data.draft !== true;
+// Get blog posts filtered by locale
+const allBlogPosts = await getCollection('blog', ({ data, id }) => {
+  // Filter out drafts
+  if (data.draft === true) return false;
+  
+  // For non-English locales, only show posts in the locale subdirectory
+  if (locale !== 'en') {
+    return id.startsWith(`${locale}/`);
+  }
+  
+  // For English, only show posts NOT in language subdirectories
+  return !id.includes('/');
 });
 
 // Sort by date (newest first) and get latest 4
@@ -23,16 +32,31 @@ const latestPosts = allBlogPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 
+// Helper to remove locale prefix from slug
+function cleanSlug(slug: string) {
+  if (locale !== 'en' && slug.startsWith(`${locale}/`)) {
+    return slug.replace(`${locale}/`, '');
+  }
+  return slug;
+}
+
 // Format date helper
 function formatDate(date: Date) {
-  return new Intl.DateTimeFormat(locale === 'ru' ? 'ru-RU' : 'en-US', {
+  const localeMap: Record<Locale, string> = {
+    en: 'en-US',
+    ru: 'ru-RU',
+    pt: 'pt-BR',
+    th: 'th-TH'
+  };
+  
+  return new Intl.DateTimeFormat(localeMap[locale], {
     year: 'numeric',
     month: 'short'
   }).format(date);
 }
 
 // Helper for creating links
-const linkPrefix = locale === 'ru' ? '/ru' : '';
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 ---
 
 <Layout title="Biojet - Industry-leading Jet Aerators for Wastewater Treatment">
@@ -301,7 +325,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
               <p class="blog-excerpt">
                 {latestPosts[0].data.description}
               </p>
-              <a href={`${linkPrefix}/blog/${latestPosts[0].slug}`} class="read-more">{t.home.blogReadMore}</a>
+              <a href={`${linkPrefix}/blog/${cleanSlug(latestPosts[0].slug)}`} class="read-more">{t.home.blogReadMore}</a>
             </div>
           </div>
           {latestPosts.length > 1 && (
@@ -312,7 +336,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
                   excerpt={post.data.description}
                   date={formatDate(post.data.pubDate)}
                   image={post.data.coverImage}
-                  slug={post.slug}
+                  slug={cleanSlug(post.slug)}
                   locale={locale}
                 />
               ))}
@@ -497,7 +521,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
   .video-text {
     display: flex;
     gap: 32px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .video-title {
@@ -510,9 +534,9 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
 
   .video-description {
     flex: 1;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 26px;
+    line-height: 24px;
     color: var(--blue-05);
   }
 
@@ -909,7 +933,7 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     padding: 0 0px;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
   }
 
   .blog-header {
@@ -929,13 +953,13 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     background: var(--white);
     border: 1px solid var(--blue-03);
     padding: 16px;
-    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
+    box-shadow: 0 0px 0px rgba(88, 200, 215, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .blog-featured:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(88, 200, 215, 0.3);
   }
 
   .blog-image img {

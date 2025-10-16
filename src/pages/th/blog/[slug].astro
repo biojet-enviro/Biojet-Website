@@ -5,12 +5,14 @@ import Button from '../../../components/Button.astro';
 import { getLocaleFromUrl, type Locale } from '../../../i18n/translations';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog', ({ data }) => {
-    return data.draft !== true;
+  const blogEntries = await getCollection('blog', ({ data, id }) => {
+    // Only include non-draft posts that are in the th/ subdirectory
+    return data.draft !== true && id.startsWith('th/');
   });
   
   return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, 
+    // Remove the 'th/' prefix from the slug for the URL
+    params: { slug: entry.slug.replace('th/', '') }, 
     props: { entry },
   }));
 }
@@ -22,7 +24,7 @@ const { Content } = await entry.render();
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Helper for creating links
-const linkPrefix = locale === 'ru' ? '/ru' : '';
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
 // Format date
 const formattedDate = new Intl.DateTimeFormat('en-US', {
@@ -36,7 +38,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   <article class="blog-post">
     <div class="blog-post-header">
       <div class="blog-post-header-content">
-        <a href="/blog" class="back-link">← Back to Blog</a>
+        <a href={`${linkPrefix}/blog`} class="back-link">← Back to Blog</a>
         <h1>{entry.data.title}</h1>
         <div class="blog-post-meta">
           <span class="blog-tag">BLOG</span>
@@ -72,7 +74,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     </div>
 
     <div class="blog-post-footer">
-      <Button variant="secondary" href="/blog" text="View All Articles" />
+      <Button variant="secondary" href={`${linkPrefix}/blog`} text="View All Articles" />
     </div>
   </article>
 </Layout>
@@ -233,7 +235,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       height: fit-content;
       min-width: 16%;
       max-width: 300px;
-      background-image: url('../assets/cta-bg.webp');
+      background-image: url('../../assets/cta-bg.webp');
       background-size: cover;
       display: flex;
       flex-direction: column;

@@ -12,7 +12,7 @@ export interface Props {
 
 const { title, excerpt, date, image, slug, locale } = Astro.props;
 const t = useTranslations(locale);
-const linkPrefix = locale === 'ru' ? '/ru' : '';
+const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 ---
 
 <article class="blog-card">
@@ -35,13 +35,13 @@ const linkPrefix = locale === 'ru' ? '/ru' : '';
     background: var(--white);
     border: 1px solid var(--blue-03);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
+    box-shadow: 0 0px 0px rgba(88, 200, 215, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .blog-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
+    box-shadow: 0 2px 8px rgba(88, 200, 215, 0.3);
   }
 
   .blog-card-image {
