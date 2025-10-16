@@ -98,13 +98,19 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
         </p>
       </div>
       <div class="video-container">
-        <img src="/assets/video-placeholder.jpg" alt="Biojet Jet Aerator in Action" />
-        <button class="play-button" aria-label="Play video">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="30" fill="white" fill-opacity="0.9"/>
-            <path d="M24 20L40 30L24 40V20Z" fill="#175A78"/>
-          </svg>
-        </button>
+        <video 
+          id="biojet-video"
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="/assets/video-placeholder.jpg"
+          disablepictureinpicture
+          controlslist="nodownload nofullscreen noremoteplayback"
+        >
+          <source src="/assets/biojet-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>
@@ -386,6 +392,50 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   </section>
 </Layout>
 
+<script>
+  // Ensure video plays continuously and prevent pausing
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('biojet-video') as HTMLVideoElement;
+    
+    if (video) {
+      // Disable right-click context menu
+      video.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+      });
+
+      // Prevent pause attempts
+      video.addEventListener('pause', () => {
+        video.play();
+      });
+
+      // Ensure video plays when it's loaded
+      video.addEventListener('loadeddata', () => {
+        video.play().catch((error) => {
+          console.warn('Auto-play was prevented:', error);
+        });
+      });
+
+      // Re-play if video ends (backup for loop attribute)
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+
+      // Attempt to play the video immediately
+      video.play().catch((error) => {
+        console.warn('Auto-play was prevented:', error);
+      });
+
+      // Disable keyboard controls
+      video.addEventListener('keydown', (e) => {
+        e.preventDefault();
+        return false;
+      });
+    }
+  });
+</script>
+
 <style>
   /* Hero Section */
   .hero-section {
@@ -548,25 +598,28 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     overflow: hidden;
   }
 
-  .video-container img {
+  .video-container video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    pointer-events: none;
   }
 
-  .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s;
+  .video-container video::-webkit-media-controls {
+    display: none !important;
   }
 
-  .play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+  .video-container video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+
+  .video-container video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+
+  .video-container video::-webkit-media-controls-start-playback-button {
+    display: none !important;
   }
 
   /* Products Section */
