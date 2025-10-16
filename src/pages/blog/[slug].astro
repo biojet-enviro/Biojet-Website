@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/Button.astro';
+import { getLocaleFromUrl, type Locale } from '../../i18n/translations';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog', ({ data }) => {
@@ -16,6 +17,9 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Get current locale
+const locale = getLocaleFromUrl(Astro.url) as Locale;
 
 // Helper for creating links
 const linkPrefix = locale === 'ru' ? '/ru' : '';
