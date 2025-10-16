@@ -247,5 +247,145 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
       --section-padding: 60px;
     }
   }
+
+  /* ========================================
+     Bubble Animation
+     ======================================== */
+
+  .bubble-animation {
+    position: fixed;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(88, 200, 215, 0.8), rgba(24, 144, 174, 0.6));
+    box-shadow: 
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+      0 4px 8px rgba(88, 200, 215, 0.3);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform, opacity;
+    animation: bubbleAnimation 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+
+  /* Add a shiny highlight to the bubble */
+  .bubble-animation::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+  }
+
+  /* Add a subtle inner glow */
+  .bubble-animation::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.3), transparent 60%);
+  }
+
+  @keyframes bubbleAnimation {
+    0% {
+      transform: translate(0, 0) scale(0);
+      opacity: 0;
+    }
+    
+    /* Spurt phase - bubbles shoot out in random directions */
+    0.1% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    
+    22% {
+      transform: translate(var(--spurt-x), var(--spurt-y)) scale(1);
+      opacity: 1;
+    }
+    
+    /* Float phase - bubbles start rising */
+    100% {
+      transform: translate(
+        calc(var(--spurt-x) + var(--drift-x)), 
+        calc(var(--spurt-y) - var(--float-distance))
+      ) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  /* Ensure bubbles work well on mobile */
+  @media (max-width: 768px) {
+    .bubble-animation {
+      animation-duration: 3s;
+    }
+  }
 </style>
+
+<script>
+  // Bubble Animation System
+  class BubbleAnimation {
+    constructor() {
+      this.bubbleCount = 25; // Number of bubbles per click
+      this.init();
+    }
+
+    init() {
+      document.addEventListener('click', (e) => this.createBubbles(e));
+    }
+
+    createBubbles(e: MouseEvent) {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      for (let i = 0; i < this.bubbleCount; i++) {
+        this.createBubble(x, y, i);
+      }
+    }
+
+    createBubble(x: number, y: number, index: number) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble-animation';
+      
+      // Random size between 10px and 25px
+      const size = Math.random() * 15 + 10;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      
+      // Random angle for initial spurt (0-360 degrees)
+      const angle = (Math.random() * 360) * (Math.PI / 180);
+      
+      // Random distance for initial spurt (160-320px)
+      const distance = Math.random() * 160 + 160;
+      
+      // Calculate spurt destination
+      const spurtX = x + Math.cos(angle) * distance;
+      const spurtY = y + Math.sin(angle) * distance;
+      
+      // Set initial position
+      bubble.style.left = `${x}px`;
+      bubble.style.top = `${y}px`;
+      
+      // Set CSS custom properties for animation
+      bubble.style.setProperty('--spurt-x', `${spurtX - x}px`);
+      bubble.style.setProperty('--spurt-y', `${spurtY - y}px`);
+      bubble.style.setProperty('--float-distance', `${Math.random() * 200 + 300}px`);
+      bubble.style.setProperty('--animation-delay', `${index * 0.01}s`);
+      bubble.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 100}px`);
+      
+      document.body.appendChild(bubble);
+      
+      // Remove bubble after animation completes
+      setTimeout(() => {
+        bubble.remove();
+      }, 4000);
+    }
+  }
+
+  // Initialize bubble animation when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new BubbleAnimation();
+  });
+</script>
 

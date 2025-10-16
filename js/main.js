@@ -214,6 +214,70 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Bubble Animation System
+class BubbleAnimation {
+    constructor() {
+        this.bubbleCount = 15; // Number of bubbles per click
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('click', (e) => this.createBubbles(e));
+    }
+
+    createBubbles(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        for (let i = 0; i < this.bubbleCount; i++) {
+            this.createBubble(x, y, i);
+        }
+    }
+
+    createBubble(x, y, index) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble-animation';
+        
+        // Random size between 10px and 30px
+        const size = Math.random() * 20 + 10;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random angle for initial spurt (0-360 degrees)
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        
+        // Random distance for initial spurt (30-80px)
+        const distance = Math.random() * 50 + 30;
+        
+        // Calculate spurt destination
+        const spurtX = x + Math.cos(angle) * distance;
+        const spurtY = y + Math.sin(angle) * distance;
+        
+        // Set initial position
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
+        
+        // Set CSS custom properties for animation
+        bubble.style.setProperty('--spurt-x', `${spurtX - x}px`);
+        bubble.style.setProperty('--spurt-y', `${spurtY - y}px`);
+        bubble.style.setProperty('--float-distance', `${Math.random() * 200 + 300}px`);
+        bubble.style.setProperty('--animation-delay', `${index * 0.02}s`);
+        bubble.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 100}px`);
+        
+        document.body.appendChild(bubble);
+        
+        // Remove bubble after animation completes
+        setTimeout(() => {
+            bubble.remove();
+        }, 4000);
+    }
+}
+
+// Initialize bubble animation when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new BubbleAnimation();
+});
+
 // Console easter egg for developers
 console.log('%c🌊 Biojet - Breathing fresh air into waste water solutions', 
     'color: #1890AE; font-size: 16px; font-weight: bold; padding: 10px;');

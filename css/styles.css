@@ -1398,3 +1398,77 @@ button {
     }
 }
 
+/* ========================================
+   Bubble Animation
+   ======================================== */
+
+.bubble-animation {
+    position: fixed;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(88, 200, 215, 0.8), rgba(24, 144, 174, 0.6));
+    box-shadow: 
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(88, 200, 215, 0.3);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform, opacity;
+    animation: bubbleAnimation 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: var(--animation-delay, 0s);
+}
+
+/* Add a shiny highlight to the bubble */
+.bubble-animation::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+}
+
+/* Add a subtle inner glow */
+.bubble-animation::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.3), transparent 60%);
+}
+
+@keyframes bubbleAnimation {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    
+    /* Spurt phase - bubbles shoot out in random directions */
+    5% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    
+    25% {
+        transform: translate(var(--spurt-x), var(--spurt-y)) scale(1);
+        opacity: 1;
+    }
+    
+    /* Float phase - bubbles start rising */
+    100% {
+        transform: translate(
+            calc(var(--spurt-x) + var(--drift-x)), 
+            calc(var(--spurt-y) - var(--float-distance))
+        ) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Ensure bubbles work well on mobile */
+@media (max-width: 768px) {
+    .bubble-animation {
+        animation-duration: 3s;
+    }
+}
+

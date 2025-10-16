@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Animation Demo - Biojet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #F4FBFC 0%, #DDF4F7 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .demo-container {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #175A78;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #1890AE;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .demo-area {
+      background: white;
+      border: 3px dashed #58C8D7;
+      border-radius: 20px;
+      padding: 60px;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(88, 200, 215, 0.2);
+    }
+
+    .demo-area:hover {
+      border-color: #1890AE;
+      box-shadow: 0 15px 50px rgba(88, 200, 215, 0.3);
+    }
+
+    .demo-text {
+      font-size: 24px;
+      color: #58C8D7;
+      font-weight: 500;
+    }
+
+    /* ========================================
+       Bubble Animation
+       ======================================== */
+
+    .bubble-animation {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(88, 200, 215, 0.8), rgba(24, 144, 174, 0.6));
+      box-shadow: 
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(88, 200, 215, 0.3);
+      pointer-events: none;
+      z-index: 9999;
+      will-change: transform, opacity;
+      animation: bubbleAnimation 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      animation-delay: var(--animation-delay, 0s);
+    }
+
+    /* Add a shiny highlight to the bubble */
+    .bubble-animation::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      width: 40%;
+      height: 40%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+      border-radius: 50%;
+    }
+
+    /* Add a subtle inner glow */
+    .bubble-animation::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.3), transparent 60%);
+    }
+
+    @keyframes bubbleAnimation {
+      0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+      }
+      
+      /* Spurt phase - bubbles shoot out in random directions */
+      5% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      
+      25% {
+        transform: translate(var(--spurt-x), var(--spurt-y)) scale(1);
+        opacity: 1;
+      }
+      
+      /* Float phase - bubbles start rising */
+      100% {
+        transform: translate(
+          calc(var(--spurt-x) + var(--drift-x)), 
+          calc(var(--spurt-y) - var(--float-distance))
+        ) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .demo-area {
+        padding: 40px 20px;
+        min-height: 300px;
+      }
+
+      .demo-text {
+        font-size: 18px;
+      }
+
+      .bubble-animation {
+        animation-duration: 3s;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1>🌊 Bubble Animation Demo</h1>
+    <p>Click anywhere on the screen to create bubbles!<br>Watch them spurt out and float upward.</p>
+    <div class="demo-area">
+      <div class="demo-text">👆 Click anywhere to create bubbles!</div>
+    </div>
+  </div>
+
+  <script>
+    // Bubble Animation System
+    class BubbleAnimation {
+      constructor() {
+        this.bubbleCount = 15; // Number of bubbles per click
+        this.init();
+      }
+
+      init() {
+        document.addEventListener('click', (e) => this.createBubbles(e));
+      }
+
+      createBubbles(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        for (let i = 0; i < this.bubbleCount; i++) {
+          this.createBubble(x, y, i);
+        }
+      }
+
+      createBubble(x, y, index) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble-animation';
+        
+        // Random size between 10px and 30px
+        const size = Math.random() * 20 + 10;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Random angle for initial spurt (0-360 degrees)
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        
+        // Random distance for initial spurt (30-80px)
+        const distance = Math.random() * 50 + 30;
+        
+        // Calculate spurt destination
+        const spurtX = x + Math.cos(angle) * distance;
+        const spurtY = y + Math.sin(angle) * distance;
+        
+        // Set initial position
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
+        
+        // Set CSS custom properties for animation
+        bubble.style.setProperty('--spurt-x', `${spurtX - x}px`);
+        bubble.style.setProperty('--spurt-y', `${spurtY - y}px`);
+        bubble.style.setProperty('--float-distance', `${Math.random() * 200 + 300}px`);
+        bubble.style.setProperty('--animation-delay', `${index * 0.02}s`);
+        bubble.style.setProperty('--drift-x', `${(Math.random() - 0.5) * 100}px`);
+        
+        document.body.appendChild(bubble);
+        
+        // Remove bubble after animation completes
+        setTimeout(() => {
+          bubble.remove();
+        }, 4000);
+      }
+    }
+
+    // Initialize bubble animation when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      new BubbleAnimation();
+    });
+  </script>
+</body>
+</html>
+
