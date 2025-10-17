@@ -87,35 +87,41 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     </div>
     
     <!-- Factory Images Row -->
-    <div class="about-factory-images">
-      <div class="factory-image-spacer"></div>
-      <div class="factory-image">
-        <img src="/assets/about-s1.webp" alt="Factory" />
+    <div class="factory-row">
+      <div class="factory-spacer"></div>
+
+      <div class="why-card">
+        <div class="factory-image">
+          <img src="/assets/about-s1.webp" alt="Factory" />
+        </div>
+        <div class="why-card-text">
+          <h3>{t.about.whyTechnologyTitle}</h3>
+          <p>{t.about.whyTechnologyDesc}</p>
+        </div>
       </div>
-      <div class="factory-image">
-        <img src="/assets/factory-3.webp" alt="Factory" />
+      
+      <div class="why-card">
+        <div class="factory-image">
+          <img src="/assets/factory-3.webp" alt="Factory" />
+        </div>
+        <div class="why-card-text">
+          <h3>{t.about.whyTrackRecordTitle}</h3>
+          <p>{t.about.whyTrackRecordDesc}</p>
+        </div>
       </div>
-      <div class="factory-image">
-        <img src="/assets/factory-4.webp" alt="Factory" />
+
+      <div class="why-card">
+        <div class="factory-image">
+          <img src="/assets/factory-4.webp" alt="Factory" />
+        </div>
+        <div class="why-card-text">
+          <h3>{t.about.whyExpertTitle}</h3>
+          <p>{t.about.whyExpertDesc}</p>
+        </div>
       </div>
     </div>
 
-    <!-- Why Choose Cards -->
-    <div class="about-why-cards">
-      <div class="why-card-spacer"></div>
-      <div class="why-card">
-        <h3>{t.about.whyTechnologyTitle}</h3>
-        <p>{t.about.whyTechnologyDesc}</p>
-      </div>
-      <div class="why-card">
-        <h3>{t.about.whyTrackRecordTitle}</h3>
-        <p>{t.about.whyTrackRecordDesc}</p>
-      </div>
-      <div class="why-card">
-        <h3>{t.about.whyExpertTitle}</h3>
-        <p>{t.about.whyExpertDesc}</p>
-      </div>
-    </div>
+    
   </section>
 
   <!-- Client Logos Section -->
@@ -383,20 +389,30 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   /* Factory Images */
-  .about-factory-images {
+  .factory-row {
     display: flex;
     max-width: 1920px;
+    max-height: 100vh;
     margin: 0 auto;
   }
 
-  .factory-image-spacer {
-    flex: 1;
+  .factory-spacer {
+    width: 25%;
     background: transparent;
+  }
+
+  /* Why Choose Cards */
+  .why-card {
+    display: flex;
+    max-width: 25%;
+    height: fit-content;
+    flex-direction: column;
   }
 
   .factory-image {
     flex: 1;
-    height: 500px;
+    width: 100%;
+    max-height: 300px;
     overflow: hidden;
     filter: grayscale(1);
     transition: all 0.3s;
@@ -412,21 +428,9 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     object-fit: cover;
   }
 
-  /* Why Choose Cards */
-  .about-why-cards {
-    display: flex;
-    max-width: 1920px;
-    margin: 0 auto;
-  }
-
-  .why-card-spacer {
-    width: 25%;
-    background: transparent;
-  }
-
-  .why-card {
-    flex: 1;
-    width: 25%;
+  .why-card-text {
+    height: 400px;
+    width: 100%;
     background: var(--white);
     border: 1px solid var(--blue-02);
     padding: 60px;
@@ -434,17 +438,16 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     display: flex;
     flex-direction: column;
     gap: 32px;
-    min-height: 396px;
   }
 
-  .why-card h3 {
+  .why-card-text h3 {
     font-size: 32px;
     font-weight: 700;
     line-height: 38px;
     color: var(--blue-06);
   }
 
-  .why-card p {
+  .why-card-text p {
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
@@ -590,8 +593,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     .about-what-we-do-content,
     .about-expertise-content,
     .about-why-choose-header,
-    .about-factory-images,
-    .about-why-cards,
+    .factory-row,
     .about-contact {
       flex-direction: column;
     }
@@ -609,6 +611,17 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       width: 100%;
     }
 
+    .factory-row {
+      max-width: 100%;
+      max-height: fit-content;
+      margin-top: 24px;
+    }
+
+    .why-card {
+      max-width: 100%;
+      padding: 0px 24px;
+    }
+
     .about-expertise-right {
       border-left: none;
       border-top: 1px solid var(--blue-03);
@@ -616,57 +629,129 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .about-contact-left {
-      border-right: none;
-      border-bottom: 1px solid var(--blue-03);
-      min-height: auto;
+      padding: 88px 24px;
+      border: none;
+      justify-content: flex-start;
+      min-height: fit-content;
+      gap: 48px;
     }
 
-    .factory-image-spacer,
-    .why-card-spacer {
+    .factory-spacer {
       display: none;
     }
 
     .factory-image {
-      height: 300px;
+      max-height: 300px;
     }
   }
 
   @media (max-width: 768px) {
-    .about-hero-left,
-    .about-hero-right,
     .about-what-we-do-left,
     .about-what-we-do-right,
     .about-expertise-left,
     .about-expertise-right,
     .about-why-choose-header-left,
-    .about-why-choose-header-right,
-    .about-contact-left,
-    .about-contact-right {
-      padding: 8px 24px;
+    .about-why-choose-header-right{
+      padding: 0px 24px;
+    }
+
+    .about-hero-content {
+      gap: 16px;
+      height: 360px;
     }
 
     .about-hero-title {
-      font-size: 48px;
-      line-height: 56px;
-      margin-top: 80px;
+      font-size: 36px;
+      line-height: 44px;
+      margin-top: 100px;
+    }
+
+    .about-hero-left {
+      width: 100%;
+      padding: 0px 24px;
+    }
+
+    .about-hero-right {
+      width: 100%;
+      padding: 0px 24px;
     }
 
     .about-hero-description {
       font-size: 16px;
       font-weight: 500;
-      line-height: 24px;
+      line-height: 22px;
+    }
+
+    .about-hero-image {
+      width: 100%;
+      height: 50vh;
+      overflow: hidden;
+    }
+
+    .about-what-we-do-content {
+      padding: 80px 0px;
+      gap: 24px;
+    }
+
+    .about-expertise-content {
+      padding: 48px 0px;
+    }
+
+    .about-why-choose {
+      background: var(--blue-02);
+      width: 100%;
+      padding: 88px 0px 24px;
+    }
+
+    .about-why-choose-header {
+      gap: 24px;
+      margin-bottom: 48px;
     }
 
     .about-section-title,
     .about-expertise-title {
       font-size: 24px;
       line-height: 30px;
+      max-width: 100%;
+    }
+
+    .about-label {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+
+    .about-expertise-left {
+      padding: 48px 24px;
+      gap: 24px;
+    }
+
+    .about-expertise-right {
+      padding: 48px 24px;
+      gap: 48px;
     }
 
     .about-why-choose-title,
     .about-contact-info h2 {
-      font-size: 24px;
-      line-height: 30px;
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--blue-05);
+    }
+
+    /* Client Logos Section */
+    .about-logos {
+      padding: 48px;
+    }
+
+    .logo-track {
+      gap: 8px;
+    }
+
+    .client-logo {
+      height: 32px;
+      width: auto;
     }
 
     .about-expertise-title {
@@ -676,40 +761,87 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .expertise-item {
-      flex-direction: column;
       gap: 24px;
     }
 
-    .expertise-text h3 {
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 30px;
+    .expertise-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
     }
 
-    .expertise-text p {
+    .expertise-text h3,
+    .why-card-text h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+
+    .expertise-text p,
+    .why-card-text p  {
       font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
+      font-weight: 400;
+      line-height: 22px;
     }
 
     .about-why-choose-subtitle {
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 400;
+      line-height: 22px;
+      max-width: 100%;
+    }
+
+    .why-card {
+      flex-direction: row;
+    }
+
+    .why-card-text {
+      height: 260px;
+      width: 65%;
+      background: var(--white);
+      padding: 24px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .factory-spacer {
+      display: none;
+    }
+
+    .factory-image {
+      min-height: 100px;
+    }
+
+    .about-contact-info {
+      gap: 24px;
+    }
+
+    .about-contact-info p {
+      font-size: 16px;
+      font-weight: 400;
       line-height: 24px;
       max-width: 100%;
     }
 
-    .about-factory-images,
-    .about-why-cards {
-      flex-direction: column;
+    .contact-detail-item h3 {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 26px;
+      color: var(--blue-06);
     }
 
-    .factory-image {
-      height: 250px;
+    .contact-detail-item p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 26px;
+      color: var(--blue-06);
+      white-space: pre-line;
     }
 
-    .logo-track {
-      padding: 0 40px;
+    .about-contact-right {
+      padding: 80px 24px;
     }
+
   }
 </style>
