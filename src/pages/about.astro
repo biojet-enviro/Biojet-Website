@@ -657,7 +657,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .about-hero-content {
       gap: 16px;
-      height: 360px;
+      height: fit-content;
+      padding: 0px 0px 48px;
     }
 
     .about-hero-title {
@@ -684,7 +685,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .about-hero-image {
       width: 100%;
-      height: 50vh;
+      height: 40vh;
       overflow: hidden;
     }
 
@@ -797,7 +798,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .why-card-text {
-      height: 260px;
+      height: 360px;
       width: 65%;
       background: var(--white);
       padding: 24px;
@@ -810,7 +811,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .factory-image {
-      min-height: 100px;
+      min-height: 360px;
     }
 
     .about-contact-info {
@@ -825,18 +826,17 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .contact-detail-item h3 {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 900;
-      line-height: 26px;
+      line-height: 24px;
       color: var(--blue-06);
     }
 
     .contact-detail-item p {
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 26px;
       color: var(--blue-06);
-      white-space: pre-line;
     }
 
     .about-contact-right {
