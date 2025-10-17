@@ -134,6 +134,7 @@ const getNavUrl = (path: string) => {
     background: rgba(244, 251, 252, 0.7);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--blue-02);
+    transition: all 0.4s;
   }
 
   .navbar-container {
@@ -177,7 +178,7 @@ const getNavUrl = (path: string) => {
     width: 25px;
     height: 3px;
     background-color: var(--blue-06);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     border-radius: 0px;
   }
 
@@ -198,6 +199,7 @@ const getNavUrl = (path: string) => {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-height: 100%;
   }
 
   .nav-left {
@@ -325,13 +327,11 @@ const getNavUrl = (path: string) => {
 
   @media (max-width: 1440px) {
     .navbar-container {
-      padding: 8px 40px;
+      padding: 8px 24px;
     }
-  }
 
-  @media (max-width: 1024px) {
-    .navbar-container {
-      padding: 8px 20px;
+    .nav-left {
+      gap: 0px;
     }
 
     .logo {
@@ -340,23 +340,20 @@ const getNavUrl = (path: string) => {
     }
 
     .nav-links {
-      font-size: 14px;
-      gap: 14px;
-      padding: 6px 16px;
+      padding: 8px 16px;
     }
 
     .language-selector {
-      padding: 6px 16px;
-      font-size: 14px;
+      padding: 0px;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    
     .navbar-container {
       height: 70px;
       width: 100%；
       padding: 12px 20px;
-      backdrop-filter: blur(12px);
     }
 
     .logo {
@@ -377,29 +374,27 @@ const getNavUrl = (path: string) => {
     }
 
     .nav-content {
+      min-height: 80px;
       position: fixed;
       top: 70px;
       left: 0;
       right: 0;
-      background: rgba(244, 251, 252, 0.7);
-      backdrop-filter: blur(8px);
       flex-direction: column;
       padding: 24px 24px;
       gap: 24px;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       border-bottom: 1px solid var(--blue-02);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
 
     .nav-content.active {
-      max-height: 500px;
-      backdrop-filter: blur(8px);
+      min-height: 600px;
       opacity: 1;
     }
-
+    
     .nav-left {
       flex-direction: column;
       width: 100%;
@@ -436,14 +431,14 @@ const getNavUrl = (path: string) => {
       justify-content: center;
       padding: 12px 20px;
       font-size: 16px;
-      border-radius: 12px;
+      border-radius: 0px;
     }
 
     .language-dropdown {
       position: static;
       width: 100%;
       margin-top: 8px;
-      border-radius: 12px;
+      border-radius: 0px;
       box-shadow: none;
     }
 
@@ -455,17 +450,13 @@ const getNavUrl = (path: string) => {
       border-radius: 0;
     }
 
-    .language-option:first-child {
-      border-radius: 12px 12px 0 0;
-    }
-
-    .language-option:last-child {
-      border-radius: 0 0 12px 12px;
-    }
-
     .nav-right {
       width: 100%;
       justify-content: center;
+    }
+
+    .navbar.menu-open {
+      height: 670px;
     }
 
     /* Prevent scrolling when menu is open */
