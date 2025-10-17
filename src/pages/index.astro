@@ -274,7 +274,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
                 </div>
               </div>
             </div>
-            <Button variant="secondary" text={t.home.aboutButton} />
+            <Button variant="secondary" href={`${linkPrefix}/about`} text={t.home.aboutButton} />
           </div>
         </div>
       </div>
@@ -331,7 +331,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
               <p class="blog-excerpt">
                 {latestPosts[0].data.description}
               </p>
-              <a href={`${linkPrefix}/blog/${cleanSlug(latestPosts[0].slug)}`} class="read-more">{t.home.blogReadMore}</a>
+              <Button variant="simple" href={`${linkPrefix}/blog/${cleanSlug(latestPosts[0].slug)}`} text={t.home.blogReadMore} class="read-more" />
             </div>
           </div>
           {latestPosts.length > 1 && (
@@ -1103,7 +1103,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   .faq-section {
     padding: var(--section-padding) 0;
     background: var(--blue-01);
-    height: 890px;
+    height: 1200px;
   }
 
   .faq-content {

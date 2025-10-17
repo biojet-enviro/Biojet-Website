@@ -1,5 +1,6 @@
 ---
 import { useTranslations, type Locale } from '../i18n/translations';
+import Button from '../components/Button.astro';
 
 export interface Props {
   title: string;
@@ -26,7 +27,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     </div>
     <h4>{title}</h4>
     <p>{excerpt}</p>
-    <a href={`${linkPrefix}/blog/${slug}`} class="read-more">{t.home.blogReadMore} →</a> 
+    <Button variant="simple" href={`${linkPrefix}/blog/${slug}`} text={t.home.blogReadMore} class="read-more" />
   </div>
 </article> 
 
