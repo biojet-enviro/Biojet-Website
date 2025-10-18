@@ -101,12 +101,12 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       </div>
       
       <div class="why-card">
-        <div class="factory-image">
-          <img src="/assets/factory-3.webp" alt="Factory" />
-        </div>
         <div class="why-card-text">
           <h3>{t.about.whyTrackRecordTitle}</h3>
           <p>{t.about.whyTrackRecordDesc}</p>
+        </div>
+        <div class="factory-image">
+          <img src="/assets/factory-3.webp" alt="Factory" />
         </div>
       </div>
 
@@ -638,10 +638,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     .factory-spacer {
       display: none;
     }
-
-    .factory-image {
-      max-height: 300px;
-    }
   }
 
   @media (max-width: 768px) {
@@ -811,6 +807,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .factory-image {
       min-height: 360px;
+      max-width: 32%;
     }
 
     .about-contact-info {

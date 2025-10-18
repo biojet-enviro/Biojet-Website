@@ -94,37 +94,37 @@ export const translations = {
       product1Model: 'DISC JET AERATOR',
       product1ServiceLife: '>20 YEARS',
       product1Material: 'SUS316L/304',
-      product1Desc: 'Biojet® Laval jet aerator, suitable for MBR processes of organic wastewater such as landfill leachate wastewater.',
+      product1Desc: 'Biojet® Laval jet aerator made of stainless steel, suitable for MBR processes treating high-concentration organic wastewater.',
       
       product2Name: 'Biojet® jet aerator',
       product2Model: 'DOME JET AERATOR',
       product2ServiceLife: '>20 YEARS',
       product2Material: 'SUS316L/304',
-      product2Desc: 'Biojet® Dome-shaped Laval Jet Aerator with 16 pitching Nozzles, suitable for MBR and ultra-deep aerobic basins.',
+      product2Desc: 'Biojet® Laval Dome Jet Aerator made of stainless steel, suitable for membrane bioreactor processes treating kitchen food-processing wastewater.',
       
       product3Name: 'Biojet® jet aerator',
       product3Model: 'POD JET AERATOR',
       product3ServiceLife: '>20 YEARS',
       product3Material: 'PP Plastic',
-      product3Desc: 'Biojet® Laval jet aerator made of PP engineering plastic, suitable for MBR and ultra-deep aerobic basins.',
+      product3Desc: 'Biojet® Laval jet aerator made of PP engineering plastic, suitable for industrial wastewater, municipal sewage and landfill leachate treatment.',
       
       product4Name: 'Biojet® jet aerator',
       product4Model: 'ASPIRATING JET AERATOR',
       product4ServiceLife: '>20 YEARS',
       product4Material: 'SUS316L/304',
-      product4Desc: 'Biojet® integrated self-aspirating jet aerator, suitable for decentralized small wastewater treatment plants.',
+      product4Desc: 'Biojet® integrated self-aspirating jet aerator, ideal for rural small municipal wastewater treatment.',
       
       product5Name: 'Biojet® Laval Jet Aerator',
       product5Model: 'RING-SHAPED JET AERATOR',
       product5ServiceLife: '>20 YEARS',
       product5Material: 'SUS316L/304',
-      product5Desc: 'Biojet® Ring-shaped Laval jet mixing aerator, suitable for sewage treatment tanks with internal columns.',
+      product5Desc: 'Biojet® Ring-shaped Laval jet aerator, jet mixer, ideal for nitrification tanks with numerous internal columns.',
       
       product6Name: 'Biojet® Laval Jet Aerator',
       product6Model: 'DIRECTIONAL JET AERATOR',
       product6ServiceLife: '>20 YEARS',
       product6Material: 'SUS316L/304',
-      product6Desc: 'Biojet® Directional or Bi-directional Manifold Laval Jet Aerator, jet mixer suitable for oxidation ditch.'
+      product6Desc: 'Biojet® Directional or Bi-directional Laval Jet Aerator, jet mixers for deep aeration basins and oxidation ditch processes.'
     },
     
     // Footer
@@ -302,37 +302,37 @@ export const translations = {
       product1Model: 'JET-DS-18H',
       product1ServiceLife: '>20 ЛЕТ',
       product1Material: 'SUS316L/304',
-      product1Desc: 'Дисковый струйный аэратор Лаваля, подходит для процессов MBR органических сточных вод, таких как фильтрат свалок.',
+      product1Desc: 'Струйный аэратор Biojet® Laval из нержавеющей стали, подходящий для процессов MBR по очистке высококонцентрированных органических сточных вод.',
       
       product2Name: 'Biojet® струйный аэратор',
       product2Model: 'JET-DS-16V',
       product2ServiceLife: '>20 ЛЕТ',
       product2Material: 'SUS316L/304',
-      product2Desc: 'Куполообразный струйный аэратор Лаваля с 16 наклонными соплами, подходит для MBR и ультраглубоких аэробных бассейнов.',
+      product2Desc: 'Струйный аэратор Biojet® Laval Dome из нержавеющей стали, подходящий для процессов мембранного биореактора по очистке сточных вод от пищевой промышленности.',
       
       product3Name: 'Biojet® струйный аэратор',
       product3Model: 'JET-PP-12V',
       product3ServiceLife: '>20 ЛЕТ',
       product3Material: 'PP пластик',
-      product3Desc: 'Струйный аэратор Лаваля из инженерного пластика PP, подходит для MBR и ультраглубоких аэробных бассейнов.',
+      product3Desc: 'Струйный аэратор Biojet® Laval из инженерного пластика PP, подходящий для очистки промышленных сточных вод, муниципальных сточных вод и фильтрата полигонов ТБО.',
       
       product4Name: 'Biojet® струйный аэратор',
       product4Model: 'САМОВСАСЫВАЮЩИЙ СТРУЙНЫЙ АЭРАТОР',
       product4ServiceLife: '>20 ЛЕТ',
       product4Material: 'SUS316L/304',
-      product4Desc: 'Интегрированный самовсасывающий струйный аэратор Лаваля, подходит для децентрализованных малых очистных сооружений.',
+      product4Desc: 'Biojet® интегрированный самозасасывающий струйный аэратор, идеально подходит для очистки сточных вод в небольших сельских населенных пунктах.',
       
       product5Name: 'Biojet® струйный аэратор Лаваля',
       product5Model: 'КОЛЬЦЕВОЙ СТРУЙНЫЙ АЭРАТОР',
       product5ServiceLife: '>20 ЛЕТ',
       product5Material: 'SUS316L/304',
-      product5Desc: 'Кольцевой струйный смесительный аэратор Лаваля, струйный смеситель, подходит для резервуаров очистки сточных вод с внутренними колоннами.',
+      product5Desc: 'Biojet® кольцеобразный струйный аэратор Laval, идеально подходит для нитрификационных резервуаров с многочисленными внутренними колоннами.',
       
       product6Name: 'Biojet® струйный аэратор Лаваля',
       product6Model: 'НАПРАВЛЕННЫЙ СТРУЙНЫЙ АЭРАТОР',
       product6ServiceLife: '>20 ЛЕТ',
       product6Material: 'SUS316L/304',
-      product6Desc: 'Направленный или двунаправленный коллекторный струйный аэратор Лаваля, подходит для окислительного канала.'
+      product6Desc: 'Biojet® направленный или двунаправленный струйный аэратор Laval, струйные смесители для бассейнов глубокой аэрации и процессов окислительного канала.'
     },
     
     // Подвал
@@ -510,37 +510,37 @@ export const translations = {
       product1Model: 'JET-DS-18H',
       product1ServiceLife: '>20 ANOS',
       product1Material: 'SUS316L/304',
-      product1Desc: 'Aerador a jato Laval de disco, adequado para processos MBR de águas residuais orgânicas, como águas residuais de chorume de aterro.',
+      product1Desc: 'Aerador a jato Biojet® Laval fabricado em aço inoxidável, adequado para processos MBR que tratam águas residuais orgânicas de alta concentração.',
       
       product2Name: 'Biojet® aerador a jato',
       product2Model: 'JET-DS-16V',
       product2ServiceLife: '>20 ANOS',
       product2Material: 'SUS316L/304',
-      product2Desc: 'Aerador a Jato Laval em forma de cúpula com 16 bocais inclinados, adequado para MBR e tanques aeróbicos ultra profundos.',
+      product2Desc: 'Aerador a jato Biojet® Laval Dome fabricado em aço inoxidável, adequado para processos de biorreatores de membrana que tratam águas residuais provenientes do processamento de alimentos em cozinhas.',
       
       product3Name: 'Biojet® aerador a jato',
       product3Model: 'JET-PP-12V',
       product3ServiceLife: '>20 ANOS',
       product3Material: 'Plástico PP',
-      product3Desc: 'Aerador a jato Laval feito de plástico de engenharia PP, adequado para MBR e tanques aeróbicos ultra profundos.',
+      product3Desc: 'Aerador a jato Biojet® Laval fabricado em plástico de engenharia PP, adequado para o tratamento de águas residuais industriais, esgotos municipais e lixiviados de aterros sanitários.',
       
       product4Name: 'Biojet® aerador a jato',
       product4Model: 'AERADOR A JATO AUTO-ASPIRANTE',
       product4ServiceLife: '>20 ANOS',
       product4Material: 'SUS316L/304',
-      product4Desc: 'Aerador a jato Laval auto-aspirante integrado, adequado para estações descentralizadas de tratamento de águas residuais pequenas.',
+      product4Desc: 'Aerador a jato autoaspirante integrado Biojet®, ideal para o tratamento de águas residuais municipais de pequena dimensão em zonas rurais.',
       
       product5Name: 'Biojet® Aerador a Jato Laval',
       product5Model: 'AERADOR A JATO EM FORMA DE ANEL',
       product5ServiceLife: '>20 ANOS',
       product5Material: 'SUS316L/304',
-      product5Desc: 'Aerador de mistura a jato Laval em forma de anel, misturador a jato, adequado para tanques de tratamento de esgoto com colunas internas.',
+      product5Desc: 'Aerador a jato Laval em forma de anel Biojet®, ideal para tanques de nitrificação com numerosas colunas internas.',
       
       product6Name: 'Biojet® Aerador a Jato Laval',
       product6Model: 'AERADOR A JATO DIRECIONAL',
       product6ServiceLife: '>20 ANOS',
       product6Material: 'SUS316L/304',
-      product6Desc: 'Aerador a Jato Laval de Manifold Direcional ou Bidirecional, adequado para vala de oxidação.'
+      product6Desc: 'Aerador a jato Laval direcional ou bidirecional Biojet®, misturadores a jato para bacias de aeração profunda e processos de valas de oxidação.'
     },
     
     // Rodapé
@@ -718,37 +718,37 @@ export const translations = {
       product1Model: 'JET-DS-18H',
       product1ServiceLife: '>20 ปี',
       product1Material: 'SUS316L/304',
-      product1Desc: 'เครื่องเติมอากาศแบบเจ็ท Laval แบบดิสก์ เหมาะสำหรับกระบวนการ MBR ของน้ำเสียอินทรีย์เช่นน้ำเสียชะขยะ',
+      product1Desc: 'เครื่องเติมอากาศแบบเจ็ท Biojet® Laval ผลิตจากสแตนเลสสตีล เหมาะสำหรับกระบวนการ MBR ที่บำบัดน้ำเสียอินทรีย์ที่มีความเข้มข้นสูง',
       
       product2Name: 'Biojet® เครื่องเติมอากาศแบบเจ็ท',
       product2Model: 'JET-DS-16V',
       product2ServiceLife: '>20 ปี',
       product2Material: 'SUS316L/304',
-      product2Desc: 'เครื่องเติมอากาศแบบเจ็ท Laval รูปโดมพร้อมหัวฉีดเอียง 16 ตัว เหมาะสำหรับ MBR และบ่อแอโรบิกลึกพิเศษ',
+      product2Desc: 'เครื่องเติมอากาศแบบเจ็ทโดม Biojet® Laval ผลิตจากสแตนเลสสตีล เหมาะสำหรับกระบวนการไบโอรีแอคเตอร์แบบเมมเบรนที่บำบัดน้ำเสียจากกระบวนการผลิตอาหารในครัว',
       
       product3Name: 'Biojet® เครื่องเติมอากาศแบบเจ็ท',
       product3Model: 'JET-PP-12V',
       product3ServiceLife: '>20 ปี',
       product3Material: 'พลาสติก PP',
-      product3Desc: 'เครื่องเติมอากาศแบบเจ็ท Laval ทำจากพลาสติกวิศวกรรม PP เหมาะสำหรับ MBR และบ่อแอโรบิกลึกพิเศษ',
+      product3Desc: 'เครื่องเติมอากาศแบบเจ็ท Biojet® Laval ผลิตจากพลาสติกวิศวกรรม PP เหมาะสำหรับการบำบัดน้ำเสียอุตสาหกรรม น้ำเสียชุมชน และน้ำชะขยะจากหลุมฝังกลบ',
       
       product4Name: 'Biojet® เครื่องเติมอากาศแบบเจ็ท',
       product4Model: 'เครื่องเติมอากาศแบบเจ็ทดูดอากาศเอง',
       product4ServiceLife: '>20 ปี',
       product4Material: 'SUS316L/304',
-      product4Desc: 'เครื่องเติมอากาศแบบเจ็ท Laval ดูดอากาศเองแบบบูรณาการ เหมาะสำหรับโรงบำบัดน้ำเสียขนาดเล็กแบบกระจาย',
+      product4Desc: 'เครื่องเติมอากาศแบบเจ็ทดูดอากาศในตัว Biojet® Laval เหมาะสำหรับการบำบัดน้ำเสียชุมชนขนาดเล็กในชนบท',
       
       product5Name: 'Biojet® เครื่องเติมอากาศแบบเจ็ท Laval',
       product5Model: 'เครื่องเติมอากาศแบบเจ็ทรูปแหวน',
       product5ServiceLife: '>20 ปี',
       product5Material: 'SUS316L/304',
-      product5Desc: 'เครื่องเติมอากาศผสมแบบเจ็ท Laval รูปแหวน เครื่องผสมแบบเจ็ท เหมาะสำหรับถังบำบัดน้ำเสียที่มีเสาภายใน',
+      product5Desc: 'เครื่องเติมอากาศแบบเจ็ทรูปวงแหวน Biojet® Laval เหมาะสำหรับถังไนตริฟิเคชันที่มีคอลัมน์ภายในจำนวนมาก',
       
       product6Name: 'Biojet® เครื่องเติมอากาศแบบเจ็ท Laval',
       product6Model: 'เครื่องเติมอากาศแบบเจ็ททิศทาง',
       product6ServiceLife: '>20 ปี',
       product6Material: 'SUS316L/304',
-      product6Desc: 'เครื่องเติมอากาศแบบเจ็ท Laval Manifold ทิศทางเดียวหรือสองทิศทาง เหมาะสำหรับร่องออกซิเดชัน'
+      product6Desc: 'เครื่องเติมอากาศแบบเจ็ท Biojet® แบบทิศทางเดียวหรือแบบสองทิศทาง เครื่องผสมแบบเจ็ทสำหรับอ่างเติมอากาศแบบลึกและกระบวนการคูระบายน้ำออกซิไดซ์'
     },
     
     // ส่วนท้าย
