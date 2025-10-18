@@ -11,16 +11,16 @@ export const translations = {
     
     // Home Page
     home: {
-      heroPrefix: 'Industry-leading jet aerators for',
+      heroPrefix: 'Industry-leading jet aerators for ',
       heroRotator: [
-        'food-processing wastewater treatment',
-        'landfill leachate treatment',
-        'industrial wastewater treatment',
-        'kitchen effluent treatment',
-        'deep aeration basins',
-        'high-concentration sewage treatment',
-        'municipal wastewater treatment',
-        'membrane bioreactor systems'
+        'food-processing effluent treatment ',
+        'landfill leachate treatment ',
+        'industrial sewage treatment ',
+        'Oxidation Ditches ',
+        'deep aeration basins ',
+        'high-concentration sewage treatment ',
+        'municipal wastewater treatment ',
+        'membrane bioreactor systems '
       ],
       heroDescription: 'Partner with Biojet to achieve unparalleled wastewater treatment performance through tailored jet aeration solutions customized for your unique projects.',
       heroButton: 'Schedule Your Free Consultation',
@@ -45,7 +45,7 @@ export const translations = {
       feature3Desc: 'Stable oxygen transfer performance even under high MLSS and variable wastewater conditions.',
       feature4Title: 'Energy Efficiency',
       feature4Value: '50% energy saving',
-      feature4Desc: 'Precision air-to-water dosing reduces blower load and operational costs while delivering measurable energy savings across the oxygenation process.',
+      feature4Desc: 'Optimized air-to-water ratio reduces blower load and operational costs while delivering measurable energy savings across the oxygenation process.',
       feature5Title: 'Long Lifespan',
       feature5Value: '20+ years',
       feature5Desc: 'Reinforced flange design eliminates risk of breakage. High-strength throat lining prevents erosion and maintains performance over years of operation.',
@@ -219,15 +219,15 @@ export const translations = {
     
     // Главная страница
     home: {
-      heroPrefix: 'Ведущие в отрасли струйные аэраторы для',
+      heroPrefix: 'Ведущие в отрасли струйные аэраторы для ',
       heroRotator: [
-        'очистки стоков пищевой промышленности',
-        'очистки свалочного фильтрата',
-        'очистки промышленных сточных вод',
-        'очистки кухонных стоков',
-        'глубоких аэрационных бассейнов',
-        'очистки высококонцентрированных стоков',
-        'очистки муниципальных сточных вод',
+        'очистки стоков пищевой промышленности ',
+        'очистки свалочного фильтрата ',
+        'очистки промышленных сточных вод ',
+        'Окислительный канал ',
+        'глубоких аэрационных бассейнов ',
+        'очистки высококонцентрированных стоков ',
+        'очистки муниципальных сточных вод ',
         'мембранных биореакторных систем'
       ],
       heroDescription: 'Сотрудничайте с Biojet для достижения непревзойденной производительности очистки сточных вод с помощью индивидуальных решений струйной аэрации, адаптированных под ваши уникальные проекты.',
@@ -427,15 +427,15 @@ export const translations = {
     
     // Página inicial
     home: {
-      heroPrefix: 'Aeradores a jato líderes da indústria para',
+      heroPrefix: 'Aeradores a jato líderes da indústria para ',
       heroRotator: [
-        'tratamento de águas residuais de processamento de alimentos',
-        'tratamento de chorume de aterro',
-        'tratamento de águas residuais industriais',
-        'tratamento de efluentes de cozinha',
-        'tanques de aeração profunda',
-        'tratamento de esgoto de alta concentração',
-        'tratamento de águas residuais municipais',
+        'tratamento de águas residuais de processamento de alimentos ',
+        'tratamento de chorume de aterro ',
+        'tratamento de águas residuais industriais ',
+        'Valas de oxidação ',
+        'tanques de aeração profunda ',
+        'tratamento de esgoto de alta concentração ',
+        'tratamento de águas residuais municipais ',
         'sistemas de biorreator de membrana'
       ],
       heroDescription: 'Faça parceria com a Biojet para alcançar um desempenho incomparável no tratamento de águas residuais através de soluções de aeração a jato personalizadas para seus projetos únicos.',
@@ -640,7 +640,7 @@ export const translations = {
         'การบำบัดน้ำเสียจากการแปรรูปอาหาร',
         'การบำบัดน้ำชะขยะ',
         'การบำบัดน้ำเสียอุตสาหกรรม',
-        'การบำบัดน้ำทิ้งจากครัว',
+        'คูระบายน้ำออกซิเดชัน',
         'บ่อเติมอากาศลึก',
         'การบำบัดน้ำเสียความเข้มข้นสูง',
         'การบำบัดน้ำเสียชุมชน',
