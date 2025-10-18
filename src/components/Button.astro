@@ -86,7 +86,7 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
   }
 
   .btn-primary:hover {
-    background: #F5E0AD; 
+    background: var(--golden); 
     border-color: var(--blue-04);
     box-shadow: 0 0 0 3px var(--blue-03);
   }
@@ -112,10 +112,8 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
   }
 
   .btn-secondary:hover {
-    background: var(--blue-02);
-    border-width: 1px;
-    border-color: var(--blue-03);
-    box-shadow: 0 0 0 3px var(--blue-02);
+    border-color: var(--golden);
+    box-shadow: 0 0 0 3px var(--golden);
   }
 
   /* ========================================
@@ -225,7 +223,6 @@ const { variant = 'primary', href = '#', text, class: className = '' } = Astro.p
     gap: 8px;
     padding: 8px 16px;
     font-size: 14px;
-    width: fit-content;
     height: fit-content;
     }
 

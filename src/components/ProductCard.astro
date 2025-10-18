@@ -8,9 +8,10 @@ export interface Props {
   serviceLife: string;
   material: string;
   description: string;
+  pdfUrl?: string; // Optional PDF URL for product datasheet
 }
 
-const { name, model, image, serviceLife, material, description } = Astro.props;
+const { name, model, image, serviceLife, material, description, pdfUrl } = Astro.props;
 ---
 
 <div class="product-card">
@@ -38,7 +39,9 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
   </div>
   <div class="product-actions">
     <Button variant="primary" href="/contact" text="REQUEST QUOTE" />
-    <Button variant="secondary" text="DOWNLOAD PDF" />
+    {pdfUrl && (
+      <Button variant="secondary" href={pdfUrl} text="DOWNLOAD PDF" />
+    )}
   </div>
   <div class="product-decal"></div>
 </div>
@@ -46,7 +49,7 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
 <style>
   .product-card {
     background: linear-gradient(180deg, var(--white) 0%, var(--blue-01) 100%);
-    border: 1px solid #E6E6E6;
+    border: 1px solid var(--lightgray);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -168,9 +171,9 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     }
 
     .product-info {
-    padding: 0 8px 16px;
+    padding: 0 8px 64px;
     gap: 8px;
-    min-height: 180px;
+    min-height: fit-content;
     justify-content: flex-start;
     }
 
@@ -195,7 +198,8 @@ const { name, model, image, serviceLife, material, description } = Astro.props;
     }
 
     .product-actions {
-    gap: 4px;
+      padding: 16px;
+      gap: 8px;
     }
 
     .product-image {
