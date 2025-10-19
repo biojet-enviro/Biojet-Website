@@ -31,7 +31,7 @@ export const translations = {
       productsTitle: 'Check out our products',
       productsCta: 'We are not just equipment suppliers.\nWe are problem solvers.',
       productsCtaDesc: 'Our technical expert provide you customized, project-specific solutions.',
-      productsCtaButton: 'GET IN TOUCH',
+      productsCtaButton: 'FILL OUT INQUIRY FORM',
       
       featuresTitle: 'The advantages of jet aerators enhanced by Biojet®',
       feature1Title: 'High Oxygen Transfer',
@@ -105,7 +105,7 @@ export const translations = {
       product3Name: 'Biojet® jet aerator',
       product3Model: 'POD JET AERATOR',
       product3ServiceLife: '>20 YEARS',
-      product3Material: 'PP Plastic',
+      product3Material: 'PP',
       product3Desc: 'Biojet® Laval jet aerator made of PP engineering plastic, suitable for industrial wastewater, municipal sewage and landfill leachate treatment.',
       
       product4Name: 'Biojet® jet aerator',
@@ -239,7 +239,7 @@ export const translations = {
       productsTitle: 'Ознакомьтесь с нашей продукцией',
       productsCta: 'Мы не просто поставщики оборудования.\nМы решаем проблемы.',
       productsCtaDesc: 'Наши технические эксперты предоставляют индивидуальные решения для конкретных проектов.',
-      productsCtaButton: 'СВЯЗАТЬСЯ',
+      productsCtaButton: 'ФОРМА ЗАПРОСА',
       
       featuresTitle: 'Преимущества струйных аэраторов, усиленные Biojet®',
       feature1Title: 'Высокая передача кислорода',
@@ -447,7 +447,7 @@ export const translations = {
       productsTitle: 'Confira nossos produtos',
       productsCta: 'Não somos apenas fornecedores de equipamentos.\nSomos solucionadores de problemas.',
       productsCtaDesc: 'Nossos especialistas técnicos fornecem soluções personalizadas e específicas para cada projeto.',
-      productsCtaButton: 'ENTRE EM CONTATO',
+      productsCtaButton: 'FORMULÁRIO DE CONSULTA',
       
       featuresTitle: 'As vantagens dos aeradores a jato aprimorados pela Biojet®',
       feature1Title: 'Alta Transferência de Oxigênio',
@@ -655,7 +655,7 @@ export const translations = {
       productsTitle: 'ดูผลิตภัณฑ์ของเรา',
       productsCta: 'เราไม่ใช่แค่ผู้จำหน่ายอุปกรณ์\nเราคือผู้แก้ปัญหา',
       productsCtaDesc: 'ผู้เชี่ยวชาญด้านเทคนิคของเราให้บริการโซลูชันที่ออกแบบมาเฉพาะสำหรับแต่ละโครงการ',
-      productsCtaButton: 'ติดต่อเรา',
+      productsCtaButton: 'กรอกแบบฟอร์มสอบถาม',
       
       featuresTitle: 'ข้อได้เปรียบของเครื่องเติมอากาศแบบเจ็ทที่ปรับปรุงโดย Biojet®',
       feature1Title: 'การถ่ายเทออกซิเจนสูง',
