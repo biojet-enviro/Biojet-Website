@@ -1,8 +1,8 @@
 ---
 title: "How Anaerobic Reactors Play a Key Role in Wastewater Treatment?"
-description: "Anaerobic reactors have emerged as a game-changing technology in modern wastewater treatment, offering impressive efficiency for organic pollutant removal while simultaneously generating renewable energy through biogas production. "
-pubDate: 2025-06-05
-coverImage: "/assets/blog-1.jpg"
+description: "Anaerobic reactors have emerged as a game-changing technology in modern wastewater treatment, offering impressive efficiency for organic pollutant removal while simultaneously generating renewable energy through biogas production."
+pubDate: 2025-02-02
+coverImage: "/assets/blog-bl2.jpeg"
 draft: false
 ---
 

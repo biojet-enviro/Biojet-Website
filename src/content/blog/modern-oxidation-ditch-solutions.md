@@ -2,7 +2,7 @@
 title: "The Power of Modern Oxidation Ditch Solutions by Biojet"
 description: "Biojet’s advanced oxidation ditch solution—powered by jet aeration—represents a leap forward in oxygen transfer and flow control."
 pubDate: 2025-07-15
-coverImage: "/assets/blog-2.jpg"
+coverImage: "https://www.corgin.co.uk/hubfs/Corgin_Jan2017/Images/Rotex-Brush-Aerator-Banner-Image-20-2000x800.jpg"
 draft: false
 ---
 

@@ -2,7 +2,7 @@
 title: "How Jet Aeration Systems Cut Wastewater Treatment Costs by 50%"
 description: "Traditional aeration methods are highly energy-intensive, accounting for a large portion of a treatment plant's operational expenses. However, jet aerators work exceptionally well in deep tanks while handling various types of wastewater. "
 pubDate: 2025-08-12
-coverImage: "/assets/blog-4.png"
+coverImage: "/assets/aeration-p.webp"
 draft: false
 ---
 

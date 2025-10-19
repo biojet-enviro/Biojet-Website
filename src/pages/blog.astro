@@ -137,16 +137,15 @@ function formatDate(date: Date) {
     display: flex;
     gap: 16px;
     background: var(--white);
-    border: 1px solid var(--blue-03);
+    border: 1px solid var(--lightgray);
     padding: 16px;
-    box-shadow: 0 2px 4px rgba(88, 200, 215, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
     margin-bottom: 48px;
   }
 
   .blog-featured:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(88, 200, 215, 0.3);
+    transform: scale(1.01);
+    border: 1px solid var(--blue-03);
   }
 
   .blog-image {

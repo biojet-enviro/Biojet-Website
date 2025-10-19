@@ -2,7 +2,7 @@
 title: "Современные решения для окислительных каналов от Biojet"
 description: "Современное решение Biojet для окислительного канала — это прорыв в передаче кислорода и контроле потоков благодаря струйному аэрированию."
 pubDate: 2025-07-15
-coverImage: "/assets/blog-2.jpg"
+coverImage: "https://www.corgin.co.uk/hubfs/Corgin_Jan2017/Images/Rotex-Brush-Aerator-Banner-Image-20-2000x800.jpg"
 draft: false
 ---
 
