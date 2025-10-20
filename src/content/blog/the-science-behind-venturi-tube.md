@@ -88,19 +88,19 @@ $$
 
 Venturi tubes are applied in wastewater systems primarily for flow measurement, aeration, and enhancing mixing or treatment processes due to their ability to create a controlled reduction in pressure and increase in fluid velocity.
 
-#### Flow Measurement
+### Flow Measurement
 
 Venturi tubes are widely used as flow meters in wastewater plants to monitor the flow rates of sewage, influent, treated effluent, and chemicals added during treatment. Their robust, no-moving-parts design ensures long-term reliability and low maintenance in corrosive or particle-laden wastewater environments.
 
-#### Venturi Aeration
+### Venturi Aeration
 
 By exploiting the Venturi effect, these tubes can introduce air (or oxygen) into wastewater streams, supporting biological treatment by enhancing the supply of dissolved oxygen to microbes that degrade organic matter. This is particularly common in wastewater pumping stations and aeration basins, where Venturi-based devices can efficiently oxygenate water with minimal energy and maintenance.
 
-#### Mixing and Chemical Addition  
+### Mixing and Chemical Addition  
 
 Venturi tubes are used to inject chemicals or other fluids into the main wastewater flow. The pressure drop in the throat section draws in chemicals or gases, ensuring rapid and uniform mixing throughout the system. This function is often applied in dosing chlorine, coagulants, or polymers for disinfection or treatment.
 
-#### Hydrodynamic Cavitation and Advanced Treatment
+### Hydrodynamic Cavitation and Advanced Treatment
 
 Modern research explores using Venturi tubes to induce hydrodynamic cavitation (the formation and collapse of vapor bubbles), a physical-chemical process that can enhance pollutant breakdown and assist with the removal of ammonia or persistent organic pollutants from wastewater.
 
