@@ -6,12 +6,23 @@ import { getLocaleFromUrl, useTranslations, type Locale } from '../i18n/translat
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 const locale = getLocaleFromUrl(Astro.url) as Locale;
 const t = useTranslations(locale);
 
-const { title, description = "Biojet designs and manufactures cutting-edge jet aerators for wastewater treatment industries worldwide." } = Astro.props;
+const { 
+  title, 
+  description = "Biojet designs and manufactures cutting-edge jet aerators for wastewater treatment industries worldwide.",
+  image = "/assets/hero-bg.webp",
+  imageAlt = "Biojet - Advanced Jet Aeration Systems"
+} = Astro.props;
+
+// Get full URL for social media
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -21,6 +32,24 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:alt" content={imageAlt} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;800&display=swap" rel="stylesheet">
@@ -328,6 +357,8 @@ const { title, description = "Biojet designs and manufactures cutting-edge jet a
 <script>
   // Bubble Animation System
   class BubbleAnimation {
+    bubbleCount: number;
+
     constructor() {
       this.bubbleCount = 32; // Number of bubbles per click
       this.init();

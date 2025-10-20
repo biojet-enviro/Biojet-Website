@@ -33,7 +33,12 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 }).format(entry.data.pubDate);
 ---
 
-<Layout title={`${entry.data.title} - Biojet Blog`}>
+<Layout 
+  title={`${entry.data.title} - Biojet Blog`}
+  description={entry.data.description}
+  image={entry.data.coverImage}
+  imageAlt={entry.data.title}
+>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
   
   <article class="blog-post">
