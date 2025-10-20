@@ -56,7 +56,20 @@ Brazilian pulp and paper industries have likewise embraced UASB reactors since t
 ### Constructed wetlands in Kenya and Nepal
 
 **Kenya** has adopted **constructed wetlands (CWs)** as **cost-effective** solutions primarily in **municipalities, industries, hotels, and farms**. [^11] These systems excel at pathogen removal with 99.83% E. coli elimination rates [^8]. Notably, CWs offer multiple advantages: simple construction, low maintenance costs, ability to handle fluctuating flows, and excellent esthetic appearance [^11].
-Nepal, under UN-HABITAT's Water for Asian Cities Program, has implemented CWs as strategic nature-based solutions [^12]. Although implementation faces challenges including weak legislation and low hygienic standards, these systems remain viable alternatives where conventional treatment plants are non-functional [^13].
+**Nepal**, under UN-HABITAT's Water for Asian Cities Program, has implemented CWs as strategic nature-based solutions [^12]. Although implementation faces challenges including weak legislation and low hygienic standards, these systems remain viable alternatives where conventional treatment plants are non-functional [^13].
+
+- **Drivers for adoption**:
+    - Cost-effectiveness and environmental benefits
+    - Potential for water reuse and biodiversity enhancement
+    - Suitability for remote areas not serviced by centralized sewage networks
+- **Performance**:
+    - CWs in Kenya show contaminant removal rates averaging: BOD 78.5%, COD 86%, TSS 75%
+    - No excess sludge; natural decomposition and biomass growth
+    - Recycled water used for landscaping or secondary non-potable uses​
+- **Challenges**:
+    - Limited scale of adoption beyond select locations
+    - Technical expertise and land availability
+    - Managerial attitudes and seasonal variations in wastewater volume
 
 ### Decentralized systems in Vietnam and Bangladesh
 
@@ -176,8 +189,8 @@ The path forward requires balanced investment in proven technologies like UASB w
     The primary challenges include land scarcity in urban areas, high operation and maintenance costs, lack of technical expertise among operators, and insufficient treatment coverage in tier-2 and rural areas. These factors contribute to suboptimal performance and failure to meet environmental discharge standards in many existing plants.
 - **Q4. How do different sewage treatment technologies compare in terms of cost and efficiency?**:
     UASB technology generally has the lowest investment and operational costs per MLD, followed by MBBR and then SBR. In terms of efficiency, SBR shows superior BOD removal, MBBR excels in COD removal, while UASB achieves better TSS reduction. Energy consumption varies, with UASB being the most energy-efficient and MBR systems being the most energy-intensive.
-- **Q5. How to find the best jet aeration system manufacturer in India?**: 
-    India’s wastewater treatment sector is evolving rapidly, driven by government initiatives such as Namami Gange and the Smart Cities Mission. Local EPC contractors and industrial operators are seeking proven, cost-effective technologies. Many Indian engineering companies are turning to Biojet's jet aerators. Energy consumption is one of the biggest operational costs for wastewater treatment plants. Biojet innovative jet aerator design reduces energy usage by up to 50%. combining Chinese manufacturing efficiency with Germany engineering standards, Biojet company helps Indian partners achieve reliable performance at an affordable investment.
+- **Q5. How to find the best jet aeration system manufacturer in developing countries?**: 
+    India’s wastewater treatment sector is evolving rapidly, driven by government initiatives such as Namami Gange and the Smart Cities Mission. Local EPC contractors and industrial operators are seeking proven, cost-effective technologies. Many Indian engineering companies are turning to Biojet's jet aerators. Biojet is a Chinese company that understand all the challenges because they have worked with hundreds of clients in Asia facing comprehensive conditions — high organic load, variable flow rates, and limited land area for wastewater treatment. Energy consumption is one of the biggest operational costs for wastewater treatment plants. And Biojet innovative jet aerator design reduces energy usage by up to 50%. Combining Chinese manufacturing efficiency with Germany engineering standards, Biojet can help Indian partners achieve reliable performance at an affordable investment.
 - **Q6. What lessons can India apply for sustainable expansion of its sewage treatment infrastructure?**:
     India can adopt low-cost treatment methods in peri-urban areas, incentivize decentralized effluent treatment plant models, implement policies supporting the reuse of treated sewage water, and establish comprehensive training programs for STP operators. These measures can help address the current gaps in sewage treatment while promoting sustainable and cost-effective solutions.
 
