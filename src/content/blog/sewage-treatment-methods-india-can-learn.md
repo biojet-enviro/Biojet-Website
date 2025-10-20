@@ -50,35 +50,27 @@ Several developing nations have successfully implemented affordable and efficien
 
 **Brazil** stands at the forefront in utilizing **Upflow Anaerobic Sludge Blanket (UASB)** technology for wastewater management. The Betim Central sewage treatment plant, designed to process 514 L/s of influent flow, demonstrates exceptional performance with remarkable removal efficiencies: 94% for BOD, 91% for COD, 92% for total suspended solids, and 72% for ammonia [^8]. This system combines UASB with activated sludge treatment, creating an effective hybrid approach.
 
-- **Why UASB is preferred?**:
-
-    - **Compact design**: Suits Brazil’s often mountainous landscapes and dense urban areas.
-
-    - **Cost-effective**: Capital costs for building UASB-based WWTPs range widely (R$60 to R$650 per inhabitant), but UASB is consistently favored for its lower investment and operational cost, particularly in small-to-medium municipalities.​
-
-    - **Climatic advantage**: Brazil’s warm climate enables optimal anaerobic digestion performance and biogas production.
-
-    - **Simplicity and robustness**: Suitable for a wide range of municipality sizes and effluent flow rates.
+> - **Why UASB is preferred?**:
+>     - **Compact design**: Suits Brazil’s often mountainous landscapes and dense urban areas.
+>     - **Cost-effective**: Capital costs for building UASB-based WWTPs range widely (R$60 to R$650 per inhabitant), but UASB is consistently favored for its lower investment and operational cost, particularly in small-to-medium municipalities.​
+>     - **Climatic advantage**: Brazil’s warm climate enables optimal anaerobic digestion performance and biogas production.
+>     - **Simplicity and robustness**: Suitable for a wide range of municipality sizes and effluent flow rates.
 
 Brazilian pulp and paper industries have likewise embraced UASB reactors since the 1980s, requiring investments of merely 6.8% of annual sales while delivering returns within 6.4 years [^9]. In Indonesia, three 1.2 m³ UASB units tested in Bandung achieved high treatment efficiencies due to excellent sludge stabilization and retention [^10].
 
 ### Constructed wetlands in Kenya and Nepal
 
 **Kenya** has adopted **constructed wetlands (CWs)** as **cost-effective** solutions primarily in **municipalities, industries, hotels, and farms**. [^11] These systems excel at pathogen removal with 99.83% E. coli elimination rates [^8]. Notably, CWs offer multiple advantages: simple construction, low maintenance costs, ability to handle fluctuating flows, and excellent esthetic appearance [^11].
-**Nepal**, under UN-HABITAT's Water for Asian Cities Program, has implemented CWs as strategic nature-based solutions [^12]. Although implementation faces challenges including weak legislation and low hygienic standards, these systems remain viable alternatives where conventional treatment plants are non-functional [^13].
+**Nepal**, under UN-HABITAT's Water for Asian Cities Program, has implemented CWs as strategic nature-based solutions [^12]. Although implementation faces **challenges** including **weak legislation** and **low hygienic standards**, these systems remain viable alternatives where conventional treatment plants are non-functional [^13].
 
-- **Drivers for adoption**:
-    - Cost-effectiveness and environmental benefits
-    - Potential for water reuse and biodiversity enhancement
-    - Suitability for remote areas not serviced by centralized sewage networks
-- **Performance**:
-    - CWs in Kenya show contaminant removal rates averaging: BOD 78.5%, COD 86%, TSS 75%
-    - No excess sludge; natural decomposition and biomass growth
-    - Recycled water used for landscaping or secondary non-potable uses​
-- **Challenges**:
-    - Limited scale of adoption beyond select locations
-    - Technical expertise and land availability
-    - Managerial attitudes and seasonal variations in wastewater volume
+> - **Drivers for adoption**:
+>     - Cost-effectiveness and environmental benefits
+>     - Potential for water reuse and biodiversity enhancement
+>     - Suitability for remote areas not serviced by centralized sewage networks
+> - **Challenges**:
+>     - Limited scale of adoption beyond select locations
+>     - Technical expertise and land availability
+>     - Managerial attitudes and seasonal variations in wastewater volume
 
 ### Decentralized systems in Vietnam and Bangladesh
 
@@ -127,11 +119,11 @@ Land availability represents a critical constraint for sewage treatment faciliti
 
 ### Energy consumption in aeration tanks
 
-**Biological aeration units consume the highest proportion of energy (67.3%) in wastewater treatment** [^16]. Among various technologies, UASB demonstrates the lowest daily energy requirement at 125.7 kWh/MLD, primarily because biogas generation offsets some energy needs [^14]. Conversely, energy-intensive MBR systems require 302.5 kWh/MLD [^15].
+Biological aeration units consume the **highest proportion of energy** (67.3%) in wastewater treatment [^16]. Among various technologies, UASB demonstrates the lowest daily energy requirement at 125.7 kWh/MLD, primarily because biogas generation offsets some energy needs [^14]. Conversely, energy-intensive MBR systems require 302.5 kWh/MLD [^15].
 
 #### How to reduce energy use in aeration systems?
 
-**Jet aeration systems** typically have energy consumption in the range of 0.8–1.5 kWh per kg of BOD removed. While they are more energy-efficient than surface aerators, they tend to use more energy than fine bubble diffused aeration systems. However, there are several design strategies to further reduce their energy consumption:
+Jet aeration systems typically have energy consumption in the range of 0.8–1.5 kWh per kg of BOD removed. While they are more energy-efficient than surface aerators, they tend to use more energy than fine bubble diffused aeration systems. However, there are several design strategies to further reduce their energy consumption:
 
 - **Optimize pump and blower selection:** Choose high-efficiency, properly sized pumps and blowers—modern pumps can exceed 80% hydraulic efficiency. The pump alone accounts for 25–40% of power use in a jet aeration system, so lifecycle costing and matching pumps to demand is critical.
 - **Aerator and header configuration:** Work with suppliers to determine best header spacing and nozzle placement. Bi-directional jet layouts suit long, rectangular basins for mixing efficiency, while spiral-roll patterns may work better for narrow tanks. For circular basins, directional jets provide efficient mixing and oxygen transfer.
@@ -139,7 +131,7 @@ Land availability represents a critical constraint for sewage treatment faciliti
 - **Variable air control:** Adjust air flow rates using controls or variable frequency drives (VFDs) so that blowers/compressors run only as intensively as needed. Lower air supply means less blower power required.
 - **Reduce pressure losses:** Design for minimal fouling and clean air pathways. Jet aeration systems generate less pressure loss and are less affected by fouling/clogging compared to traditional diffused aeration, as their jet nozzles have no moving parts to clog.
 - **High alpha factor operation:** Jet aerators generate high alpha factors (0.8–0.9), meaning they transfer oxygen more efficiently in the presence of wastewater surfactants—this improves overall energy efficiency.
-- **Upgrade equipment:** Regular audits and replacement or upgrade of blowers with newer, more efficient models and maintenance best practices help further cut energy use. Indian companies seeking low-cost, high-quality jet aeration systems can contact Biojet to procure suitable aeration solutions.
+- **Upgrade equipment:** Regular audits and replacement or upgrade of blowers with newer, more efficient models and maintenance best practices help further cut energy use. Indian companies seeking low-cost, high-quality jet aeration systems can contact Biojet company to procure suitable aeration solutions.
 
 ### Effluent quality benchmarks: BOD, COD, TSS
 
