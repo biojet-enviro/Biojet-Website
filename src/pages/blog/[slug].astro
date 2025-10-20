@@ -34,6 +34,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 ---
 
 <Layout title={`${entry.data.title} - Biojet Blog`}>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  
   <article class="blog-post">
     <div class="blog-post-header">
       <div class="blog-post-header-content">
@@ -304,7 +306,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     color: var(--darkgray);
     margin: 40px 0 20px 0;
     padding-bottom: 8px;
-    border-bottom: 3px solid var(--blue-03);
+    border-bottom: 4px solid var(--blue-02);
   }
 
   .blog-post-content :global(h3) {
@@ -314,15 +316,16 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     color: var(--darkgray);
     margin: 32px 0 16px 0;
     padding-left: 12px;
-    border-left: 8px solid var(--blue-04);
+    border-left: 8px solid var(--blue-03);
   }
 
   .blog-post-content :global(h4) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 28px;
+    line-height: 26px;
     color: var(--darkgray);
     margin: 24px 0 12px 0;
+    border-bottom: 2px solid var(--blue-02);
   }
 
   .blog-post-content :global(p) {
@@ -583,7 +586,6 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       line-height: 28px;
       margin: 24px 0 12px 0;
       padding-left: 10px;
-      border-left: 3px solid var(--blue-03);
     }
 
     .blog-post-content :global(h4) {
@@ -736,5 +738,22 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     generateTableOfContents();
     wrapTables();
   }
+</script>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script is:inline>
+  // Render KaTeX formulas
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ],
+      throwOnError: false
+    });
+  });
 </script>
 
