@@ -10,7 +10,9 @@ In this article, we will explore various low cost sewage treatment options imple
 
 > Sewage treatment methods have become increasingly critical as over 2 billion people worldwide lack access to adequate wastewater treatment systems. While developed nations like those in the European Union connect approximately 75% of their population to centralized sewage systems, developing countries often rely on decentralized solutions or have no treatment infrastructure at all.
 > 
-> India faces significant challenges in this area. Despite producing 72,368 MLD (million liters per day) of sewage, the country's installed treatment capacity stands at just 31,841 MLD, covering only 43.9% of the total volume. Additionally, 60% of this treatment capacity is concentrated in just five states and one Union Territory. However, India has made notable progress with certain technologies, particularly the Upflow Anaerobic Sludge Blanket (UASB) process. In fact, India is a leading country in municipal sewage treatment using UASB, which has been recognized as the most cost-effective sewage treatment approach for our environmental conditions. This technology forms the core of our national environmental efforts under the Yamuna Action Plan, accounting for 80% of the total treatment capacity (743,000 m³/d).
+> India faces significant challenges in this area. Despite producing 72,368 MLD (million liters per day) of sewage, the country's installed treatment capacity stands at just 31,841 MLD, covering only 43.9% of the total volume. Additionally, 60% of this treatment capacity is concentrated in just five states and one Union Territory. 
+>
+> However, India has made notable progress with certain technologies. India is a leading country in municipal sewage treatment using UASB, which has been recognized as the most cost-effective sewage treatment approach for our environmental conditions. This technology forms the core of our national environmental efforts under the Yamuna Action Plan, accounting for 80% of the total treatment capacity (743,000 m³/d).
 
 ## Current State of Sewage Treatment in India
 
@@ -19,12 +21,15 @@ The sewage treatment infrastructure in India exhibits a significant gap between 
 ### Low treatment coverage in tier-2 and rural areas
 
 Urban sewage generation has reached alarming levels, with an estimated 72,368 million liters per day (MLD) being produced nationwide [^1]. Unfortunately, the treatment capacity stands at merely 31,841 MLD in class-I cities and class-II towns [^1]. This disparity is even more pronounced in smaller communities, where treatment facilities are virtually non-existent. Furthermore, the operational capacity is only 26,869 MLD, meaning just 28% of generated wastewater receives proper treatment [^2].
+
 Rural areas face even greater challenges, often relying on poorly maintained on-site sanitation systems like pit latrines or septic tanks that frequently leak or overflow [^3]. Consequently, untreated or inadequately treated sewage flows directly into open drains, agricultural fields, and nearby water bodies [^3].
 
 ### Technology distribution: ASP, SBR, MBBR, UASB
 
 India employs various sewage treatment methods across its operational plants. The main technologies include Activated Sludge Process (ASP), Sequencing Batch Reactor (SBR), Moving Bed Biofilm Reactor (MBBR), and Upflow Anaerobic Sludge Blanket (UASB) [^4].
+
 UASB technology has gained significant traction in India, with approximately 985 MLD capacity already operational and about 20 more plants in the pipeline [^5]. Moreover, India is recognized as one of the leading countries globally in terms of sewage volume treated through the UASB process [^5].
+
 ASP-BNR, SBR, MBBR, and MBR systems demonstrate superior capabilities in achieving BOD <20, SS<20, and removing 70-80% of total nitrogen [^4]. SBR technology offers advantages in effluent quality, flexibility, and energy costs compared to competing technologies [^4].
 
 #### Treatment Technologies by Installed Capacity and Number of STPs
@@ -39,7 +44,9 @@ ASP-BNR, SBR, MBBR, and MBR systems demonstrate superior capabilities in achievi
 ### Challenges in land availability and O&M costs
 
 Land scarcity remains a major obstacle for expanding sewage treatment infrastructure, especially in densely populated urban areas [^6]. To address this issue, multi-storey treatment plants have emerged as an innovative solution, reducing land requirements by approximately 54% compared to conventional designs [^6].
+
 Operation and maintenance (O&M) costs present another significant challenge. UASB plants require annual O&M expenses of less than 1% of capital costs, roughly 30% of what ASP-based plants demand [^5]. Nonetheless, maintenance across all technology types is often neglected, leading to equipment failure, offensive odors, and untreated discharge [^7].
+
 Technical expertise also poses a concern, as many STPs are operated by personnel lacking adequate knowledge beyond basic pump and motor operation [^6]. This technical deficit results in suboptimal performance, with approximately 39% of plants failing to meet environmental discharge standards [^6].
 
 ## Cost-Effective Technologies Used in Other Developing Nations
