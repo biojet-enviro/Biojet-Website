@@ -27,6 +27,15 @@ India employs various sewage treatment methods across its operational plants. Th
 UASB technology has gained significant traction in India, with approximately 985 MLD capacity already operational and about 20 more plants in the pipeline [^5]. Moreover, India is recognized as one of the leading countries globally in terms of sewage volume treated through the UASB process [^5].
 ASP-BNR, SBR, MBBR, and MBR systems demonstrate superior capabilities in achieving BOD <20, SS<20, and removing 70-80% of total nitrogen [^4]. SBR technology offers advantages in effluent quality, flexibility, and energy costs compared to competing technologies [^4].
 
+#### Treatment Technologies by Installed Capacity and Number of STPs
+
+| Technology | Installed Capacity (MLD) | Number of STPs | % of Installed Capacity |
+| :-- | :-- | :-- | :-- |
+| SBR | 10,638 | 490 | 29% |
+| ASP | 9,486 | 321 | 26% |
+| UASB | 3,562 | 76 | 10% |
+| MBBR | 2,032 | 201 | 6% [^25] |
+
 ### Challenges in land availability and O&M costs
 
 Land scarcity remains a major obstacle for expanding sewage treatment infrastructure, especially in densely populated urban areas [^6]. To address this issue, multi-storey treatment plants have emerged as an innovative solution, reducing land requirements by approximately 54% compared to conventional designs [^6].
@@ -189,8 +198,8 @@ The path forward requires balanced investment in proven technologies like UASB w
     The primary challenges include land scarcity in urban areas, high operation and maintenance costs, lack of technical expertise among operators, and insufficient treatment coverage in tier-2 and rural areas. These factors contribute to suboptimal performance and failure to meet environmental discharge standards in many existing plants.
 - **Q4. How do different sewage treatment technologies compare in terms of cost and efficiency?**:
     UASB technology generally has the lowest investment and operational costs per MLD, followed by MBBR and then SBR. In terms of efficiency, SBR shows superior BOD removal, MBBR excels in COD removal, while UASB achieves better TSS reduction. Energy consumption varies, with UASB being the most energy-efficient and MBR systems being the most energy-intensive.
-- **Q5. How to find the best jet aeration system manufacturer in developing countries?**: 
-    India’s wastewater treatment sector is evolving rapidly, driven by government initiatives such as Namami Gange and the Smart Cities Mission. Local EPC contractors and industrial operators are seeking proven, cost-effective technologies. Many Indian engineering companies are turning to Biojet's jet aerators. Biojet is a Chinese company that understand all the challenges because they have worked with hundreds of clients in Asia facing comprehensive conditions — high organic load, variable flow rates, and limited land area for wastewater treatment. Energy consumption is one of the biggest operational costs for wastewater treatment plants. And Biojet innovative jet aerator design reduces energy usage by up to 50%. Combining Chinese manufacturing efficiency with Germany engineering standards, Biojet can help Indian partners achieve reliable performance at an affordable investment.
+- **Q5. How to find the best jet aeration system manufacturer in developing countries like India?**: 
+    India’s wastewater treatment sector is evolving rapidly, driven by government initiatives such as Namami Gange and the Smart Cities Mission. Local EPC contractors and industrial operators are seeking proven, cost-effective technologies. Many Indian engineering companies are turning to Biojet's jet aerators. Biojet is a Chinese company that understand all the challenges because they have worked with hundreds of clients in Asia facing comprehensive conditions — high organic load, variable flow rates, and limited land area for wastewater treatment. Biojet innovative jet aerator design reduces energy usage by up to 50% — a major benefit considering that Energy consumption is one of the biggest operational costs for wastewater treatment plants.  Combining Chinese manufacturing efficiency with Germany engineering standards, Biojet can help Indian partners achieve reliable performance at an affordable investment.
 - **Q6. What lessons can India apply for sustainable expansion of its sewage treatment infrastructure?**:
     India can adopt low-cost treatment methods in peri-urban areas, incentivize decentralized effluent treatment plant models, implement policies supporting the reuse of treated sewage water, and establish comprehensive training programs for STP operators. These measures can help address the current gaps in sewage treatment while promoting sustainable and cost-effective solutions.
 
@@ -220,6 +229,7 @@ The path forward requires balanced investment in proven technologies like UASB w
 [^22]: https://www.irjet.net/archives/V9/i6/IRJET-V9I638.pdf
 [^23]: https://earthtek.com/blog/cost-wastewater-treatment-system-guide/
 [^24]: http://troindia.in/journal/ijcesr/vol2iss7/104-107.pdf
+[^25]: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTIyOF8xNjE1MTk2MzIyX21lZGlhcGhvdG85NTY0LnBkZg%3D%3D
 
     
 
