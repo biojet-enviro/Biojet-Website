@@ -203,6 +203,15 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     margin-bottom: 8px;
   }
 
+  .toc-nav :global(li:has(> a:not(.toc-h3))) {
+    counter-increment: toc-h2;
+    counter-reset: toc-h3;
+  }
+
+  .toc-nav :global(li:has(> a.toc-h3)) {
+    counter-increment: toc-h3;
+  }
+
   .toc-nav :global(a) {
     display: block;
     font-size: 14px;
@@ -215,17 +224,11 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   }
 
   .toc-nav :global(a:not(.toc-h3)::before) {
-    counter-increment: toc-h2;
     content: counter(toc-h2) ". ";
     font-weight: 700;
   }
 
-  .toc-nav :global(a:not(.toc-h3)) {
-    counter-reset: toc-h3;
-  }
-
   .toc-nav :global(a.toc-h3::before) {
-    counter-increment: toc-h3;
     content: counter(toc-h2) "." counter(toc-h3) " ";
     font-weight: 700;
   }
