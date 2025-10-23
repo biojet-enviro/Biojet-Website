@@ -215,9 +215,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
           />
         </div>
         
-        <div class="features-image">
-          <img src="/assets/feature-image.png" alt="Biojet Jet Aerator Technology" />
-        </div>
+        <div class="features-image"></div>
         
         <div class="features-column">
           <FeatureCard
@@ -562,7 +560,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   /* Video Section */
   .video-section {
     padding: 0px;
-    background: var(--blue-02);
+    background: var(--blue-01);
     height: 110vh;
   }
 
@@ -578,24 +576,21 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   .video-text {
     display: flex;
     gap: 32px;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 180px;
   }
 
-  .video-title {
-    flex: 1;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
+  .video-description {
+    font-family: var(--font-condensed);
+    flex: 3;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 40px;
     color: var(--blue-06);
   }
 
-  .video-description {
-    flex: 1;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    color: var(--blue-06);
+  .video-description-highlight {
+    color: var(--blue-05);
   }
 
   .video-container {
@@ -664,10 +659,11 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .cta-banner-content h3 {
+    font-family: var(--font-condensed);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 52px;
-    color: var(--blue-01);
+    color: var(--white);
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
     margin-bottom: 20px;
   }
@@ -682,13 +678,13 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   /* Features Section */
   .features-section {
     padding: var(--section-padding) 0;
-    background: var(--blue-02);
+    background: var(--blue-01);
   }
 
   .features-content {
     max-width: 1560px;
     margin: 0 auto;
-    padding: 0 0px;
+    padding: 24px 0px;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -696,28 +692,29 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
   .features-section .section-title {
     text-align: center;
-    font-size: 48px;
-    line-height: 56px;
   }
 
   .features-grid {
     display: flex;
     gap: 0;
-    box-shadow: 0 0 40px rgba(88, 200, 215, 0.3);
   }
 
   .features-column {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    width: 520px;
+    min-width: 400px;
   }
 
   .features-image {
-    width: 520px;
+    flex: 1;
+    min-width: 360px;
     height: 870px;
-    border: 1px solid var(--blue-04);
+    border: 1px solid var(--transparent-blue-04);
     position: relative;
-    background: var(--blue-01);
+    background-image: url('../assets/feature-image.png');
+    background-position: center center;
+    background-size: cover;
   }
 
   .features-image::before,
@@ -739,12 +736,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     right: -4px;
   }
 
-  .features-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   /* About Section */
   .about-section {
     padding: var(--section-padding) 0;
@@ -760,7 +751,9 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     gap: 16px;
   }
 
-  .about-label {
+  .about-label,
+  .video-title {
+    flex: 1;
     font-size: 20px;
     font-weight: 700;
     color: var(--blue-06);
@@ -849,8 +842,9 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .about-main h3 {
+    font-family: var(--font-condensed);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 56px;
     color: var(--blue-06);
   }
@@ -921,8 +915,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .logo-section .section-title {
-    font-size: 48px;
-    line-height: 56px;
     text-align: center;
   }
 
@@ -1069,7 +1061,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
   .blog-title {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 40px;
     color: var(--blue-06);
   }
@@ -1122,8 +1114,9 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .faq-intro h2 {
+    font-family: var(--font-condensed);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 56px;
     color: var(--blue-06);
     margin-bottom: 96px;
@@ -1212,22 +1205,14 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       gap: 16px;
     }
 
-    .video-title {
-      font-size: 28px;
-      line-height: 36px;
-    }
-
     .video-text {
-      display: flex;
       flex-direction: column; 
-      gap: 16px;
-      align-items: flex-start;
       margin-top: 80px;
     }
 
     .video-description {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 28px;
     }
 
     .video-container {
@@ -1259,8 +1244,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .cta-banner-content h3 {
-      font-size: 20px;
-      line-height: 26px;
+      font-size: 24px;
+      line-height: 30px;
       margin-bottom: 8px;
       text-align: center;
     }
@@ -1270,12 +1255,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       font-weight: 400;
       line-height: 20px;
       text-align: center;
-    }
-
-    .features-section .section-title {
-    font-size: 28px;
-    line-height: 36px;
-    padding: 0 48px;
     }
 
     .features-grid {
@@ -1288,15 +1267,16 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .features-image {
       width: 100%;
-      height: 680px;
+      min-height: 580px;
     }
 
     .about-content {
       padding: 0 24px;
     }
 
-    .about-label {
-      font-size: 16px;
+    .about-label,
+    .video-title {
+      font-size: 14px;
     }
 
     .about-grid {
@@ -1317,7 +1297,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     .about-main {
       gap: 16px;
     }
-
+    
     .about-main h3 {
       font-size: 24px;
       line-height: 30px;
@@ -1363,6 +1343,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     height: 48px;
     }
 
+    .features-section .section-title,
     .logo-section .section-title,
     .blog-section .section-title,
     .products-section .section-title,
@@ -1420,7 +1401,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .blog-info {
     flex: 1;
-    padding: 16px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;

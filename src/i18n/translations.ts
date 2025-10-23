@@ -25,8 +25,8 @@ export const translations = {
       heroDescription: 'Partner with Biojet to achieve unparalleled wastewater treatment performance through tailored jet aeration solutions customized for your unique projects.',
       heroButton: 'Schedule Your Free Consultation',
       
-      videoTitle: 'Innovative Aeration,\nCleaner Tomorrow.',
-      videoDescription: 'At Biojet, we have taken jet mixing aeration to the next level with our Laval Jet Aerator, a next‑generation mixing system engineered around venturi tube and precision jet nozzles to deliver high kinetic energy jets, superior oxygen transfer efficiency, and dramatic energy savings in deep tank processes.',
+      videoTitle: 'What We Do',
+      videoDescription: 'At Biojet, we have taken jet aeration to the next level. \nOur Laval jet aerators are designed to meet the most demanding wastewater treatment challenges with outstanding efficiency, reliability and affordable price.',
       
       productsTitle: 'Check out our products',
       productsCta: 'We are not just equipment suppliers.\nWe are problem solvers.',
@@ -64,7 +64,7 @@ export const translations = {
       
       clientsTitle: 'Trusted by over 100 clients across the industry.',
       
-      ctaTitle: 'Ready to Transform Your Wastewater Treatment?',
+      ctaTitle: 'Ready to Revolutionize Your Wastewater Treatment?',
       ctaDescription: 'Get in touch with our experts to discuss your project needs and discover how Biojet can optimize your operations.',
       ctaButton: 'Contact Us Today',
       

@@ -154,6 +154,14 @@ const imageURL = new URL(image, Astro.site);
     font-display: swap;
   }
 
+  @font-face {
+    font-family: 'GothicCondensed';
+    src: url('/fonts/SpecialGothicCondensedOne-EB.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   /* ========================================
      CSS Reset & Base Styles
      ======================================== */
@@ -172,6 +180,8 @@ const imageURL = new URL(image, Astro.site);
     --blue-04: #58C8D7;
     --blue-05: #1890AE;
     --blue-06: #175A78;
+    --blue-07: #164160;
+    --transparent-blue-04: rgba(80, 200, 215, 0.2);
     --white: #FFFFFF;
     --lightgray: #E6E6E6;
     --darkgray: #121212;
@@ -180,6 +190,7 @@ const imageURL = new URL(image, Astro.site);
     /* Typography */
     --font-primary: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+    --font-condensed: 'GothicCondensed', 'Special Gothic Condensed One', sans;
     
     /* Spacing */
     --section-padding: 100px;
@@ -257,9 +268,10 @@ const imageURL = new URL(image, Astro.site);
      ======================================== */
 
   .section-title {
+    font-family: var(--font-condensed);
     font-size: 48px;
-    font-weight: 700;
-    line-height: 48px;
+    font-weight: 900;
+    line-height: 56px;
     color: var(--blue-06);
   }
 
