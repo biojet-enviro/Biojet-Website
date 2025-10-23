@@ -707,7 +707,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
   .features-image {
     flex: 1;
-    min-width: 360px;
     height: 870px;
     border: 1px solid var(--transparent-blue-04);
     position: relative;
@@ -1265,8 +1264,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .features-image {
-      width: 100%;
-      min-height: 580px;
+      max-width: 100%;
+      min-height: 480px;
     }
 
     .about-content {
