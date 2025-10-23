@@ -39,6 +39,14 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       </div>
       <div class="about-what-we-do-right">
         <h2 class="about-section-title">{t.about.whatWeDoTitle}</h2>
+        <div class="about-photo-row">
+          <img src="/assets/aboutpage-zzm.png" 
+          alt="Biojet jet aerators on site" class="about-photo-1" />
+          <img src="/assets/aboutpage-zd.png" 
+          alt="Biojet jet aerators on site" class="about-photo-1" />
+          <img src="/assets/aboutpage-ccm.png" 
+          alt="Biojet jet aerators on site" class="about-photo-1" />
+        </div>
       </div>
     </div>
   </section>
@@ -272,6 +280,19 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     max-width: 1100px;
   }
 
+  .about-photo-row {
+    display: flex;
+    margin-top: 48px;
+    height: 300px;
+    gap: 24px;
+  }
+
+  .about-photo-1 {
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+  }
+
   /* Our Expertise Section */
   .about-expertise {
     background: var(--blue-01);
@@ -394,7 +415,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   .factory-image {
     width: 50%;
     overflow: hidden;
-    filter: grayscale(1);
+    filter: grayscale(60%);
     transition: all 0.3s;
   }
 
@@ -452,7 +473,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     height: 64px;
     width: auto;
     object-fit: contain;
-    filter: grayscale(100%);
+    filter: grayscale(80%);
     opacity: 0.7;
     transition: all 0.3s;
   }
@@ -474,8 +495,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     width: 50%;
     padding: 100px;
     box-sizing: border-box;
-    border: 1px solid var(--blue-02);
-    background: var(--blue-02);
+    background: var(--blue-01);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -489,19 +509,20 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .about-contact-info h2 {
+    font-family: var(--font-condensed);
     font-size: 64px;
-    font-weight: 700;
-    line-height: 68px;
-    color: var(--blue-06);
-    max-width: 600px;
+    font-weight: 900;
+    line-height: 70px;
+    color: var(--blue-09);
+    max-width: 400px;
   }
 
   .about-contact-info p {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 28px;
-    color: var(--blue-06);
-    max-width: 600px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--blue-07);
+    max-width: 400px;
   }
 
   .about-contact-details {
@@ -518,17 +539,18 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
   }
 
   .contact-detail-item h3 {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 20px;
     color: var(--blue-06);
   }
 
   .contact-detail-item p {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 26px;
-    color: var(--blue-06);
+    font-family: var(--font-condensed);
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 42px;
+    color: var(--blue-05);
     white-space: pre-line;
   }
 
@@ -682,7 +704,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .about-section-title,
-    .about-expertise-title {
+    .about-expertise-title,
+    .about-why-choose-subtitle  {
       font-size: 24px;
       line-height: 30px;
       max-width: 100%;
@@ -692,6 +715,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       font-size: 16px;
       font-weight: 700;
       line-height: 24px;
+      margin-bottom: 16px;
     }
 
     .about-expertise-left {
@@ -727,12 +751,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       width: auto;
     }
 
-    .about-expertise-title {
-      font-size: 24px;
-      line-height: 30px;
-      max-width: 100%;
-    }
-
     .expertise-item {
       gap: 24px;
     }
@@ -756,13 +774,6 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       font-size: 16px;
       font-weight: 400;
       line-height: 22px;
-    }
-
-    .about-why-choose-subtitle {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 22px;
-      max-width: 100%;
     }
 
     .why-card {
