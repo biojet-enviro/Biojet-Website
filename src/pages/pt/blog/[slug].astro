@@ -1,4 +1,19 @@
 ---
-import BlogPostPage from '../blog/[slug].astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog', ({ data, id }) => {
+    // Only include non-draft posts that are NOT in language subdirectories
+    return data.draft !== true && !id.includes('/');
+  });
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+// Redirect to English blog post
+return Astro.redirect(`/blog/${slug}`);
 ---
-<BlogPostPage />
