@@ -40,11 +40,11 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
       <div class="about-what-we-do-right">
         <h2 class="about-section-title">{t.about.whatWeDoTitle}</h2>
         <div class="about-photo-row">
-          <img src="/assets/aboutpage-zzm.png" 
+          <img src="/assets/aboutpage-zzm.webp" 
           alt="Biojet jet aerators on site" class="about-photo-1" />
-          <img src="/assets/aboutpage-zd.png" 
+          <img src="/assets/aboutpage-zd.webp" 
           alt="Biojet jet aerators on site" class="about-photo-1" />
-          <img src="/assets/aboutpage-ccm.png" 
+          <img src="/assets/aboutpage-ccm.webp" 
           alt="Biojet jet aerators on site" class="about-photo-1" />
         </div>
       </div>
@@ -627,7 +627,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .about-contact-left {
-      padding: 88px 24px;
+      padding: 88px 48px;
       border: none;
       justify-content: flex-start;
       min-height: fit-content;
@@ -644,9 +644,12 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     .about-what-we-do-right,
     .about-expertise-left,
     .about-expertise-right,
-    .about-why-choose-header-left,
-    .about-why-choose-header-right{
+    .about-why-choose-header-left{
       padding: 0px 24px;
+    }
+
+    .about-why-choose-header-right {
+      padding: 0;
     }
 
     .about-hero-content {
@@ -706,8 +709,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     .about-section-title,
     .about-expertise-title,
     .about-why-choose-subtitle  {
-      font-size: 24px;
-      line-height: 30px;
+      font-size: 28px;
+      line-height: 32px;
       max-width: 100%;
     }
 
@@ -730,8 +733,8 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .about-why-choose-title,
     .about-contact-info h2 {
-      font-size: 30px;
-      line-height: 36px;
+      font-size: 28px;
+      line-height: 32px;
       font-weight: 800;
       text-align: center;
       color: var(--blue-05);
@@ -752,14 +755,12 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .expertise-item {
-      gap: 24px;
     }
 
     .expertise-text {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      flex: 1;
     }
 
     .expertise-text h3,
@@ -771,9 +772,9 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
 
     .expertise-text p,
     .why-card-text p  {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
-      line-height: 22px;
+      line-height: 20px;
     }
 
     .why-card {
@@ -781,7 +782,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .why-card-text {
-      height: 360px;
+      height: 300px;
       width: 65%;
       background: var(--white);
       padding: 24px;
@@ -794,7 +795,7 @@ const linkPrefix = locale === 'en' ? '' : `/${locale}`;
     }
 
     .factory-image {
-      min-height: 360px;
+      max-height: 300px;
       max-width: 32%;
     }
 
